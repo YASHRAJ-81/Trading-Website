@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Real Name Authentication</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex items-center justify-center p-4">
+
+  <div class="w-full max-w-md bg-gray-800 p-6 rounded-2xl shadow-xl">
+
+    <!-- Back to Profile Button -->
+    <div class="mb-4">
+      <a href="/profile.html" class="inline-flex items-center text-sm text-blue-400 hover:text-blue-300">
+        <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Profile
+      </a>
+    </div>
+
+    <h2 class="text-xl font-semibold text-center mb-6">
+      Verify your Identity to avail Upcoming Benefits
+    </h2>
+
+    <form id="realNameForm" class="space-y-5">
+      <!-- Contact Number -->
+      <div>
+        <label class="block mb-1 text-sm">Enter Contact Number</label>
+        <input type="tel" required placeholder="e.g. +91XXXXXXXXXX"
+               class="w-full px-4 py-2 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+
+      <!-- Front ID Upload -->
+      <div>
+        <label class="block mb-1 text-sm">Upload Front Side of ID</label>
+        <input type="file" accept="image/*,.pdf"
+               class="w-full text-sm text-gray-300 file:mr-4 file:py-2 file:px-4
+                      file:rounded-md file:border-0
+                      file:text-sm file:font-semibold
+                      file:bg-blue-600 file:text-white
+                      hover:file:bg-blue-700 cursor-pointer" required>
+      </div>
+
+      <!-- Back ID Upload -->
+      <div>
+        <label class="block mb-1 text-sm">Upload Back Side of ID</label>
+        <input type="file" accept="image/*,.pdf"
+               class="w-full text-sm text-gray-300 file:mr-4 file:py-2 file:px-4
+                      file:rounded-md file:border-0
+                      file:text-sm file:font-semibold
+                      file:bg-blue-600 file:text-white
+                      hover:file:bg-blue-700 cursor-pointer" required>
+      </div>
+
+      <!-- Submit Button -->
+      <div>
+        <button type="submit"
+                class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded-lg">
+          Submit
+        </button>
+      </div>
+    </form>
+
+    <!-- Result Message -->
+    <div id="resultMessage" class="mt-4 text-center text-green-400 hidden">
+      ✅ Awaiting Validation. You will be Notified when done.
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('realNameForm');
+    const resultMessage = document.getElementById('resultMessage');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      resultMessage.classList.remove('hidden');
+      form.reset();
+    });
+  </script>
+</body>
+</html>

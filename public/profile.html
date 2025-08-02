@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Profile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/i18n.js"></script>
+</head>
+<body class="bg-[#0a9376] text-white min-h-screen flex flex-col" data-i18n-init>
+
+  <!-- Header -->
+  <div class="relative bg-[#0a9376] px-4 pt-6 pb-3">
+    <div class="absolute top-4 left-4">
+      <button onclick="goBackToDashboard()">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+        </svg>
+      </button>
+    </div>
+    <div class="flex items-center justify-center mt-4">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Tether_USDT_logo.svg" class="w-12 h-12 bg-black rounded-full p-1" />
+    </div>
+    <div class="text-center mt-2">
+      <h2 class="text-lg font-semibold" id="user-email">example@email.com</h2>
+      <div class="text-sm mt-1">
+        <span data-i18n="invite_code">Invite Code:</span>
+        <span id="invite-code" class="font-semibold">STLDERWNZ</span>
+        <button onclick="copyCode()" class="ml-1">📋</button>
+        <span class="ml-4">
+          <span data-i18n="credit_score">Credit Score:</span>
+          <span id="credit-score" class="font-semibold">100</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings List -->
+  <div class="bg-gray-900 flex-1 p-4 text-white">
+    <ul class="space-y-3">
+      <li class="flex justify-between items-center border-b border-gray-700 py-2 cursor-pointer" onclick="goToLanguagePage()">
+        <span data-i18n="language">🌐 Language</span>
+        <span class="text-gray-300" id="current-language">➤</span>
+      </li>
+      <li class="flex justify-between items-center border-b border-gray-700 py-2 cursor-pointer" onclick="goToHelpCenter()">
+        <span data-i18n="help_center">❓ Help center</span>
+        <span class="text-gray-300">➤</span>
+      </li>
+      <li class="flex justify-between items-center border-b border-gray-700 py-2 cursor-pointer" onclick="goToBindBankCard()">
+        <span data-i18n="bind_card">💳 Bind bank card</span>
+        <span class="text-gray-300">➤</span>
+      </li>
+      <li class="flex justify-between items-center border-b border-gray-700 py-2 cursor-pointer" onclick="goToNotifications()">
+        <span data-i18n="notification">🔔 Notification</span>
+        <span class="text-green-400 text-sm" data-i18n="new_notice">➤</span>
+      </li>
+      <li class="flex justify-between items-center border-b border-gray-700 py-2 cursor-pointer" onclick="goToChangePassword()">
+        <span data-i18n="change_password">🔒 Change password</span>
+        <span class="text-gray-300">➤</span>
+      </li>
+      <li class="flex justify-between items-center border-b border-gray-700 py-2 cursor-pointer" onclick="goToWithdrawPassword()">
+        <span data-i18n="withdraw_password">🔑 Withdraw password</span>
+        <span class="text-gray-300">➤</span>
+      </li>
+      <li class="flex justify-between items-center border-b border-gray-700 py-2 cursor-pointer" onclick="goToCoinAddress()">
+        <span data-i18n="withdraw_address">🏦 Withdraw coins address</span>
+        <span class="text-gray-300">➤</span>
+      </li>
+      <li class="flex justify-between items-center border-b border-gray-700 py-2 cursor-pointer" onclick="goToUserAuthentication()">
+        <span data-i18n="real_auth">👤 Real name authentication</span>
+        <span class="text-gray-300">➤</span>
+      </li>
+      <li class="flex justify-between items-center border-b border-gray-700 py-2 cursor-pointer" onclick="goToMsbCertificate()">
+        <span data-i18n="msb_certification">🪪 MSB certification</span>
+        <span class="text-gray-300">➤</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Footer -->
+  <div class="p-4">
+    <button onclick="logout()" class="bg-teal-500 w-full py-2 rounded text-white font-semibold" data-i18n="logout">Logout</button>
+    <p class="text-xs text-center mt-4 text-gray-300" data-i18n="security_warning">
+      Please do not disclose passwords, SMS verification codes and other information to anyone, and customer service staff will not ask you for account information.
+    </p>
+  </div>
+
+  <script>
+    // Fetch profile data from server
+    fetch('/profile-data')
+      .then(res => {
+        if (!res.ok) throw new Error('Unauthorized');
+        return res.json();
+      })
+      .then(data => {
+        document.getElementById("user-email").innerText = data.email;
+        document.getElementById("invite-code").innerText = data.inviteCode;
+        document.getElementById("credit-score").innerText = "100"; // Static for now
+      })
+      .catch(err => {
+        alert('You are not logged in. Redirecting to login page.');
+        window.location.href = '/';
+      });
+
+    function logout() {
+      fetch('/logout', { method: 'POST' }).then(() => {
+        window.location.href = "/";
+      });
+    }
+
+    function copyCode() {
+      const code = document.getElementById("invite-code").innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        alert("Invite code copied to clipboard!");
+      });
+    }
+
+    function goBackToDashboard() {
+      window.location.href = "/dashboard.html";
+    }
+
+    function goToLanguagePage() {
+      window.location.href = "components/language.html";
+    }
+
+    function goToHelpCenter() {
+      window.location.href = "components/help-center.html";
+    }
+
+    function goToBindBankCard() {
+      window.location.href = "components/bind-bank-card.html";
+    }
+
+    function goToNotifications() {
+      window.location.href = "components/notification.html";
+    }
+
+    function goToChangePassword() {
+      window.location.href = "components/change-password.html";
+    }
+
+    function goToWithdrawPassword() {
+      window.location.href = "components/withdraw-password.html";
+    }
+    function goToCoinAddress() {
+      window.location.href = "components/CoinAddress.html";
+    }
+    function goToUserAuthentication() {
+      window.location.href = "components/UserAuthentication.html";
+    }
+    function goToMsbCertificate() {
+      window.location.href = "components/MsbCertificate.html";
+    }
+  </script>
+</body>
+</html>

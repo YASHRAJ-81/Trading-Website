@@ -1,0 +1,152 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register & Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white p-4">
+  <div class="max-w-sm mx-auto mt-10 space-y-6">
+    <div class="flex justify-around text-lg font-semibold">
+      <button onclick="showTab('register')">Register</button>
+      <button onclick="showTab('login')">Login</button>
+    </div>
+
+    <!-- Register Form -->
+    <form id="register" class="space-y-4 hidden" onsubmit="handleRegister(event)">
+      <div id="registerError" class="text-red-400 text-sm"></div>
+      <input name="email" type="email" placeholder="Email" required class="w-full p-2 rounded text-black" />
+      <input name="password" type="password" placeholder="Password" required class="w-full p-2 rounded text-black" />
+      <input name="confirmPassword" type="password" placeholder="Confirm Password" required class="w-full p-2 rounded text-black" />
+      <input name="inviteCode" type="text" placeholder="Invite Code" required class="w-full p-2 rounded text-black" />
+      <button type="submit" class="bg-green-500 w-full py-2 rounded">Register</button>
+    </form>
+
+    <!-- Login Form -->
+    <form id="login" class="space-y-4 hidden" onsubmit="handleLogin(event)">
+      <div id="loginError" class="text-red-400 text-sm"></div>
+      <input name="email" type="email" placeholder="Email" required class="w-full p-2 rounded text-black" />
+      <input name="password" type="password" placeholder="Password" required class="w-full p-2 rounded text-black" />
+      <div class="flex space-x-2 items-center">
+        <input name="captcha" type="text" placeholder="Enter Captcha" required class="w-1/2 p-2 rounded text-black h-[42px]" />
+        <img id="captchaImg" src="/captcha" onclick="refreshCaptcha()" class="w-1/2 h-[42px] border cursor-pointer bg-white rounded object-cover" />
+      </div>
+      <div class="text-sm text-blue-400 cursor-pointer underline" onclick="showTab('forgot')">Forgot Password?</div>
+      <button type="submit" class="bg-blue-500 w-full py-2 rounded">Login</button>
+    </form>
+
+    <!-- Forgot Password Form -->
+    <form id="forgot" class="space-y-4 hidden" onsubmit="handleReset(event)">
+      <div id="forgotError" class="text-red-400 text-sm"></div>
+      <input name="email" type="email" placeholder="Enter your registered email" required class="w-full p-2 rounded text-black" />
+      <div class="flex space-x-2 items-center">
+        <input name="captcha" type="text" placeholder="Enter Captcha" required class="w-1/2 p-2 rounded text-black h-[42px]" />
+        <img id="forgotCaptchaImg" src="/captcha" onclick="refreshForgotCaptcha()" class="w-1/2 h-[42px] border cursor-pointer bg-white rounded object-cover" />
+      </div>
+      <input name="newPassword" type="password" placeholder="New Password" required class="w-full p-2 rounded text-black" />
+      <button type="submit" class="bg-yellow-500 w-full py-2 rounded">Reset Password</button>
+      <div class="text-sm text-blue-400 cursor-pointer underline text-center" onclick="showTab('login')">Back to Login</div>
+    </form>
+  </div>
+
+  <script>
+    function showTab(tab) {
+      ['register', 'login', 'forgot'].forEach(id => {
+        document.getElementById(id).classList.add('hidden');
+        const errId = id + 'Error';
+        if (document.getElementById(errId)) {
+          document.getElementById(errId).textContent = ''; // Clear errors
+        }
+      });
+      document.getElementById(tab).classList.remove('hidden');
+
+      if (tab === 'login') refreshCaptcha();
+      if (tab === 'forgot') refreshForgotCaptcha();
+    }
+
+    function refreshCaptcha() {
+      document.getElementById('captchaImg').src = '/captcha?' + Date.now();
+    }
+
+    function refreshForgotCaptcha() {
+      document.getElementById('forgotCaptchaImg').src = '/captcha?' + Date.now();
+    }
+
+    async function handleRegister(e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      const res = await fetch('/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      const result = await res.json();
+      if (result.success) {
+        showTab('login');
+      } else {
+        document.getElementById('registerError').textContent = result.message;
+      }
+    }
+
+    async function handleLogin(e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      const res = await fetch('/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      const result = await res.json();
+      if (result.success) {
+        window.location.href = '/dashboard.html';
+      } else {
+        document.getElementById('loginError').textContent = result.message;
+        refreshCaptcha();
+      }
+    }
+
+    async function handleReset(e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      const res = await fetch('/reset-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      const result = await res.json();
+      if (result.success) {
+        alert('Password reset successful. Please login.');
+        showTab('login');
+      } else {
+        document.getElementById('forgotError').textContent = result.message;
+        refreshForgotCaptcha();
+      }
+    }
+
+    window.onload = function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('from') === 'register') {
+        showTab('login');
+      } else {
+        showTab('register');
+      }
+    };
+  </script>
+</body>
+</html>
+
+ 

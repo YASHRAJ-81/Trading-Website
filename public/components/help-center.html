@@ -1,0 +1,105 @@
+<!-- File: /components/help-center.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Help Center</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Toggle visibility of answer blocks
+    function toggleAnswer(id) {
+      const answer = document.getElementById(id);
+      answer.classList.toggle('hidden');
+    }
+  </script>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <div class="bg-[#0a9376] px-4 py-4 flex items-center justify-between">
+    <button onclick="history.back()">
+      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+      </svg>
+    </button>
+    <h1 class="text-lg font-semibold">Help Center</h1>
+    <div class="w-6"></div> <!-- spacer to balance -->
+  </div>
+
+  <!-- Content -->
+  <div class="p-6 space-y-4 text-sm text-gray-200">
+
+    <p>Welcome to the Help Center. Choose your query.</p>
+
+    <!-- FAQ Items -->
+
+    <!-- 1. How to bind your bank card -->
+    <div>
+      <button onclick="toggleAnswer('answer1')" class="text-left w-full hover:underline font-medium">
+        • How to bind your bank card
+      </button>
+      <div id="answer1" class="mt-2 hidden bg-gray-800 p-4 rounded text-gray-300">
+        To bind your bank card:
+        <ol class="list-decimal ml-4 space-y-1 mt-1">
+          <li>Go to the "Account" section in the app.</li>
+          <li>Tap "Payment Methods".</li>
+          <li>Select "Add Bank Card" and enter your card details.</li>
+          <li>Verify with the OTP sent to your phone/email.</li>
+          <li>Your card will be securely linked to your account.</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- 2. How to reset your password -->
+    <div>
+      <button onclick="toggleAnswer('answer2')" class="text-left w-full hover:underline font-medium">
+        • How to reset your password
+      </button>
+      <div id="answer2" class="mt-2 hidden bg-gray-800 p-4 rounded text-gray-300">
+        To reset your password:
+        <ul class="list-disc ml-4 space-y-1 mt-1">
+          <li>Click on the "Forgot Password?" link on the login screen.</li>
+          <li>Enter your registered email or phone number.</li>
+          <li>Check your inbox or SMS for a reset code.</li>
+          <li>Follow the link and create a new password.</li>
+          <li>Log in again using the new password.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 3. Security best practices -->
+    <div>
+      <button onclick="toggleAnswer('answer3')" class="text-left w-full hover:underline font-medium">
+        • Security best practices
+      </button>
+      <div id="answer3" class="mt-2 hidden bg-gray-800 p-4 rounded text-gray-300">
+        Follow these security tips:
+        <ul class="list-disc ml-4 space-y-1 mt-1">
+          <li>Use strong, unique passwords for each account.</li>
+          <li>Enable two-factor authentication (2FA) whenever possible.</li>
+          <li>Don’t share your login credentials with anyone.</li>
+          <li>Be cautious of phishing emails or suspicious links.</li>
+          <li>Always log out from public devices.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 4. Contacting support -->
+    <div>
+      <button onclick="toggleAnswer('answer4')" class="text-left w-full hover:underline font-medium">
+        • Contacting support
+      </button>
+      <div id="answer4" class="mt-2 hidden bg-gray-800 p-4 rounded text-gray-300">
+        Need help? You can contact our support team by:
+        <ul class="list-disc ml-4 space-y-1 mt-1">
+          <li>Emailing us at <a href="mailto:support@example.com" class="text-[#0a9376] underline">support@example.com</a>.</li>
+          <li>Calling our helpline: 1-800-123-4567 (Mon–Fri).</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

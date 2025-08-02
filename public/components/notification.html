@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Notifications</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      margin: 0;
+      background-color: #0a9376;
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    #notification-bar {
+      background-color: #0a9376;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    #notification-bar button.back-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 0;
+      margin: 0;
+    }
+    main {
+      padding: 80px 20px 40px;
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #000;
+      color: white;
+      border-radius: 8px;
+      line-height: 1.6;
+    }
+    .notification {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 1rem;
+    }
+    .icon-bell {
+      width: 20px;
+      height: 20px;
+      stroke: white;
+      stroke-width: 1.5;
+      fill: none;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="notification-bar" role="banner">
+    <button onclick="goBack()" class="back-btn" aria-label="Go back">←</button>
+    <span>Important Account Notifications</span>
+  </div>
+
+  <main role="main">
+    <div class="notification">
+      <svg class="icon-bell" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0a3 3 0 11-6 0h6z"/>
+      </svg>
+      <p>Investing early can significantly improve your financial future. Start small and stay consistent.</p>
+    </div>
+    <div class="notification">
+      <svg class="icon-bell" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0a3 3 0 11-6 0h6z"/>
+      </svg>
+      <p>Always use a strong, unique password and enable two-factor authentication to protect your account.</p>
+    </div>
+    <div class="notification">
+      <svg class="icon-bell" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0a3 3 0 11-6 0h6z"/>
+      </svg>
+      <p>Be cautious when trading: understand the risks and never invest money you can't afford to lose.</p>
+    </div>
+    <div class="notification">
+      <svg class="icon-bell" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0a3 3 0 11-6 0h6z"/>
+      </svg>
+      <p>Regularly review your transaction history to detect any unauthorized activity promptly.</p>
+    </div>
+    <div class="notification">
+      <svg class="icon-bell" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0a3 3 0 11-6 0h6z"/>
+      </svg>
+      <p>Withdrawals may take up to 24 hours to process depending on your bank and transaction volume.</p>
+    </div>
+  </main>
+
+  <script>
+    function goBack() {
+      window.location.href = document.referrer || '/profile.html';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "users": [
+    {
+      "email": "abcd@gmail.com",
+      "password": "$2b$10$Rm4bduVL4E2F.inu8AI/FOrWoERq9RCSZTrTsVdshAlrtkOxJ7dwm",
+      "inviteCode": "xyz123",
+      "bank": {
+        "bankName": "abc",
+        "accountNumber": "abc",
+        "accountHolderName": "abc"
+      },
+      "withdrawPassword": "123456"
+    },
+    {
+      "email": "abcd34@gmail.com",
+      "password": "$2b$10$BrMePSTGnpAh.aX/WG8Afuffgc8hQaw7wc5Gs/HQAWwsZCUutH5yu"
+    },
+    {
+      "email": "abcd21@gmail.com",
+      "password": "$2b$10$BgLd9nu7fykAY5uFNJxbd.5PicjwWBeLKmfOS3K1Et1IlJQcyjKK."
+    },
+    {
+      "email": "gargee@gmail.com",
+      "password": "$2b$10$96l4.bd//fCgcB0VowhGZu1NDbrzNW5yEQygJMeRagDeYJwplgS/6"
+    },
+    {
+      "email": "wagh@gmail.com1234",
+      "password": "$2b$10$EpP.eJTtxPxswSa3pRds2ODRl7ubCcImWVcARrfwpjZ6jVQ9vfX6a"
+    },
+    {
+      "email": "likki@gmail.com",
+      "password": "$2b$10$ZafG/S6JszBMpueT.aFAn.YyviYBfursLsag9SWK4gB2Y5q/iQaQi",
+      "inviteCode": "nikki23"
+    },
+    {
+      "email": "apple@gmail.com",
+      "password": "$2b$10$Er7jkV0pJPkkRD/zbj4d1.4p3ePBwSk0DScvrIzcLPkBltpYHaYJu",
+      "inviteCode": "nikki23",
+      "bank": {
+        "bankName": "abcd",
+        "accountNumber": "abcdABCD",
+        "accountHolderName": "ABCD"
+      }
+    }
+  ]
+}
