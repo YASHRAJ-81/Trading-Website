@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Assets - Trade History</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    background-color: #1f2937;
+    color: white;
+    font-family: system-ui, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  header, footer {
+    background-color: #374151;
+    padding: 1rem;
+    text-align: center;
+  }
+  main {
+    flex-grow: 1;
+    padding: 1rem;
+    overflow-y: auto;
+  }
+  .trade-entry {
+    background-color: #111827;
+    padding: 0.75rem 1rem;
+    border-radius: 0.375rem;
+    margin-bottom: 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  .trade-entry:hover {
+    background-color: #374151;
+  }
+  .trade-details-expanded {
+    background-color: #111827;
+    padding: 0.75rem 1rem;
+    border-radius: 0.375rem;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: #cbd5e1;
+    white-space: pre-line;
+  }
+  .text-green {
+    color: #22c55e;
+  }
+  .text-red {
+    color: #ef4444;
+  }
+  a.footer-link {
+    color: #93c5fd;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1 class="text-xl font-bold">Assets - All Trade History</h1>
+</header>
+
+<main>
+  <div id="tradeHistoryContainer">Loading trades...</div>
+  <div id="expandedTradeDetails" class="trade-details-expanded hidden"></div>
+</main>
+
+<footer>
+  <a href="trade.html" class="footer-link">Go to Trade Page</a>
+</footer>
+
+<script>
+  const tradeHistoryContainer = document.getElementById('tradeHistoryContainer');
+  const expandedDetails = document.getElementById('expandedTradeDetails');
+
+  async function fetchTradeHistory() {
+    try {
+      const res = await fetch('/trade-history');
+      if (!res.ok) throw new Error('Unauthorized or fetch error');
+      const data = await res.json();
+      renderTrades(data.trades || []);
+    } catch (err) {
+      tradeHistoryContainer.textContent = 'Failed to load trade history.';
+      console.warn(err);
+    }
+  }
+
+  function renderTrades(trades) {
+    tradeHistoryContainer.innerHTML = '';
+    expandedDetails.classList.add('hidden');
+    expandedDetails.textContent = '';
+
+    if (!trades.length) {
+      tradeHistoryContainer.textContent = 'No trades found.';
+      return;
+    }
+
+    trades.forEach(trade => {
+      const div = document.createElement('div');
+      div.className = 'trade-entry';
+      div.title = 'Click to toggle trade details';
+
+      div.innerHTML = `
+        <div>
+          <strong>${trade.pair}</strong> &nbsp;
+          <span>${trade.direction === 'Buy UP' ? '↑' : '↓'}</span> &nbsp;
+          <span>${trade.timeframe}s</span>
+          &nbsp; - &nbsp;
+          <span class="${trade.result === 'WIN' ? 'text-green' : 'text-red'}">${trade.result}</span>
+          &nbsp; | Profit/Loss: ${Number(trade.profit).toFixed(2)}
+        </div>
+      `;
+
+      div.onclick = () => {
+        if (expandedDetails.dataset.tradeId === String(trade.id)) {
+          expandedDetails.classList.add('hidden');
+          expandedDetails.textContent = '';
+          delete expandedDetails.dataset.tradeId;
+          return;
+        }
+        expandedDetails.dataset.tradeId = trade.id;
+        expandedDetails.classList.remove('hidden');
+        expandedDetails.textContent = `
+Pair: ${trade.pair}
+Direction: ${trade.direction}
+Amount: ${trade.amount}
+Timeframe: ${trade.timeframe}s
+Profit %: ${trade.profitPercent}%
+Result: ${trade.result}
+Profit/Loss: ${trade.profit}
+Timestamp: ${new Date(trade.timestamp).toLocaleString()}
+        `.trim();
+        expandedDetails.scrollIntoView({behavior: 'smooth', block: 'center'});
+      };
+
+      tradeHistoryContainer.appendChild(div);
+    });
+  }
+
+  // On page load
+  fetchTradeHistory();
+</script>
+
+</body>
+</html>

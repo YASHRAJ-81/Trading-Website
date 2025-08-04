@@ -1,0 +1,309 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const svgCaptcha = require('svg-captcha');
+const bcrypt = require('bcryptjs');
+const low = require('lowdb');
+const FileSync = require('lowdb/adapters/FileSync');
+const path = require('path');
+
+const app = express();
+const port = 3000;
+
+// Database setup
+const adapter = new FileSync('db.json');
+const db = low(adapter);
+db.defaults({ users: [], trades: [] }).write();
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(express.static('public'));
+app.use(session({ secret: 'auth-secret', resave: false, saveUninitialized: true }));
+
+// Homepage
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
+});
+
+// Captcha generation (unchanged)
+app.get('/captcha', (req, res) => {
+  const captcha = svgCaptcha.create({
+    noise: 2,
+    color: true,
+    background: '#ffffff',
+    width: 150,
+    height: 50,
+    fontSize: 45,
+    charPreset: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
+  });
+
+  let svg = captcha.data;
+  svg = svg.replace(/(<text[^>]*?)fill="[^"]*"/g, '$1fill="black"');
+  svg = svg.replace(/(<text[^>]*?)style="[^"]*fill:[^;"]*;?[^"]*"/g, '$1style="fill:black"');
+  svg = svg.replace(/(<text[^>]*?)y="\d+"/g, '$1y="40"');
+
+  req.session.captcha = captcha.text;
+  res.type('svg').send(svg);
+});
+
+// Register (unchanged)
+app.post('/register', (req, res) => {
+  const { email, password, confirmPassword } = req.body;
+  const inviteCode = 'nikki23';
+
+  if (password !== confirmPassword) {
+    return res.json({ success: false, message: 'Passwords do not match.' });
+  }
+
+  const existing = db.get('users').find({ email }).value();
+  if (existing) {
+    return res.json({ success: false, message: 'User already exists.' });
+  }
+
+  const hashed = bcrypt.hashSync(password, 10);
+  db.get('users').push({
+    email,
+    password: hashed,
+    inviteCode,
+    balance: 2000,
+    trades: []
+  }).write();
+
+  return res.json({ success: true });
+});
+
+// Login (unchanged)
+app.post('/login', (req, res) => {
+  const { email, password, captcha } = req.body;
+
+  if (captcha !== req.session.captcha) {
+    return res.json({ success: false, message: 'Invalid captcha.' });
+  }
+
+  const user = db.get('users').find({ email }).value();
+  if (!user || !bcrypt.compareSync(password, user.password)) {
+    return res.json({ success: false, message: 'Invalid email or password.' });
+  }
+
+  req.session.user = {
+    email,
+    inviteCode: user.inviteCode || 'nikki23'
+  };
+
+  return res.json({ success: true });
+});
+
+// Profile data (unchanged)
+app.get('/profile-data', (req, res) => {
+  if (!req.session.user) return res.status(401).json({ error: 'Not logged in' });
+
+  const user = db.get('users').find({ email: req.session.user.email }).value();
+  if (!user) return res.status(404).json({ error: 'User not found' });
+
+  const { email, inviteCode, bank, balance } = user;
+  res.json({ email, inviteCode, bank, balance });
+});
+
+// Reset password (unchanged)
+app.post('/reset-password', (req, res) => {
+  const { email, captcha, newPassword } = req.body;
+
+  if (captcha !== req.session.captcha) {
+    return res.json({ success: false, message: 'Invalid captcha.' });
+  }
+
+  const user = db.get('users').find({ email }).value();
+  if (!user) return res.json({ success: false, message: 'Email not found.' });
+
+  const hashed = bcrypt.hashSync(newPassword, 10);
+  db.get('users').find({ email }).assign({ password: hashed }).write();
+
+  return res.json({ success: true });
+});
+
+// Withdraw password (unchanged)
+app.post('/update-withdraw-password', (req, res) => {
+  const { withdrawPassword } = req.body;
+
+  if (!req.session.user) return res.status(401).json({ error: "Unauthorized" });
+  if (!withdrawPassword || withdrawPassword.length < 4)
+    return res.status(400).json({ error: "Invalid password" });
+
+  db.get('users')
+    .find({ email: req.session.user.email })
+    .assign({ withdrawPassword })
+    .write();
+
+  res.json({ success: true });
+});
+
+// Bind bank card (unchanged)
+app.post('/bind-bank-card', (req, res) => {
+  const { bankName, accountNumber, accountHolderName } = req.body;
+  if (!req.session.user) return res.status(401).json({ message: 'Not logged in' });
+
+  if (!bankName || !accountNumber || !accountHolderName) {
+    return res.status(400).json({ message: 'Missing bank card information' });
+  }
+
+  db.get('users')
+    .find({ email: req.session.user.email })
+    .assign({
+      bank: {
+        bankName,
+        accountNumber,
+        accountHolderName
+      }
+    })
+    .write();
+
+  return res.json({ success: true });
+});
+
+// Helper to finalize trades that expired
+function finalizeExpiredTradesForUser(user) {
+  const now = Date.now();
+  let updated = false;
+  // Make copy to avoid mutation issues
+  const updatedTrades = user.trades.map(trade => {
+    if (trade.status === 'running') {
+      const endTime = trade.startTimestamp + trade.timeframe * 1000;
+      if (now >= endTime) {
+        // Finalize this trade
+        let isWin = false;
+        if (trade.pair === 'BTC/USDT' && trade.direction === 'Buy UP') {
+          isWin = true;
+        }
+        const profitAmount = isWin ? trade.amount * (trade.profitPercent / 100) : -trade.amount;
+        trade.profit = profitAmount.toFixed(2);
+        trade.result = isWin ? 'WIN' : 'LOSS';
+        trade.status = 'completed';
+        trade.endTimestamp = new Date(endTime).toISOString();
+
+        // Update user balance
+        user.balance += profitAmount;
+        updated = true;
+      }
+    }
+    return trade;
+  });
+  // Update trades if any finalized
+  if (updated) {
+    db.get('users')
+      .find({ email: user.email })
+      .assign({ trades: updatedTrades, balance: user.balance })
+      .write();
+  }
+}
+
+// Updated trade route - save trade as running, deduct amount immediately
+app.post('/place-trade', (req, res) => {
+  if (!req.session.user) return res.status(401).json({ success: false, message: 'Not logged in' });
+
+  const { pair, direction, amount, profitPercent, timeframe } = req.body;
+
+  if (!pair || !direction || !amount || profitPercent === undefined || !timeframe) {
+    return res.json({ success: false, message: 'Missing trade parameters' });
+  }
+
+  const user = db.get('users').find({ email: req.session.user.email }).value();
+  if (!user) return res.status(404).json({ success: false, message: 'User not found' });
+
+  const tradeAmount = parseFloat(amount);
+  const profitPct = parseFloat(profitPercent);
+  const tradeTimeframe = parseInt(timeframe, 10);
+
+  if (isNaN(tradeAmount) || tradeAmount <= 0 || tradeAmount > user.balance) {
+    return res.json({ success: false, message: 'Invalid trade amount or insufficient balance' });
+  }
+  if (isNaN(profitPct) || profitPct < 0) {
+    return res.json({ success: false, message: 'Invalid profit percent' });
+  }
+  if (isNaN(tradeTimeframe) || tradeTimeframe <= 0) {
+    return res.json({ success: false, message: 'Invalid timeframe' });
+  }
+
+  // Deduct trade amount immediately
+  const newBalance = user.balance - tradeAmount;
+
+  // Create running trade object
+  const trade = {
+    id: Date.now(),
+    pair,
+    direction,
+    amount: tradeAmount,
+    profitPercent: profitPct,
+    timeframe: tradeTimeframe,
+    startTimestamp: Date.now(),
+    status: 'running'
+  };
+
+  // Save updated user balance and add trade
+  db.get('users')
+    .find({ email: req.session.user.email })
+    .assign({ balance: newBalance })
+    .get('trades')
+    .push(trade)
+    .write();
+
+  return res.json({
+    success: true,
+    trade,
+    balance: newBalance.toFixed(2),
+  });
+});
+
+// Endpoint to get trades and finalize expired if any
+app.get('/trade-history', (req, res) => {
+  if (!req.session.user) return res.status(401).json({ error: 'Not logged in' });
+
+  const user = db.get('users').find({ email: req.session.user.email }).value();
+  if (!user) return res.status(404).json({ error: 'User not found' });
+
+  // Finalize expired running trades if any before returning
+  finalizeExpiredTradesForUser(user);
+
+  const trades = user.trades || [];
+  res.json({ trades });
+});
+
+// Change password (unchanged)
+app.post('/change-password', (req, res) => {
+  const { oldPassword, newPassword, confirmPassword } = req.body;
+
+  if (!req.session.user) return res.status(401).json({ success: false, message: 'Not logged in' });
+
+  const user = db.get('users').find({ email: req.session.user.email }).value();
+  if (!user) return res.status(404).json({ success: false, message: 'User not found' });
+
+  if (!bcrypt.compareSync(oldPassword, user.password)) {
+    return res.json({ success: false, message: 'Old password is incorrect' });
+  }
+
+  if (newPassword !== confirmPassword) {
+    return res.json({ success: false, message: 'New passwords do not match' });
+  }
+
+  const hashed = bcrypt.hashSync(newPassword, 10);
+  db.get('users').find({ email: user.email }).assign({ password: hashed }).write();
+
+  return res.json({ success: true });
+});
+
+// Logout (unchanged)
+app.post('/logout', (req, res) => {
+  req.session.destroy(() => {
+    res.json({ success: true });
+  });
+});
+
+// Protect bankcard.html route from unauthorized access (unchanged)
+app.get('/bankcard.html', (req, res, next) => {
+  if (!req.session.user) return res.redirect('/login.html');
+  next();
+});
+
+// Start server
+app.listen(port, () => {
+  console.log(`✅ Server running at http://localhost:${port}`);
+});

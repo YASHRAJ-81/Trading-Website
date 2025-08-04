@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Trade</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  .active-btn {
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+  }
+  .active-btn:hover {
+    opacity: 0.9;
+  }
+  body, html {
+    height: 100%;
+    margin: 0;
+    overflow-y: auto;
+  }
+  #tvChart {
+    width: 100%;
+    min-height: 350px;
+    border: 0;
+    border-radius: 0.5rem;
+  }
+  .price-up { color: #22c55e; }
+  .price-down { color: #ef4444; }
+  #pairDropdownBtn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+  }
+  #pairDropdownBtn::after {
+    content: '▼';
+    font-size: 0.6rem;
+    margin-left: 0.25rem;
+    user-select: none;
+  }
+  #pairDropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8rem;
+    margin-top: 0.25rem;
+    background-color: #374151;
+    border: 1px solid #4b5563;
+    border-radius: 0.375rem;
+    box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
+    z-index: 50;
+    max-height: 15rem;
+    overflow-y: auto;
+    display: none;
+  }
+  #pairDropdown.show {
+    display: block;
+  }
+  #pairDropdown div {
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+  }
+  #pairDropdown div:hover {
+    background-color: #4b5563;
+  }
+
+  /* Recent trades styles */
+  .trade-entry {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    background-color: #1f2937;
+    border-radius: 0.375rem;
+  }
+  .trade-entry:hover {
+    background-color: #374151;
+  }
+  .trade-arrow {
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+    user-select: none;
+  }
+  .trade-details-expanded {
+    background-color: #111827;
+    padding: 0.75rem 1rem;
+    border-radius: 0.375rem;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: #cbd5e1;
+    white-space: pre-line;
+  }
+  #timer {
+    font-family: monospace;
+  }
+  button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+</style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+
+<!-- Top Bar -->
+<div class="flex items-center p-4 bg-gray-800 shadow-md flex-shrink-0 justify-center relative">
+  <button onclick="goToDashboard()" class="absolute left-4 text-xl select-none">←</button>
+  <button id="pairDropdownBtn" onclick="toggleDropdown()" class="text-xl font-semibold bg-gray-800 px-4 py-1 rounded select-none" aria-haspopup="listbox" aria-expanded="false">BTC/USDT</button>
+  <div id="pairDropdown" role="listbox" aria-labelledby="pairDropdownBtn" tabindex="-1"></div>
+</div>
+
+<!-- Trading Info -->
+<div class="px-4 py-2 grid grid-cols-2 gap-4 text-sm text-gray-300 flex-shrink-0">
+  <div>Open (5m): <span id="open"></span></div>
+  <div>Close (5m): <span id="close"></span></div>
+  <div>52 Week High: <span id="weekHigh"></span></div>
+  <div>52 Week Low: <span id="weekLow"></span></div>
+</div>
+
+<!-- Chart -->
+<div class="px-2 flex-grow">
+  <iframe id="tvChart" src="https://www.tradingview.com/widgetembed/?symbol=BINANCE:BTCUSDT&interval=1&theme=dark&hide_top_toolbar=1&hide_side_toolbar=1&locale=en" allowfullscreen scrolling="no"></iframe>
+</div>
+
+<!-- Trade Controls -->
+<div class="px-4 py-4 space-y-4 flex-shrink-0">
+  <div>
+    <label class="block mb-1">Direction:</label>
+    <div class="flex gap-2">
+      <button onclick="handleDirectionClick('UP')" class="w-1/2 py-2 rounded bg-green-500" id="btn-up">Buy UP</button>
+      <button onclick="handleDirectionClick('DOWN')" class="w-1/2 py-2 rounded bg-red-500" id="btn-down">Buy DOWN</button>
+    </div>
+  </div>
+</div>
+
+<!-- Trade Details -->
+<div id="tradeDetailsContainer" class="p-4 space-y-4 hidden">
+
+  <h1 class="text-xl font-bold mb-4">Trade Details</h1>
+
+  <!-- Timeframe -->
+  <div>
+    <label class="block mb-1">Timeframe (seconds):</label>
+    <div class="grid grid-cols-4 gap-2">
+      <button onclick="selectOption('timeframe', 60)" class="py-2 rounded bg-gray-700" id="tf-60">60s</button>
+      <button onclick="selectOption('timeframe', 90)" class="py-2 rounded bg-gray-700" id="tf-90">90s</button>
+      <button onclick="selectOption('timeframe', 120)" class="py-2 rounded bg-gray-700" id="tf-120">120s</button>
+      <button onclick="selectOption('timeframe', 180)" class="py-2 rounded bg-gray-700" id="tf-180">180s</button>
+    </div>
+  </div>
+
+  <!-- Profit % -->
+  <div>
+    <label class="block mb-1">Profit %:</label>
+    <div class="grid grid-cols-4 gap-2">
+      <button onclick="selectOption('profit', 25)" class="py-2 rounded bg-gray-700" id="p-25">25%</button>
+      <button onclick="selectOption('profit', 50)" class="py-2 rounded bg-gray-700" id="p-50">50%</button>
+      <button onclick="selectOption('profit', 75)" class="py-2 rounded bg-gray-700" id="p-75">75%</button>
+      <button onclick="selectOption('profit', 100)" class="py-2 rounded bg-gray-700" id="p-100">100%</button>
+    </div>
+  </div>
+
+  <!-- Amount -->
+  <div>
+    <label class="block mb-1">Amount:</label>
+    <input id="tradeAmount" type="number" min="1" placeholder="Enter amount" class="w-full px-3 py-2 rounded bg-gray-800 text-white" />
+    <small id="balanceHint" class="text-gray-400 italic"></small>
+  </div>
+
+  <!-- Place Order Button -->
+  <button onclick="submitTrade()" class="w-full bg-green-600 py-2 rounded text-lg font-semibold" id="placeOrderBtn">Place Order</button>
+
+  <!-- Error Message -->
+  <div id="errorMessage" class="text-red-400 mt-2 text-sm hidden"></div>
+
+  <!-- Countdown Timer -->
+  <div id="timer" class="text-yellow-400 text-lg font-bold text-center pt-4 hidden"></div>
+
+  <!-- Recent Trades -->
+  <div class="pt-6 pb-24">
+    <h2 class="text-lg font-semibold mb-2 flex items-center gap-1">
+      Recent Trades
+      <span class="text-gray-400 text-xs italic" title="Click trade rows below to see details"></span>
+    </h2>
+    <div id="tradeHistory" class="space-y-2 max-h-48 overflow-y-auto"></div>
+
+    <!-- Expanded trade details -->
+    <div id="expandedTradeDetails" class="trade-details-expanded hidden"></div>
+  </div>
+</div>
+
+<script>
+  let selected = { direction: null, timeframe: null, profit: null };
+  const availablePairs = ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'XRPUSDT', 'SOLUSDT', 'DOGEUSDT', 'ADAUSDT'];
+  let currentPair = 'BTCUSDT';
+  let tradeRunning = false;
+  let currentTradeData = null;
+  let timerInterval = null;
+
+  // Show hint for available balance below amount input
+  const balanceHint = document.getElementById('balanceHint');
+  let userBalance = 0;
+
+  // Initialization references for trade details container & timer
+  const tradeDetailsContainer = document.getElementById('tradeDetailsContainer');
+  const timerEl = document.getElementById('timer');
+
+  // Initialize pair dropdown
+  async function renderPairList() {
+    const container = document.getElementById('pairDropdown');
+    container.innerHTML = '';
+    for (const pair of availablePairs) {
+      const div = document.createElement('div');
+      div.textContent = `${pair.slice(0,3)}/${pair.slice(3)}`;
+      div.className = 'select-none text-white hover:bg-gray-600 rounded px-2 py-1 cursor-pointer';
+      div.onclick = async () => {
+        toggleDropdown();
+        await updatePageForPair(pair, true);
+      };
+      container.appendChild(div);
+    }
+  }
+  function toggleDropdown() {
+    const dropdown = document.getElementById('pairDropdown');
+    const btn = document.getElementById('pairDropdownBtn');
+    const isShown = dropdown.classList.toggle('show');
+    btn.setAttribute('aria-expanded', isShown);
+  }
+
+  // Show pair & update chart/info
+  async function updatePageForPair(pair, userClick = false) {
+    currentPair = pair;
+    document.getElementById('pairDropdownBtn').textContent = `${pair.slice(0,3)}/${pair.slice(3)}`;
+    document.getElementById('tvChart').src = `https://www.tradingview.com/widgetembed/?symbol=BINANCE:${pair}&interval=1&theme=dark&hide_top_toolbar=1&hide_side_toolbar=1&locale=en`;
+    try {
+      const ticker = await fetch(`https://api.binance.com/api/v3/ticker/24hr?symbol=${pair}`).then(r => r.json());
+      const klines = await fetch(`https://api.binance.com/api/v3/klines?symbol=${pair}&interval=1d&limit=365`).then(r => r.json());
+      const k5 = await fetch(`https://api.binance.com/api/v3/klines?symbol=${pair}&interval=5m&limit=2`).then(r => r.json());
+
+      const open5m = +k5[0][1];
+      const close5m = +k5[0][4];
+      const high52 = Math.max(...klines.map(d => +d[2]));
+      const low52 = Math.min(...klines.map(d => +d[3]));
+
+      document.getElementById('open').textContent = open5m.toFixed(6);
+      document.getElementById('close').textContent = close5m.toFixed(6);
+      document.getElementById('weekHigh').textContent = high52.toFixed(6);
+      document.getElementById('weekLow').textContent = low52.toFixed(6);
+
+      colorize(document.getElementById('open'), open5m, close5m);
+      colorize(document.getElementById('close'), close5m, open5m);
+      colorize(document.getElementById('weekHigh'), +ticker.lastPrice, high52);
+      colorize(document.getElementById('weekLow'), +ticker.lastPrice, low52);
+    } catch (err) {
+      console.warn('Error fetching coin data', err);
+    }
+  }
+  function colorize(el, current, ref) {
+    el.classList.remove('price-up', 'price-down');
+    if (current > ref) el.classList.add('price-up');
+    else if (current < ref) el.classList.add('price-down');
+  }
+
+  // Handle trade direction button with scroll down
+  function handleDirectionClick(direction) {
+    if (tradeRunning) return;
+    selectOption('direction', direction);
+    tradeDetailsContainer.classList.remove('hidden');
+    tradeDetailsContainer.scrollIntoView({behavior: 'smooth', block: 'start'});
+  }
+
+  // Select timeframe or profit%
+  function selectOption(type, value) {
+    if (tradeRunning) return;
+    selected[type] = value;
+    const ids = {
+      direction: ['btn-up', 'btn-down'],
+      timeframe: ['tf-60', 'tf-90', 'tf-120', 'tf-180'],
+      profit: ['p-25', 'p-50', 'p-75', 'p-100']
+    }
+    ids[type].forEach(id => {
+      const btn = document.getElementById(id);
+      if (btn) btn.classList.remove('active-btn', 'bg-yellow-600');
+    });
+    const btnId = type === 'direction' ? (value === 'UP' ? 'btn-up' : 'btn-down') :
+      type === 'timeframe' ? `tf-${value}` : `p-${value}`;
+    const btn = document.getElementById(btnId);
+    if (btn) btn.classList.add('active-btn', 'bg-yellow-600');
+  }
+
+  // Disable or enable inputs during trade
+  function setInputsDisabled(disabled) {
+    document.getElementById('placeOrderBtn').disabled = disabled;
+    document.getElementById('tradeAmount').disabled = disabled;
+    document.getElementById('btn-up').disabled = disabled;
+    document.getElementById('btn-down').disabled = disabled;
+    ['tf-60','tf-90','tf-120','tf-180','p-25','p-50','p-75','p-100'].forEach(id => {
+      const btn = document.getElementById(id);
+      if (btn) btn.disabled = disabled;
+    });
+  }
+
+  // Submit trade request to backend
+  async function submitTrade() {
+    if (tradeRunning) {
+      alert('Please wait until the current trade finishes.');
+      return;
+    }
+
+    const amountEl = document.getElementById('tradeAmount');
+    const amount = parseFloat(amountEl.value);
+    if (!selected.direction || !selected.timeframe || !selected.profit || !amount || isNaN(amount) || amount <= 0) {
+      showError('Please fill all fields correctly.');
+      return;
+    }
+    if(amount > userBalance) {
+      showError(`Insufficient balance. Your current balance is ${userBalance.toFixed(2)}.`);
+      return;
+    }
+    clearError();
+
+    const tradeData = {
+      pair: `${currentPair.slice(0,3)}/${currentPair.slice(3)}`,
+      direction: selected.direction === 'UP' ? 'Buy UP' : 'Buy DOWN',
+      amount,
+      profitPercent: selected.profit,
+      timeframe: selected.timeframe
+    };
+
+    tradeRunning = true;
+    setInputsDisabled(true);
+    currentTradeData = null;
+    startTimer(selected.timeframe);
+
+    try {
+      const res = await fetch('/place-trade', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(tradeData)
+      });
+      const data = await res.json();
+
+      if(!data.success) {
+        showError(data.message || 'Trade failed.');
+        tradeRunning = false;
+        setInputsDisabled(false);
+        clearTimer();
+        return;
+      }
+
+      currentTradeData = data;
+      // Do NOT refresh balance or fetch trades here; wait for timer!
+
+    } catch (err) {
+      showError(`Error placing trade: ${err.message}`);
+      tradeRunning = false;
+      setInputsDisabled(false);
+      clearTimer();
+    }
+  }
+
+  // Finalize trade after timer ends
+  async function finalizeTrade() {
+    if (!currentTradeData) return;
+
+    timerEl.textContent = '⏳ Trade completed.';
+    setTimeout(() => timerEl.classList.add('hidden'), 3000);
+
+    await refreshProfileBalance();
+    fetchTradeHistory();
+
+    tradeRunning = false;
+    setInputsDisabled(false);
+    currentTradeData = null;
+  }
+
+  // Show error message
+  function showError(msg) {
+    const el = document.getElementById('errorMessage');
+    el.textContent = msg;
+    el.classList.remove('hidden');
+  }
+  function clearError() {
+    const el = document.getElementById('errorMessage');
+    el.textContent = '';
+    el.classList.add('hidden');
+  }
+
+  // Timer logic with countdown and completion triggering finalizeTrade()
+  function startTimer(seconds) {
+    timerEl.classList.remove('hidden');
+    let remaining = seconds;
+
+    function formatTime(s) {
+      const m = Math.floor(s / 60).toString().padStart(2,'0');
+      const ss = (s % 60).toString().padStart(2,'0');
+      return `${m}:${ss}`;
+    }
+
+    timerEl.textContent = `⏱ ${formatTime(remaining)} remaining`;
+
+    clearTimer();
+    timerInterval = setInterval(() => {
+      remaining--;
+
+      if (remaining < 0) {
+        clearInterval(timerInterval);
+        finalizeTrade();
+      } else {
+        timerEl.textContent = `⏱ ${formatTime(remaining)} remaining`;
+      }
+    }, 1000);
+  }
+
+  function clearTimer() {
+    if(timerInterval) {
+      clearInterval(timerInterval);
+      timerInterval = null;
+    }
+  }
+  function resetTimerUI() {
+    timerEl.classList.add('hidden');
+    timerEl.textContent = '';
+  }
+
+  // Update balance hint text
+  function updateBalanceHint() {
+    balanceHint.textContent = `Your current balance: ${userBalance.toFixed(2)}`;
+  }
+
+  // Refresh user balance from server/profile
+  async function refreshProfileBalance() {
+    try {
+      const res = await fetch('/profile-data');
+      if (!res.ok) throw new Error('Unauthorized');
+      const data = await res.json();
+      userBalance = parseFloat(data.balance) || 0;
+      updateBalanceHint();
+    } catch (err) {
+      console.error('Failed to refresh profile:', err);
+    }
+  }
+
+  // Manage trade history UI
+  const tradeHistoryEl = document.getElementById('tradeHistory');
+  const detailsEl = document.getElementById('expandedTradeDetails');
+
+  // Load full trade history from server but render only 4 recent trades
+  async function fetchTradeHistory() {
+    try {
+      const res = await fetch('/trade-history');
+      if (!res.ok) throw new Error('Unauthorized');
+      const data = await res.json();
+      const trades = data.trades || [];
+      renderTrades(trades.slice(0,4)); // Show only latest 4 trades here
+    } catch (err) {
+      tradeHistoryEl.innerHTML = `<div class="text-gray-400 text-center">Failed to load trades.</div>`;
+      console.warn(err);
+    }
+  }
+
+  // Render trades list
+  function renderTrades(trades) {
+    tradeHistoryEl.innerHTML = '';
+    detailsEl.classList.add('hidden');
+    detailsEl.textContent = '';
+
+    if (!trades.length) {
+      tradeHistoryEl.innerHTML = '<div class="text-gray-400 text-center">No trades yet.</div>';
+      return;
+    }
+
+    trades.forEach(trade => {
+      const div = document.createElement('div');
+      div.className = 'trade-entry';
+      div.title = 'Click to toggle trade details';
+      div.innerHTML = `
+        <div>
+          ${trade.pair} &nbsp;
+          <span>${trade.direction === 'Buy UP' ? '↑' : '↓'}</span> &nbsp;
+          <span>${trade.timeframe}s</span>
+        </div>
+        <div class="${trade.result === 'WIN' ? 'text-green-400' : 'text-red-400'}">
+          ${trade.result === 'WIN' ? '+' : '-'}${Math.abs(parseFloat(trade.profit)).toFixed(2)}
+          <span class="trade-arrow">▼</span>
+        </div>
+      `;
+      div.onclick = () => toggleDetails(trade);
+      tradeHistoryEl.appendChild(div);
+    });
+  }
+
+  // Toggle trade detail panel
+  function toggleDetails(trade) {
+    if (detailsEl.dataset.tradeId === String(trade.id)) {
+      detailsEl.classList.add('hidden');
+      detailsEl.textContent = '';
+      delete detailsEl.dataset.tradeId;
+      return;
+    }
+    detailsEl.dataset.tradeId = trade.id;
+    detailsEl.classList.remove('hidden');
+    detailsEl.textContent = `
+Pair: ${trade.pair}
+Direction: ${trade.direction}
+Amount: ${trade.amount}
+Timeframe: ${trade.timeframe}s
+Profit %: ${trade.profitPercent}%
+Result: ${trade.result}
+Profit/Loss: ${trade.profit}
+Timestamp: ${new Date(trade.timestamp).toLocaleString()}
+    `.trim();
+  }
+
+  // Disable inputs during trade
+  function toggleInputs(disabled){
+    setInputsDisabled(disabled);
+  }
+
+  // Back button
+  function goToDashboard() {
+    window.location.href = '../dashboard.html';
+  }
+
+  async function init() {
+    await refreshProfileBalance();
+    await renderPairList();
+    await updatePageForPair(currentPair);
+    await fetchTradeHistory();
+  }
+  init();
+</script>
+
+<footer class="bg-gray-800 text-gray-400 p-2 text-center flex-shrink-0">
+  <a href="assets.html" class="underline hover:text-white">View All Trades here</a>
+</footer>
+
+</body>
+</html>

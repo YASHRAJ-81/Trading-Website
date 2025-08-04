@@ -6,246 +6,280 @@
   <title>Crypto Dashboard</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-900 text-white relative min-h-screen pb-20">
+<body class="bg-gray-900 text-white relative min-h-screen pb-12">
 
   <!-- Scrollable Content -->
-  <div class="px-4 pt-4 pb-0">
-
+  <div id="home" class="px-2 pt-4 pb-0">
 
     <!-- Header / User Info -->
-    <div class="flex justify-between items-center mt-4">
+    <div class="flex justify-between items-center mt-0">
+      <div class="select-none text-gray-300 font-bold" style="font-size: 1.3rem; font-family: 'Times New Roman', serif;">
+        Congrats! Start Earning 😄
+      </div>
       <div class="relative">
-        <div onclick="goToProfile()" class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center cursor-pointer">
-          👤
+        <div onclick="goToProfile()" 
+             class="w-8 h-8 bg-gradient-to-br from-green-600 to-green-400 rounded-full flex items-center justify-center cursor-pointer 
+                    shadow-lg ring-2 ring-green-500 hover:ring-green-300 transition-transform duration-100 ease-in-out
+                    hover:scale-110 select-none"
+             title="Go to Profile"
+             role="button"
+             aria-label="Profile">
+          <span class="text-xl">👤</span>
         </div>
       </div>
     </div>
 
     <!-- Promo Cards -->
-    <div class="grid grid-cols-2 gap-4 mt-4">
+    <div class="grid grid-cols-2 gap-1.5 mt-4">
       <div class="bg-gray-800 p-3 rounded">
         <div class="text-yellow-400 text-sm font-semibold">Newest</div>
         <div class="text-xs text-green-300">Exclusively for Futures Newbies:</div>
         <div class="text-yellow-400 font-bold text-sm">Up to 1,000 USDT</div>
         <div class="text-green-300 text-xs">Bonuses for Everyone!</div>
         <button class="mt-2 bg-green-500 px-3 py-1 rounded text-black text-sm">GO</button>
-        <div class="mt-2">
-        </div>
       </div>
       <div class="bg-gray-800 p-3 rounded">
-        <div class="text-blue-400 text-sm">GemBox <span class="bg-yellow-500 text-black text-xs ml-1 px-1 rounded">TOP1</span></div>
-        <div class="text-white text-lg font-bold mt-2">ETH</div>
-        <div class="h-2 bg-green-500 w-1/4 rounded mt-2 mb-1"></div>
-        <div class="text-right text-white text-xl font-bold">2.5</div>
+        <div class="text-blue-400 text-sm flex items-center">
+          GemBox 
+          <span class="bg-yellow-500 text-black text-xs ml-8 px-2 rounded">TOP1</span>
+        </div>
+
+        <div class="text-white text-lg font-bold mt-2 flex items-center gap-2">
+          <img 
+            src="https://assets.coingecko.com/coins/images/279/large/ethereum.png" 
+            alt="ETH Logo" 
+            class="h-10 w-10"
+          >
+          ETH
+        </div>
+
+        <style>
+          @keyframes fillShell {
+            0%   { background-color: #2d3748; }
+            50%  { background-color: #22c55e; }
+            100% { background-color: #2d3748; }
+          }
+
+          .battery-segment {
+            width: 13%;
+            height: 100%;
+            border-radius: 0.25rem;
+            background-color: #2d3748;
+          }
+
+          .battery-fill {
+            animation: fillShell 7s linear infinite;
+            animation-fill-mode: forwards;
+          }
+
+          .delay-1 { animation-delay: 0s; }
+          .delay-2 { animation-delay: 1s; }
+          .delay-3 { animation-delay: 2s; }
+          .delay-4 { animation-delay: 3s; }
+          .delay-5 { animation-delay: 4s; }
+          .delay-6 { animation-delay: 5s; }
+          .delay-7 { animation-delay: 6s; }
+        </style>
+
+        <div class="w-full max-w-xs h-3 bg-gray-800 rounded mt-2 mb-1 px-1 flex justify-between items-center">
+          <div class="battery-segment battery-fill delay-1"></div>
+          <div class="battery-segment battery-fill delay-2"></div>
+          <div class="battery-segment battery-fill delay-3"></div>
+          <div class="battery-segment battery-fill delay-4"></div>
+          <div class="battery-segment battery-fill delay-5"></div>
+          <div class="battery-segment battery-fill delay-6"></div>
+          <div class="battery-segment battery-fill delay-7"></div>
+        </div>
+
+        <div class="text-center text-white text-xl font-bold">2.5</div>
       </div>
     </div>
 
     <!-- Buy Coins Shortcut -->
-    <div class="bg-gray-800 p-3 mt-4 rounded flex items-center justify-between">
+    <div onclick="navigateTo('components/deposit.html')" class="bg-gray-800 p-3 mt-2 rounded flex items-center justify-between cursor-pointer hover:bg-gray-700 transition">
       <div class="text-white">I want to buy coins</div>
-      <div class="text-xs text-gray-400">Visa, Mastercard</div>
+      <div class="flex space-x-1 items-center">
+        <img src="https://img.icons8.com/color/24/mastercard-logo.png" alt="Mastercard" class="h-6 w-8" />
+        <img src="https://img.icons8.com/color/24/visa.png" alt="Visa" class="h-8 w-8" />
+      </div>
     </div>
 
     <!-- Quick Access -->
-    <div class="bg-gray-800 p-2 rounded grid grid-cols-4 gap-2 text-center text-xs mt-4">
-      <div><div class="text-green-400 text-xl">🚀</div><div>Deposit</div></div>
-      <div><div class="text-green-400 text-xl">💼</div><div>Withdraw</div></div>
-      <div><div class="text-green-400 text-xl">🌐</div><div>IEO</div></div>
-      <div><div class="text-green-400 text-xl">⚖️</div><div>Staking</div></div>
+    <div class="bg-gray-800 p-2 rounded grid grid-cols-4 gap-2 text-center text-xs mt-2">
+      <div onclick="navigateTo('components/deposit.html')" class="cursor-pointer">
+        <div class="text-green-400 text-xl">🚀</div>
+        <div>Deposit</div>
+      </div>
+      <div onclick="navigateTo('components/CoinAddress.html')" class="cursor-pointer">
+        <div class="text-green-400 text-xl">💼</div>
+        <div>Withdraw</div>
+      </div>
+      <div onclick="navigateTo('components/ieo.html')" class="cursor-pointer">
+        <div class="text-green-400 text-xl">🌐</div>
+        <div>IEO</div>
+      </div>
+      <div onclick="navigateTo('components/mining.html')" class="cursor-pointer">
+        <div class="text-green-400 text-xl">⚖️</div>
+        <div>Staking</div>
+      </div>
     </div>
 
-    <!-- Markets -->
-    <div class="mt-6 space-y-3">
-      <div class="text-lg font-bold text-white">Markets</div>
-      <div class="bg-gray-800 p-3 rounded text-sm space-y-2">
-        <div class="flex justify-between text-gray-400 font-semibold border-b border-gray-600 pb-1">
-          <div class="w-1/3">Trading Pair</div>
-          <div class="w-1/3 text-center">Latest Price</div>
-          <div class="w-1/3 text-right">Ups & Downs</div>
-        </div>
+  </div>
 
-        <!-- Existing Trading Pairs -->
-        <div class="flex justify-between items-center">
-          <div class="flex items-center space-x-2 w-1/3">
-            <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png?v=029" class="w-5 h-5" />
-            <div>BTC/USDT</div>
-          </div>
-          <div class="w-1/3 text-center text-green-400">118786.42</div>
-          <div class="w-1/3 text-right"><span class="bg-green-700 px-2 py-0.5 rounded text-xs">+0.51%</span></div>
-        </div>
-
-        <div class="flex justify-between items-center">
-          <div class="flex items-center space-x-2 w-1/3">
-            <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png?v=029" class="w-5 h-5" />
-            <div>ETH/USDT</div>
-          </div>
-          <div class="w-1/3 text-center text-red-400">3802.24</div>
-          <div class="w-1/3 text-right"><span class="bg-red-700 px-2 py-0.5 rounded text-xs">-0.17%</span></div>
-        </div>
-
-        <div class="flex justify-between items-center">
-          <div class="flex items-center space-x-2 w-1/3">
-            <img src="https://cryptologos.cc/logos/litecoin-ltc-logo.png?v=029" class="w-5 h-5" />
-            <div>LTC/USDT</div>
-          </div>
-          <div class="w-1/3 text-center text-green-400">91.84</div>
-          <div class="w-1/3 text-right"><span class="bg-green-700 px-2 py-0.5 rounded text-xs">+2.11%</span></div>
-        </div>
-
-        <div class="flex justify-between items-center">
-          <div class="flex items-center space-x-2 w-1/3">
-            <img src="https://cryptologos.cc/logos/solana-sol-logo.png?v=029" class="w-5 h-5" />
-            <div>SOL/USDT</div>
-          </div>
-          <div class="w-1/3 text-center text-red-400">24.12</div>
-          <div class="w-1/3 text-right"><span class="bg-red-700 px-2 py-0.5 rounded text-xs">-1.54%</span></div>
-        </div>
-
-        <div class="flex justify-between items-center">
-          <div class="flex items-center space-x-2 w-1/3">
-            <img src="https://cryptologos.cc/logos/cardano-ada-logo.png?v=029" class="w-5 h-5" />
-            <div>ADA/USDT</div>
-          </div>
-          <div class="w-1/3 text-center text-green-400">0.305</div>
-          <div class="w-1/3 text-right"><span class="bg-green-700 px-2 py-0.5 rounded text-xs">+0.67%</span></div>
-        </div>
-
-        <div class="flex justify-between items-center">
-          <div class="flex items-center space-x-2 w-1/3">
-            <img src="https://cryptologos.cc/logos/xrp-xrp-logo.png?v=029" class="w-5 h-5" />
-            <div>XRP/USDT</div>
-          </div>
-          <div class="w-1/3 text-center text-green-400">0.645</div>
-          <div class="w-1/3 text-right"><span class="bg-green-700 px-2 py-0.5 rounded text-xs">+0.98%</span></div>
-        </div>
-
-        <div class="flex justify-between items-center">
-          <div class="flex items-center space-x-2 w-1/3">
-            <img src="https://cryptologos.cc/logos/polkadot-new-dot-logo.png?v=029" class="w-5 h-5" />
-            <div>DOT/USDT</div>
-          </div>
-          <div class="w-1/3 text-center text-red-400">5.33</div>
-          <div class="w-1/3 text-right"><span class="bg-red-700 px-2 py-0.5 rounded text-xs">-0.88%</span></div>
-        </div>
-
-        <div class="flex justify-between items-center">
-          <div class="flex items-center space-x-2 w-1/3">
-            <img src="https://cryptologos.cc/logos/shiba-inu-shib-logo.png?v=029" class="w-5 h-5" />
-            <div>SHIB/USDT</div>
-          </div>
-          <div class="w-1/3 text-center text-red-400">0.000007</div>
-          <div class="w-1/3 text-right"><span class="bg-red-700 px-2 py-0.5 rounded text-xs">-0.32%</span></div>
-        </div>
-
-        <div class="flex justify-between items-center">
-          <div class="flex items-center space-x-2 w-1/3">
-            <img src="https://cryptologos.cc/logos/chainlink-link-logo.png?v=029" class="w-5 h-5" />
-            <div>LINK/USDT</div>
-          </div>
-          <div class="w-1/3 text-center text-green-400">6.85</div>
-          <div class="w-1/3 text-right"><span class="bg-green-700 px-2 py-0.5 rounded text-xs">+1.44%</span></div>
-        </div>
-
-        <div class="flex justify-between items-center">
-          <div class="flex items-center space-x-2 w-1/3">
-            <img src="https://cryptologos.cc/logos/bitcoin-cash-bch-logo.png?v=029" class="w-5 h-5" />
-            <div>BCH/USDT</div>
-          </div>
-          <div class="w-1/3 text-center text-red-400">580.64</div>
-          <div class="w-1/3 text-right"><span class="bg-red-700 px-2 py-0.5 rounded text-xs">-0.62%</span></div>
-        </div>
-
-        <div class="flex justify-between items-center">
-          <div class="flex items-center space-x-2 w-1/3">
-            <img src="https://cryptologos.cc/logos/uniswap-uni-logo.png?v=029" class="w-5 h-5" />
-            <div>UNI/USDT</div>
-          </div>
-          <div class="w-1/3 text-center text-green-400">5.23</div>
-          <div class="w-1/3 text-right"><span class="bg-green-700 px-2 py-0.5 rounded text-xs">+2.67%</span></div>
-        </div>
-
-        <!-- 7 NEW COINS ADDED BELOW -->
-        <div class="flex justify-between items-center">
-          <div class="flex items-center space-x-2 w-1/3">
-            <img src="https://cryptologos.cc/logos/avalanche-avax-logo.png?v=029" class="w-5 h-5" />
-            <div>AVAX/USDT</div>
-          </div>
-          <div class="w-1/3 text-center text-green-400">28.43</div>
-          <div class="w-1/3 text-right"><span class="bg-green-700 px-2 py-0.5 rounded text-xs">+3.12%</span></div>
-        </div>
-
-        <div class="flex justify-between items-center">
-          <div class="flex items-center space-x-2 w-1/3">
-            <img src="https://cryptologos.cc/logos/polygon-matic-logo.png?v=029" class="w-5 h-5" />
-            <div>MATIC/USDT</div>
-          </div>
-          <div class="w-1/3 text-center text-red-400">0.69</div>
-          <div class="w-1/3 text-right"><span class="bg-red-700 px-2 py-0.5 rounded text-xs">-1.21%</span></div>
-        </div>
-
-        <div class="flex justify-between items-center">
-          <div class="flex items-center space-x-2 w-1/3">
-            <img src="https://cryptologos.cc/logos/tron-trx-logo.png?v=029" class="w-5 h-5" />
-            <div>TRX/USDT</div>
-          </div>
-          <div class="w-1/3 text-center text-green-400">0.082</div>
-          <div class="w-1/3 text-right"><span class="bg-green-700 px-2 py-0.5 rounded text-xs">+0.89%</span></div>
-        </div>
-
-        <div class="flex justify-between items-center">
-          <div class="flex items-center space-x-2 w-1/3">
-            <img src="https://cryptologos.cc/logos/stellar-xlm-logo.png?v=029" class="w-5 h-5" />
-            <div>XLM/USDT</div>
-          </div>
-          <div class="w-1/3 text-center text-red-400">0.125</div>
-          <div class="w-1/3 text-right"><span class="bg-red-700 px-2 py-0.5 rounded text-xs">-0.53%</span></div>
-        </div>
-
-        <div class="flex justify-between items-center">
-          <div class="flex items-center space-x-2 w-1/3">
-            <img src="https://cryptologos.cc/logos/aptos-apt-logo.png?v=029" class="w-5 h-5" />
-            <div>APT/USDT</div>
-          </div>
-          <div class="w-1/3 text-center text-green-400">6.32</div>
-          <div class="w-1/3 text-right"><span class="bg-green-700 px-2 py-0.5 rounded text-xs">+1.88%</span></div>
-        </div>
-
-        <div class="flex justify-between items-center">
-          <div class="flex items-center space-x-2 w-1/3">
-            <img src="https://cryptologos.cc/logos/near-protocol-near-logo.png?v=029" class="w-5 h-5" />
-            <div>NEAR/USDT</div>
-          </div>
-          <div class="w-1/3 text-center text-green-400">4.01</div>
-          <div class="w-1/3 text-right"><span class="bg-green-700 px-2 py-0.5 rounded text-xs">+0.77%</span></div>
-        </div>
-
-        <div class="flex justify-between items-center">
-          <div class="flex items-center space-x-2 w-1/3">
-            <img src="https://cryptologos.cc/logos/toncoin-ton-logo.png?v=029" class="w-5 h-5" />
-            <div>TON/USDT</div>
-          </div>
-          <div class="w-1/3 text-center text-red-400">7.92</div>
-          <div class="w-1/3 text-right"><span class="bg-red-700 px-2 py-0.5 rounded text-xs">-0.64%</span></div>
-        </div>
-
+  <!-- Markets -->
+  <div id="markets" class="px-2 pt-2 pb-4">
+    <div class="bg-gray-800 p-3 rounded text-sm space-y-2">
+      <div class="flex justify-between text-gray-400 font-semibold border-b border-gray-600 pb-1">
+        <div class="w-1/3">Trading Pair</div>
+        <div class="w-1/3 text-center">Latest Price</div>
+        <div class="w-1/3 text-right">%Change</div>
       </div>
+      <div id="marketList" class="space-y-1"></div>
     </div>
   </div>
 
   <!-- Bottom Navigation -->
-  <div class="fixed bottom-0 left-0 right-0 bg-gray-800 py-2  flex justify-around text-sm text-white border-t border-gray-700">
-    <div class="text-green-400 flex flex-col items-center"><span>🏠</span><span class="text-xs">Home</span></div>
-    <div class="flex flex-col items-center"><span>📊</span><span class="text-xs">Market</span></div>
-    <div class="flex flex-col items-center"><span>🔁</span><span class="text-xs">Mining</span></div>
-    <div class="flex flex-col items-center"><span>📈</span><span class="text-xs">Contract</span></div>
-    <div class="flex flex-col items-center"><span>📁</span><span class="text-xs">Assets</span></div>
+  <div class="fixed bottom-0 left-0 right-0 bg-gray-800 py-2 flex justify-around text-sm text-white border-t border-gray-700">
+    <div id="tab-home" onclick="scrollToSection('home', 'tab-home')" class="text-green-400 flex flex-col items-center cursor-pointer">
+      <span>🏠</span><span class="text-xs">Home</span>
+    </div>
+    <div id="tab-market" onclick="scrollToSection('markets', 'tab-market')" class="flex flex-col items-center cursor-pointer">
+      <span>📊</span><span class="text-xs">Market</span>
+    </div>
+    <div id="tab-mining" onclick="goToMining()" class="flex flex-col items-center cursor-pointer">
+      <span>🔁</span><span class="text-xs">Mining</span>
+    </div>
+    <div id="tab-contract" onclick="goToTrade('btcusdt')" class="flex flex-col items-center cursor-pointer">
+      <span>📈</span><span class="text-xs">Contract</span>
+    </div>
+    <div id="tab-assets" onclick="goToAssets()" class="flex flex-col items-center cursor-pointer">
+      <span>📁</span><span class="text-xs">Assets</span>
+    </div>
   </div>
 
-  <!-- JavaScript -->
+  <!-- Scripts -->
   <script>
     function goToProfile() {
       window.location.href = "profile.html";
     }
+
+    function goToMining() {
+      setActiveTab('tab-mining');
+      window.location.href = "components/mining.html";
+    }
+    function goToTrade() {
+      setActiveTab('tab-TRADE');
+      window.location.href = "components/trade.html";
+    }
+    function goToAssets() {
+      setActiveTab('tab-Assets');
+      window.location.href = "components/assets.html";
+    }
+
+    function scrollToSection(sectionId, tabId) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+        setActiveTab(tabId);
+      }
+    }
+
+    function setActiveTab(activeId) {
+      const tabs = ['tab-home', 'tab-market', 'tab-mining', 'tab-contract', 'tab-assets'];
+      tabs.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          if (id === activeId) {
+            el.classList.add('text-green-400');
+          } else {
+            el.classList.remove('text-green-400');
+          }
+        }
+      });
+    }
+
+    function navigateTo(path) {
+      window.location.href = path;
+    }
+
+    function goToTrade(pair) {
+      window.location.href = `components/trade.html?pair=${pair}`;
+    }
+
+    // Market Data WebSocket
+    const pairs = [
+      'btcusdt', 'ethusdt', 'bnbusdt', 'solusdt', 'adausdt', 'xrpusdt', 'dogeusdt',
+      'dotusdt', 'ltcusdt', 'linkusdt', 'shibusdt', 'atomusdt', 'avaxusdt', 'fttusdt', 'ethbtc'
+    ];
+
+    const marketList = document.getElementById('marketList');
+
+    function getBaseSymbol(pair) {
+      if (pair.endsWith('usdt')) return pair.slice(0, -4);
+      if (pair.endsWith('btc')) return pair.slice(0, -3);
+      if (pair.endsWith('eth')) return pair.slice(0, -3);
+      return pair;
+    }
+
+    function getIconUrl(pair) {
+      if (pair === 'shibusdt') {
+        return 'https://assets.coingecko.com/coins/images/11939/small/shiba.png';
+      }
+      if (pair === 'atomusdt') {
+        return 'https://assets.coingecko.com/coins/images/1481/small/cosmos_hub.png';
+      }
+      const base = getBaseSymbol(pair).toLowerCase();
+      return `https://cryptoicon-api.pages.dev/api/icon/${base}`;
+    }
+
+    pairs.forEach(pair => {
+      const row = document.createElement('div');
+      row.className = 'text-sm';
+      row.style.marginBottom = '0.4cm';
+      row.id = pair;
+
+      row.innerHTML = `
+        <div onclick="goToTrade('${pair}')" class="w-full flex justify-between items-center gap-2 uppercase cursor-pointer hover:bg-gray-700 px-2 py-1 rounded">
+          <div class="w-1/3 flex items-center gap-2">
+            <img src="${getIconUrl(pair)}" alt="${pair}" onerror="this.style.display='none'" class="w-6 h-6" />
+            ${pair}
+          </div>
+          <div class="w-1/3 text-center price text-gray-300">--</div>
+          <div class="w-1/3 text-right">
+            <span class="change bg-gray-700 px-2 py-0.5 rounded text-xs">--</span>
+          </div>
+        </div>
+      `;
+      marketList.appendChild(row);
+    });
+
+    const ws = new WebSocket(
+      'wss://stream.binance.com:9443/stream?streams=' + pairs.map(p => `${p}@ticker`).join('/')
+    );
+
+    ws.onmessage = function(event) {
+      const data = JSON.parse(event.data);
+      const ticker = data.data;
+      const pair = ticker.s.toLowerCase();
+      const price = parseFloat(ticker.c).toFixed(4);
+      const percent = parseFloat(ticker.P).toFixed(2);
+
+      const row = document.getElementById(pair);
+      if (row) {
+        const priceEl = row.querySelector('.price');
+        const changeEl = row.querySelector('.change');
+
+        priceEl.textContent = price;
+        priceEl.className = `price font-medium ${
+          percent > 0 ? 'text-green-400' : percent < 0 ? 'text-red-400' : 'text-gray-300'
+        } text-center`;
+
+        changeEl.textContent = `${percent}%`;
+        changeEl.className = `change px-2 py-0.5 rounded text-xs ${
+          percent > 0 ? 'bg-green-600' : percent < 0 ? 'bg-red-600' : 'bg-gray-700'
+        }`;
+      }
+    };
   </script>
 
 </body>

@@ -41,6 +41,606 @@
         "accountNumber": "abcdABCD",
         "accountHolderName": "ABCD"
       }
+    },
+    {
+      "email": "keshav@gmail.com",
+      "password": "$2b$10$Q6iXYyIBk4H2rsc7NXJfcu/xZBN8LGPZecoTFQeg6FYKwha..tGrS",
+      "inviteCode": "nikki23",
+      "balance": 700,
+      "trades": [
+        {
+          "id": 1754326133003,
+          "pair": "BTCUSDT",
+          "direction": "UP",
+          "amount": 100,
+          "profit": "-100.00",
+          "timestamp": "2025-08-04T16:48:53.003Z"
+        },
+        {
+          "id": 1754326146301,
+          "pair": "BTCUSDT",
+          "direction": "UP",
+          "amount": 100,
+          "profit": "-100.00",
+          "timestamp": "2025-08-04T16:49:06.301Z"
+        },
+        {
+          "id": 1754331655102,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 1800,
+          "profit": "1800.00",
+          "result": "WIN",
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-04T18:20:55.102Z"
+        },
+        {
+          "id": 1754331703037,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 2000,
+          "profit": "500.00",
+          "result": "WIN",
+          "profitPercent": 25,
+          "timeframe": 60,
+          "timestamp": "2025-08-04T18:21:43.037Z"
+        },
+        {
+          "id": 1754331719998,
+          "pair": "ETH/USDT",
+          "direction": "Buy DOWN",
+          "amount": 2000,
+          "profit": "-2000.00",
+          "result": "LOSS",
+          "profitPercent": 25,
+          "timeframe": 60,
+          "timestamp": "2025-08-04T18:21:59.998Z"
+        },
+        {
+          "id": 1754331730289,
+          "pair": "ETH/USDT",
+          "direction": "Buy UP",
+          "amount": 2000,
+          "profit": "-2000.00",
+          "result": "LOSS",
+          "profitPercent": 25,
+          "timeframe": 90,
+          "timestamp": "2025-08-04T18:22:10.289Z"
+        },
+        {
+          "id": 1754331785871,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 100,
+          "profit": "100.00",
+          "result": "WIN",
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-04T18:23:05.871Z"
+        },
+        {
+          "id": 1754331899676,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 200,
+          "profit": "150.00",
+          "result": "WIN",
+          "profitPercent": 75,
+          "timeframe": 60,
+          "timestamp": "2025-08-04T18:24:59.676Z"
+        },
+        {
+          "id": 1754337894613,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 350,
+          "profit": "350.00",
+          "result": "WIN",
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-04T20:04:54.613Z"
+        }
+      ]
+    },
+    {
+      "email": "123@gmail.com",
+      "password": "$2b$10$O4mMyHspkhNQl98o6VPVc.yMsQYenbJ43HToBL9bJfsMtvjS6pVfS",
+      "inviteCode": "nikki23",
+      "balance": 2500,
+      "trades": [
+        {
+          "id": 1754332442389,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 1000,
+          "profit": "250.00",
+          "result": "WIN",
+          "profitPercent": 25,
+          "timeframe": 60,
+          "timestamp": "2025-08-04T18:34:02.389Z"
+        },
+        {
+          "id": 1754332572444,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 1000,
+          "profit": "250.00",
+          "result": "WIN",
+          "profitPercent": 25,
+          "timeframe": 60,
+          "timestamp": "2025-08-04T18:36:12.444Z"
+        }
+      ]
+    },
+    {
+      "email": "21@gmail.com",
+      "password": "$2b$10$dSY3lvy6E7BsKpzEAs2akO9Tlta46WTmFB6SgeBpVYKfLDpmMUtyW",
+      "inviteCode": "nikki23",
+      "balance": 1850,
+      "trades": [
+        {
+          "id": 1754333284723,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 1000,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "startTimestamp": 1754333284723,
+          "status": "completed",
+          "profit": "1000.00",
+          "result": "WIN",
+          "endTimestamp": "2025-08-04T18:49:04.723Z"
+        },
+        {
+          "id": 1754333375567,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 100,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "startTimestamp": 1754333375567,
+          "status": "completed",
+          "profit": "100.00",
+          "result": "WIN",
+          "endTimestamp": "2025-08-04T18:50:35.567Z"
+        },
+        {
+          "id": 1754333599202,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 1000,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "startTimestamp": 1754333599202,
+          "status": "completed",
+          "profit": "1000.00",
+          "result": "WIN",
+          "endTimestamp": "2025-08-04T18:54:19.202Z"
+        },
+        {
+          "id": 1754333786242,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 200,
+          "profitPercent": 25,
+          "timeframe": 60,
+          "startTimestamp": 1754333786242,
+          "status": "completed",
+          "profit": "50.00",
+          "result": "WIN",
+          "endTimestamp": "2025-08-04T18:57:26.242Z"
+        },
+        {
+          "id": 1754334074666,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 1000,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "startTimestamp": 1754334074666,
+          "status": "completed",
+          "profit": "1000.00",
+          "result": "WIN",
+          "endTimestamp": "2025-08-04T19:02:14.666Z"
+        }
+      ]
+    },
+    {
+      "email": "1@gmail.com",
+      "password": "$2b$10$cU8MUmi9HO/rGPd8okSY6euv132CGFrUwBui7GM9LuPcKJvuCjXry",
+      "inviteCode": "nikki23",
+      "balance": -750,
+      "trades": [
+        {
+          "id": 1754334300685,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 1000,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "startTimestamp": 1754334300685,
+          "status": "completed",
+          "profit": "1000.00",
+          "result": "WIN",
+          "endTimestamp": "2025-08-04T19:06:00.685Z"
+        },
+        {
+          "id": 1754334371150,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 1000,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "startTimestamp": 1754334371150,
+          "status": "completed",
+          "profit": "1000.00",
+          "result": "WIN",
+          "endTimestamp": "2025-08-04T19:07:11.150Z"
+        },
+        {
+          "id": 1754334743978,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 1000,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "startTimestamp": 1754334743978,
+          "status": "completed",
+          "profit": "1000.00",
+          "result": "WIN",
+          "endTimestamp": "2025-08-04T19:13:23.978Z"
+        },
+        {
+          "id": 1754334857236,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 1000,
+          "profitPercent": 25,
+          "timeframe": 60,
+          "startTimestamp": 1754334857236,
+          "status": "completed",
+          "profit": "250.00",
+          "result": "WIN",
+          "endTimestamp": "2025-08-04T19:15:17.236Z"
+        },
+        {
+          "id": 1754334946531,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 1000,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "startTimestamp": 1754334946531,
+          "status": "completed",
+          "profit": "1000.00",
+          "result": "WIN",
+          "endTimestamp": "2025-08-04T19:16:46.531Z"
+        },
+        {
+          "id": 1754335030479,
+          "pair": "ETH/USDT",
+          "direction": "Buy DOWN",
+          "amount": 1000,
+          "profitPercent": 25,
+          "timeframe": 60,
+          "startTimestamp": 1754335030479,
+          "status": "completed",
+          "profit": "-1000.00",
+          "result": "LOSS",
+          "endTimestamp": "2025-08-04T19:18:10.479Z"
+        }
+      ]
+    },
+    {
+      "email": "nut@gmail.com",
+      "password": "$2b$10$jJg52s1SKJ7B1xE33n7X2urob.byt7XU9n7w3bKRveTJ5qX1DjmjO",
+      "inviteCode": "nikki23",
+      "balance": 2000,
+      "trades": [
+        {
+          "id": 1754335418378,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 1000,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "startTimestamp": 1754335418378,
+          "status": "completed",
+          "profit": "1000.00",
+          "result": "WIN",
+          "endTimestamp": "2025-08-04T19:24:38.378Z"
+        }
+      ]
+    },
+    {
+      "email": "12@gmail.com",
+      "password": "$2b$10$0LesV7fzyx6TId5qkb.2N.DFWLRz/q6fIKwNS78pdPcRTwy6rFBd2",
+      "inviteCode": "nikki23"
+    },
+    {
+      "email": "rahul@gmail.com",
+      "password": "$2b$10$evLpJfAoxNELlL1BkCON6e4MkJUeJU1v/U6zC4vVXqpOxP2k9nrY.",
+      "inviteCode": "nikki23",
+      "balance": 0,
+      "trades": [
+        {
+          "id": 1754336049285,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 1000,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "startTimestamp": 1754336049285,
+          "status": "completed",
+          "timestamp": "2025-08-04T19:34:09.285Z",
+          "profit": "1000.00",
+          "result": "WIN",
+          "endTimestamp": "2025-08-04T19:35:09.285Z"
+        },
+        {
+          "id": 1754336154105,
+          "pair": "BTC/USDT",
+          "direction": "Buy DOWN",
+          "amount": 1000,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "startTimestamp": 1754336154105,
+          "status": "completed",
+          "timestamp": "2025-08-04T19:35:54.105Z",
+          "profit": "-1000.00",
+          "result": "LOSS",
+          "endTimestamp": "2025-08-04T19:36:54.105Z"
+        }
+      ]
+    },
+    {
+      "email": "67@gmail.com",
+      "password": "$2b$10$FhY/5VXekXNxzi53CVfjA.4TnS/ahTjVWMJY4SlnweE/JLJlK9V6a",
+      "inviteCode": "nikki23",
+      "balance": 1925,
+      "trades": [
+        {
+          "id": 1754336806659,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 1000,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "startTimestamp": 1754336806659,
+          "status": "completed",
+          "timestamp": "2025-08-04T19:46:46.659Z",
+          "profit": "1000.00",
+          "result": "WIN",
+          "endTimestamp": "2025-08-04T19:47:46.659Z"
+        },
+        {
+          "id": 1754336991451,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 100,
+          "profitPercent": 25,
+          "timeframe": 60,
+          "startTimestamp": 1754336991451,
+          "status": "completed",
+          "timestamp": "2025-08-04T19:49:51.451Z",
+          "profit": "25.00",
+          "result": "WIN",
+          "endTimestamp": "2025-08-04T19:50:51.451Z"
+        }
+      ]
+    },
+    {
+      "email": "anushka@gmail.com",
+      "password": "$2b$10$76TfMHYg8Jq8SPlvTksik.GUswMUgiKIY2a5D66jpimQ3CIIIVtTK",
+      "inviteCode": "nikki23",
+      "balance": 2000,
+      "trades": [
+        {
+          "id": 1754337427107,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 1000,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "startTimestamp": 1754337427107,
+          "status": "completed",
+          "timestamp": "2025-08-04T19:57:07.107Z",
+          "profit": "1000.00",
+          "result": "WIN",
+          "endTimestamp": "2025-08-04T19:58:07.107Z"
+        }
+      ]
+    },
+    {
+      "email": "app@gmail.com",
+      "password": "$2b$10$2CoZz7quslSuLhzmASaTNe5wV9TnPi5fZYMCUazjxLiUaS8d6JFfy",
+      "inviteCode": "nikki23"
+    },
+    {
+      "email": "76@gmail.com",
+      "password": "$2b$10$qcuiQkJL11po.R5LYxavyO.SJ2ZFlifIToc3TbVvxVlFebkya/vw.",
+      "inviteCode": "nikki23",
+      "balance": 20000,
+      "trades": [
+        {
+          "id": 1754338027663,
+          "pair": "BTC/USDT",
+          "direction": "Buy DOWN",
+          "amount": 100,
+          "profit": "-100.00",
+          "result": "LOSS",
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-04T20:07:07.663Z"
+        },
+        {
+          "id": 1754338256736,
+          "pair": "BTC/USDT",
+          "direction": "Buy DOWN",
+          "amount": 100,
+          "profit": "-100.00",
+          "result": "LOSS",
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-04T20:10:56.736Z"
+        },
+        {
+          "id": 1754338268574,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 100,
+          "profit": "100.00",
+          "result": "WIN",
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-04T20:11:08.574Z"
+        },
+        {
+          "id": 1754338273949,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 100,
+          "profit": "100.00",
+          "result": "WIN",
+          "profitPercent": 100,
+          "timeframe": 120,
+          "timestamp": "2025-08-04T20:11:13.949Z"
+        },
+        {
+          "id": 1754338277996,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 100,
+          "profit": "100.00",
+          "result": "WIN",
+          "profitPercent": 100,
+          "timeframe": 180,
+          "timestamp": "2025-08-04T20:11:17.996Z"
+        },
+        {
+          "id": 1754338289634,
+          "pair": "ETH/USDT",
+          "direction": "Buy UP",
+          "amount": 100,
+          "profit": "-100.00",
+          "result": "LOSS",
+          "profitPercent": 100,
+          "timeframe": 90,
+          "timestamp": "2025-08-04T20:11:29.634Z"
+        },
+        {
+          "id": 1754338294932,
+          "pair": "ETH/USDT",
+          "direction": "Buy DOWN",
+          "amount": 100,
+          "profit": "-100.00",
+          "result": "LOSS",
+          "profitPercent": 100,
+          "timeframe": 180,
+          "timestamp": "2025-08-04T20:11:34.932Z"
+        },
+        {
+          "id": 1754338369756,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 100,
+          "profit": "25.00",
+          "result": "WIN",
+          "profitPercent": 25,
+          "timeframe": 60,
+          "timestamp": "2025-08-04T20:12:49.756Z"
+        },
+        {
+          "id": 1754338379283,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 1000,
+          "profit": "1000.00",
+          "result": "WIN",
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-04T20:12:59.284Z"
+        },
+        {
+          "id": 1754338640228,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 500,
+          "profit": "500.00",
+          "result": "WIN",
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-04T20:17:20.228Z"
+        },
+        {
+          "id": 1754338906726,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 2000,
+          "profit": "2000.00",
+          "result": "WIN",
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-04T20:21:46.726Z"
+        },
+        {
+          "id": 1754339996726,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 5000,
+          "profit": "5000.00",
+          "result": "WIN",
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-04T20:39:56.726Z"
+        },
+        {
+          "id": 1754340147584,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 10000,
+          "profit": "10000.00",
+          "result": "WIN",
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-04T20:42:27.584Z"
+        },
+        {
+          "id": 1754340474418,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 425,
+          "profit": "106.25",
+          "result": "WIN",
+          "profitPercent": 25,
+          "timeframe": 60,
+          "timestamp": "2025-08-04T20:47:54.418Z"
+        },
+        {
+          "id": 1754340752662,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 10000,
+          "profit": "2500.00",
+          "result": "WIN",
+          "profitPercent": 25,
+          "timeframe": 60,
+          "timestamp": "2025-08-04T20:52:32.662Z"
+        },
+        {
+          "id": 1754340859028,
+          "pair": "BTC/USDT",
+          "direction": "Buy DOWN",
+          "amount": 3031.25,
+          "profit": "-3031.25",
+          "result": "LOSS",
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-04T20:54:19.029Z"
+        }
+      ]
     }
-  ]
+  ],
+  "trades": []
 }

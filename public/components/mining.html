@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mining Machines</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white min-h-screen pb-20">
+
+  <!-- Back Arrow -->
+  <div class="p-4 flex items-center space-x-2">
+    <button onclick="goBack()" class="text-white text-lg">←</button>
+    <h1 class="text-xl font-bold">Mining Machines</h1>
+  </div>
+
+  <!-- Info for new users -->
+  <div class="px-4 pb-4 text-sm text-gray-300">
+    <p>
+      Welcome to the mining zone. Choose your preferred machine to start earning crypto. 
+      Each machine offers different power, duration, and profit potential. Click "Read More" to view full details.
+    </p>
+  </div>
+
+  <!-- Mining Machine Cards -->
+  <div class="space-y-4 px-4">
+    <div class="bg-gray-800 rounded-xl p-4 shadow">
+      <div class="flex items-center space-x-4">
+        <img src="https://cryptoicon-api.pages.dev/api/icon/eth" class="w-10 h-10" alt="ETH" />
+        <div>
+          <h2 class="text-lg font-semibold">Ethereum Miner</h2>
+          <p class="text-sm text-gray-400">Efficient ETH mining rig with balanced ROI.</p>
+          <p class="text-sm text-green-400 font-semibold mt-1">Price: $599</p>
+        </div>
+      </div>
+      <details class="mt-3 text-sm text-gray-300">
+        <summary class="cursor-pointer text-blue-400 mt-2">Read More</summary>
+        <ul class="mt-2 space-y-1 list-disc list-inside">
+          <li>Unit Price: $599</li>
+          <li>Power Consumption: 1200W</li>
+          <li>Expected Duration: 360 days</li>
+          <li>Daily ROI: 2.1%</li>
+          <li>Minimum Holding: 15 days</li>
+          <li>Efficiency Rating: ★★★★☆</li>
+        </ul>
+      </details>
+    </div>
+
+    <div class="bg-gray-800 rounded-xl p-4 shadow">
+      <div class="flex items-center space-x-4">
+        <img src="https://cryptoicon-api.pages.dev/api/icon/btc" class="w-10 h-10" alt="BTC" />
+        <div>
+          <h2 class="text-lg font-semibold">Bitcoin Pro Miner</h2>
+          <p class="text-sm text-gray-400">High-end BTC machine with best output.</p>
+          <p class="text-sm text-green-400 font-semibold mt-1">Price: $1299</p>
+        </div>
+      </div>
+      <details class="mt-3 text-sm text-gray-300">
+        <summary class="cursor-pointer text-blue-400 mt-2">Read More</summary>
+        <ul class="mt-2 space-y-1 list-disc list-inside">
+          <li>Unit Price: $1299</li>
+          <li>Power Consumption: 2200W</li>
+          <li>Expected Duration: 450 days</li>
+          <li>Daily ROI: 2.8%</li>
+          <li>Minimum Holding: 30 days</li>
+          <li>Efficiency Rating: ★★★★★</li>
+        </ul>
+      </details>
+    </div>
+
+    <div class="bg-gray-800 rounded-xl p-4 shadow">
+      <div class="flex items-center space-x-4">
+        <img src="https://cryptoicon-api.pages.dev/api/icon/ltc" class="w-10 h-10" alt="LTC" />
+        <div>
+          <h2 class="text-lg font-semibold">Litecoin Mini Miner</h2>
+          <p class="text-sm text-gray-400">Good for beginners with low budget.</p>
+          <p class="text-sm text-green-400 font-semibold mt-1">Price: $299</p>
+        </div>
+      </div>
+      <details class="mt-3 text-sm text-gray-300">
+        <summary class="cursor-pointer text-blue-400 mt-2">Read More</summary>
+        <ul class="mt-2 space-y-1 list-disc list-inside">
+          <li>Unit Price: $299</li>
+          <li>Power Consumption: 650W</li>
+          <li>Expected Duration: 180 days</li>
+          <li>Daily ROI: 1.5%</li>
+          <li>Minimum Holding: 10 days</li>
+          <li>Efficiency Rating: ★★★☆☆</li>
+        </ul>
+      </details>
+    </div>
+
+    <div class="bg-gray-800 rounded-xl p-4 shadow">
+      <div class="flex items-center space-x-4">
+        <img src="https://cryptoicon-api.pages.dev/api/icon/doge" class="w-10 h-10" alt="DOGE" />
+        <div>
+          <h2 class="text-lg font-semibold">DOGE Storm Miner</h2>
+          <p class="text-sm text-gray-400">Fun and fast DOGE mining at low cost.</p>
+          <p class="text-sm text-green-400 font-semibold mt-1">Price: $249</p>
+        </div>
+      </div>
+      <details class="mt-3 text-sm text-gray-300">
+        <summary class="cursor-pointer text-blue-400 mt-2">Read More</summary>
+        <ul class="mt-2 space-y-1 list-disc list-inside">
+          <li>Unit Price: $249</li>
+          <li>Power Consumption: 550W</li>
+          <li>Expected Duration: 150 days</li>
+          <li>Daily ROI: 1.2%</li>
+          <li>Minimum Holding: 7 days</li>
+          <li>Efficiency Rating: ★★☆☆☆</li>
+        </ul>
+      </details>
+    </div>
+
+    <div class="bg-gray-800 rounded-xl p-4 shadow">
+      <div class="flex items-center space-x-4">
+        <img src="https://cryptoicon-api.pages.dev/api/icon/dot" class="w-10 h-10" alt="DOT" />
+        <div>
+          <h2 class="text-lg font-semibold">DOT Power Rig</h2>
+          <p class="text-sm text-gray-400">Strong staking power with decent profit.</p>
+          <p class="text-sm text-green-400 font-semibold mt-1">Price: $449</p>
+        </div>
+      </div>
+      <details class="mt-3 text-sm text-gray-300">
+        <summary class="cursor-pointer text-blue-400 mt-2">Read More</summary>
+        <ul class="mt-2 space-y-1 list-disc list-inside">
+          <li>Unit Price: $449</li>
+          <li>Power Consumption: 750W</li>
+          <li>Expected Duration: 240 days</li>
+          <li>Daily ROI: 1.9%</li>
+          <li>Minimum Holding: 14 days</li>
+          <li>Efficiency Rating: ★★★★☆</li>
+        </ul>
+      </details>
+    </div>
+
+    <div class="bg-gray-800 rounded-xl p-4 shadow">
+      <div class="flex items-center space-x-4">
+        <img src="https://cryptoicon-api.pages.dev/api/icon/xmr" class="w-10 h-10" alt="XMR" />
+        <div>
+          <h2 class="text-lg font-semibold">Monero Stealth Miner</h2>
+          <p class="text-sm text-gray-400">Privacy-focused mining solution.</p>
+          <p class="text-sm text-green-400 font-semibold mt-1">Price: $399</p>
+        </div>
+      </div>
+      <details class="mt-3 text-sm text-gray-300">
+        <summary class="cursor-pointer text-blue-400 mt-2">Read More</summary>
+        <ul class="mt-2 space-y-1 list-disc list-inside">
+          <li>Unit Price: $399</li>
+          <li>Power Consumption: 900W</li>
+          <li>Expected Duration: 300 days</li>
+          <li>Daily ROI: 2.0%</li>
+          <li>Minimum Holding: 20 days</li>
+          <li>Efficiency Rating: ★★★★☆</li>
+        </ul>
+      </details>
+    </div>
+  </div>
+
+  <script>
+    function goBack() {
+      history.back();
+    }
+  </script>
+
+</body>
+</html>
