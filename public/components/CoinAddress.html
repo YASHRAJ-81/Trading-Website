@@ -3,152 +3,146 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Set Crypto Withdrawal Address</title>
+  <title>Withdraw</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 text-white min-h-screen flex flex-col">
 
   <!-- Header -->
   <div class="bg-[#0a9376] px-4 py-4 flex items-center">
-    <button onclick="history.back()" class="mr-4">
+    <button onclick="history.back()" class="mr-4" aria-label="Go back">
       <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
       </svg>
     </button>
-    <h1 class="text-lg font-semibold">💰 Crypto Withdrawal Address</h1>
+    <h1 class="text-lg font-semibold">💰 Withdraw</h1>
   </div>
 
   <!-- Form -->
   <div class="p-6 flex-1">
-    <form id="coin-address-form" class="space-y-6">
-      <!-- Custom Select Coin -->
-      <div class="relative">
-        <label class="block mb-1 font-medium">Select Cryptocurrency</label>
-        <div class="relative">
-          <button type="button" id="coin-dropdown-btn" class="w-full p-2 rounded bg-white text-black border border-gray-600 text-left">
-            -- Select a coin --
-          </button>
-          <ul id="coin-dropdown" class="absolute z-10 w-full max-h-60 overflow-y-auto bg-white text-black border border-gray-600 rounded mt-1 hidden shadow-lg">
-            <!-- Items will be populated by JS -->
-          </ul>
-        </div>
-      </div>
-
-      <!-- Select Network -->
+    <form id="withdrawal-form" class="space-y-6" novalidate>
+      <!-- Withdrawal Amount -->
       <div>
-        <label class="block mb-1 font-medium">Select Network</label>
-        <select id="network" class="w-full p-2 rounded bg-white text-black border border-gray-600 focus:outline-none">
-          <option value="">-- Select a network --</option>
-        </select>
+        <label for="withdraw-amount" class="block mb-1 font-medium">Enter Amount to Withdraw</label>
+        <input 
+          type="number" 
+          id="withdraw-amount" 
+          name="withdraw-amount"
+          required 
+          placeholder="Enter amount" 
+          min="0.01" 
+          step="0.01"
+          class="w-full p-2 rounded bg-white text-black border border-gray-600 focus:outline-none" 
+          autocomplete="off"
+          aria-describedby="balance-display"
+        />
+        <p class="text-sm text-gray-400 mt-1">
+          Available balance: <span id="balance-display">0.00</span>
+        </p>
       </div>
 
-      <!-- Address Field -->
-      <div>
-        <label class="block mb-1 font-medium">Withdrawal Address</label>
-        <input type="text" id="wallet-address" required placeholder="Paste your wallet address" class="w-full p-2 rounded bg-white text-black border border-gray-600 focus:outline-none" />
-      </div>
-
-      <!-- Submit -->
-      <button type="submit" class="w-full bg-[#0a9376] py-2 rounded font-semibold hover:bg-teal-600 transition">
-        Save Address
+      <!-- Submit Button -->
+      <button 
+        type="submit" 
+        class="w-full bg-[#0a9376] py-2 rounded font-semibold hover:bg-teal-600 transition"
+        id="submit-btn"
+      >
+        Request Withdrawal
       </button>
 
-      <p id="message" class="text-sm mt-4 text-center hidden"></p>
+      <p id="message" class="text-sm mt-4 text-center hidden" role="alert" aria-live="polite"></p>
     </form>
   </div>
 
   <script>
-    const coins = [
-      { name: "Bitcoin", symbol: "BTC", networks: ["BTC"] },
-      { name: "Ethereum", symbol: "ETH", networks: ["Ethereum", "Arbitrum", "Optimism"] },
-      { name: "Tether", symbol: "USDT", networks: ["Ethereum", "TRC20", "BEP20"] },
-      { name: "USD Coin", symbol: "USDC", networks: ["Ethereum", "Solana", "Polygon"] },
-      { name: "BNB", symbol: "BNB", networks: ["BEP20"] },
-      { name: "XRP", symbol: "XRP", networks: ["XRP Ledger"] },
-      { name: "Polygon", symbol: "MATIC", networks: ["Polygon"] },
-      { name: "Cardano", symbol: "ADA", networks: ["Cardano"] },
-      { name: "Solana", symbol: "SOL", networks: ["Solana"] },
-      { name: "TRON", symbol: "TRX", networks: ["TRC20"] },
-      { name: "Litecoin", symbol: "LTC", networks: ["LTC"] },
-      { name: "Avalanche", symbol: "AVAX", networks: ["AVAX C-Chain"] },
-      { name: "Dogecoin", symbol: "DOGE", networks: ["DOGE"] },
-      { name: "Shiba Inu", symbol: "SHIB", networks: ["Ethereum"] },
-      { name: "Chainlink", symbol: "LINK", networks: ["Ethereum"] },
-      { name: "Dai", symbol: "DAI", networks: ["Ethereum", "Polygon"] },
-      { name: "Uniswap", symbol: "UNI", networks: ["Ethereum"] },
-      { name: "Aptos", symbol: "APT", networks: ["Aptos"] },
-      { name: "Fantom", symbol: "FTM", networks: ["Fantom"] },
-      { name: "Arbitrum", symbol: "ARB", networks: ["Arbitrum"] }
-    ];
-
-    const coinDropdown = document.getElementById('coin-dropdown');
-    const coinDropdownBtn = document.getElementById('coin-dropdown-btn');
-    const networkSelect = document.getElementById('network');
+    const balanceDisplay = document.getElementById('balance-display');
     const messageEl = document.getElementById('message');
+    const submitBtn = document.getElementById('submit-btn');
 
-    let selectedCoinSymbol = "";
-
-    // Toggle dropdown
-    coinDropdownBtn.addEventListener('click', () => {
-      coinDropdown.classList.toggle('hidden');
-    });
-
-    // Close dropdown on outside click
-    document.addEventListener('click', (e) => {
-      if (!coinDropdown.contains(e.target) && e.target !== coinDropdownBtn) {
-        coinDropdown.classList.add('hidden');
-      }
-    });
-
-    // Populate coin list
-    coins.forEach(coin => {
-      const li = document.createElement('li');
-      li.textContent = `${coin.name} (${coin.symbol})`;
-      li.className = "px-4 py-2 hover:bg-gray-200 cursor-pointer";
-      li.dataset.symbol = coin.symbol;
-      coinDropdown.appendChild(li);
-
-      li.addEventListener('click', () => {
-        selectedCoinSymbol = coin.symbol;
-        coinDropdownBtn.textContent = `${coin.name} (${coin.symbol})`;
-        coinDropdown.classList.add('hidden');
-        updateNetworkOptions();
-      });
-    });
-
-    function updateNetworkOptions() {
-      const coin = coins.find(c => c.symbol === selectedCoinSymbol);
-      networkSelect.innerHTML = '<option value="">-- Select a network --</option>';
-
-      if (coin) {
-        coin.networks.forEach(network => {
-          const opt = document.createElement("option");
-          opt.value = network;
-          opt.textContent = network;
-          networkSelect.appendChild(opt);
-        });
+    // Fetch user profile balance on page load
+    async function fetchUserBalance() {
+      try {
+        const res = await fetch('/profile-data', { cache: 'no-store' });
+        if (!res.ok) throw new Error('Failed to fetch profile data');
+        const data = await res.json();
+        // Show balance or 0 if missing
+        const balance = typeof data.balance === 'number' ? data.balance : 0;
+        balanceDisplay.textContent = balance.toFixed(2);
+        return balance;
+      } catch (e) {
+        console.error('Error fetching balance:', e);
+        balanceDisplay.textContent = '0.00';
+        showMessage('⚠️ Could not fetch balance. Try refreshing the page.', true);
+        return 0;
       }
     }
 
-    document.getElementById('coin-address-form').addEventListener('submit', (e) => {
+    // Show message with optional error styling
+    function showMessage(msg, isError = false) {
+      messageEl.textContent = msg;
+      messageEl.className = `text-sm mt-4 text-center ${isError ? 'text-red-400' : 'text-green-400'}`;
+      messageEl.classList.remove('hidden');
+    }
+
+    // Clear messages
+    function clearMessage() {
+      messageEl.textContent = '';
+      messageEl.classList.add('hidden');
+    }
+
+    document.getElementById('withdrawal-form').addEventListener('submit', async (e) => {
       e.preventDefault();
+      clearMessage();
 
-      const coin = selectedCoinSymbol;
-      const network = networkSelect.value;
-      const walletAddress = document.getElementById('wallet-address').value;
+      const input = document.getElementById('withdraw-amount');
+      const amountStr = input.value.trim();
+      const amount = parseFloat(amountStr);
 
-      if (!coin || !network || !walletAddress.trim()) {
-        messageEl.textContent = "❌ Please fill all fields correctly.";
-        messageEl.className = "text-sm mt-4 text-center text-red-400";
-        messageEl.classList.remove("hidden");
+      const availableBalance = parseFloat(balanceDisplay.textContent);
+
+      // Validate input amount
+      if (isNaN(amount) || amount <= 0) {
+        showMessage("❌ Please enter a valid amount greater than 0.", true);
         return;
       }
 
-      // Simulated success message
-      messageEl.textContent = "Wallet Address Submitted";
-      messageEl.className = "text-sm mt-4 text-center text-gray-400";
-      messageEl.classList.remove("hidden");
+      if (amount > availableBalance) {
+        showMessage(`❌ You can't withdraw more than your balance ($${availableBalance.toFixed(2)}).`, true);
+        return;
+      }
+
+      // Disable submit button to prevent multiple submissions
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+
+      try {
+        const res = await fetch('/withdraw', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ amount })
+        });
+
+        const data = await res.json();
+
+        if (res.ok && data.success) {
+          showMessage("✅ Withdrawal request submitted. Awaiting admin approval.");
+          input.value = '';
+          // Optionally refresh balance by re-fetching profile data
+          const updatedBalance = await fetchUserBalance();
+        } else {
+          showMessage(`❌ ${data.error || data.message || 'Failed to submit withdrawal request.'}`, true);
+        }
+      } catch (error) {
+        console.error('Withdrawal request error:', error);
+        showMessage("❌ Network error. Please try again later.", true);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Request Withdrawal';
+      }
     });
+
+    // On load, fetch and display balance
+    fetchUserBalance();
   </script>
 </body>
 </html>

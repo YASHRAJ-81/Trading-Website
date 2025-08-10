@@ -1,4 +1,10 @@
 {
+  "admin": [
+    {
+      "username": "admin",
+      "password": "$2b$12$avvGiAlw.gBK6qSNPbAFHeC/1J9NcPwtXS3Zfex6L6Bt.xR6Lp2NS"
+    }
+  ],
   "users": [
     {
       "email": "abcd@gmail.com",
@@ -46,7 +52,7 @@
       "email": "keshav@gmail.com",
       "password": "$2b$10$Q6iXYyIBk4H2rsc7NXJfcu/xZBN8LGPZecoTFQeg6FYKwha..tGrS",
       "inviteCode": "nikki23",
-      "balance": 847.5500000000001,
+      "balance": 27000,
       "trades": [
         {
           "id": 1754326133003,
@@ -529,8 +535,196 @@
           "profit": "-3.00",
           "result": "LOSS",
           "forcedLoss": true
+        },
+        {
+          "id": 1754499060623,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 0.55,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-06T16:51:00.623Z",
+          "startTime": 1754499060623,
+          "status": "completed",
+          "profit": "0.55",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        {
+          "id": 1754500880029,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 50,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-06T17:21:20.029Z",
+          "startTime": 1754500880029,
+          "status": "completed",
+          "profit": "50.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        {
+          "id": 1754501085397,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 98,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-06T17:24:45.397Z",
+          "startTime": 1754501085397,
+          "status": "completed",
+          "profit": "98.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        {
+          "id": 1754501580438,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 6,
+          "profitPercent": 30,
+          "timeframe": 10,
+          "timestamp": "2025-08-06T17:33:00.438Z",
+          "startTime": 1754501580438,
+          "status": "completed",
+          "profit": "1.80",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        {
+          "id": 1754501617767,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 7.9,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-06T17:33:37.767Z",
+          "startTime": 1754501617767,
+          "status": "completed",
+          "profit": "7.90",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        {
+          "id": 1754501646034,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 12,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-06T17:34:06.034Z",
+          "startTime": 1754501646034,
+          "status": "completed",
+          "profit": "-12.00",
+          "result": "LOSS",
+          "forcedLoss": true
+        },
+        {
+          "id": 1754501665485,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 10,
+          "profitPercent": 50,
+          "timeframe": 90,
+          "timestamp": "2025-08-06T17:34:25.485Z",
+          "startTime": 1754501665485,
+          "status": "completed",
+          "profit": "-5.00",
+          "result": "LOSS",
+          "forcedLoss": true
+        },
+        {
+          "id": 1754502231740,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 10,
+          "profitPercent": 30,
+          "timeframe": 10,
+          "timestamp": "2025-08-06T17:43:51.740Z",
+          "startTime": 1754502231740,
+          "status": "completed",
+          "profit": "3.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        {
+          "id": 1754502260507,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 91,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-06T17:44:20.507Z",
+          "startTime": 1754502260507,
+          "status": "completed",
+          "profit": "91.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        {
+          "id": 1754550233840,
+          "pair": "BTC/USDT",
+          "direction": "Buy DOWN",
+          "amount": 82,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-07T07:03:53.840Z",
+          "startTime": 1754550233840,
+          "status": "completed",
+          "profit": "82.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        {
+          "id": 1754550252535,
+          "pair": "BTC/USDT",
+          "direction": "Buy DOWN",
+          "amount": 800,
+          "profitPercent": 70,
+          "timeframe": 10,
+          "timestamp": "2025-08-07T07:04:12.535Z",
+          "startTime": 1754550252535,
+          "status": "completed",
+          "profit": "560.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        {
+          "id": 1754550299967,
+          "pair": "BTC/USDT",
+          "direction": "Buy DOWN",
+          "amount": 1000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-07T07:04:59.967Z",
+          "startTime": 1754550299967,
+          "status": "completed",
+          "profit": "1000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        {
+          "id": 1754550340679,
+          "pair": "BTC/USDT",
+          "direction": "Buy DOWN",
+          "amount": 24.8,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-07T07:05:40.679Z",
+          "startTime": 1754550340679,
+          "status": "completed",
+          "profit": "-24.80",
+          "result": "LOSS",
+          "forcedLoss": true
         }
-      ]
+      ],
+      "bank": {
+        "bankName": "1234",
+        "accountNumber": "1234",
+        "accountHolderName": "keshav"
+      },
+      "creditScore": 500
     },
     {
       "email": "123@gmail.com",
@@ -1055,7 +1249,3698 @@
       "inviteCode": "nikki23",
       "balance": 2000,
       "trades": []
+    },
+    {
+      "email": "po@gmail.com",
+      "password": "$2b$10$zp3W/yh42uGeb77DvgOMU.S6AA7v9KmCb/KNZAfgweLC8O/7chr0W",
+      "inviteCode": "nikki23",
+      "balance": 2000,
+      "trades": []
+    },
+    {
+      "email": "live@gmail.com",
+      "password": "$2b$10$sVqQlHJ.Bpghl/DBd4fxmOaBMwRRx7/b6PdL2IIyyo1iPGvEWYe8i",
+      "inviteCode": "nikki23",
+      "balance": 2000,
+      "trades": [],
+      "frozen": false,
+      "loginHistory": [
+        "2025-08-08T07:29:15.266Z"
+      ]
+    },
+    {
+      "email": "8@gmail.com",
+      "password": "$2b$10$uTyga61IQygrNeYu40aNb.BkK1JzlEcIwmF7zzbL8TdNlvKpI6MSq",
+      "inviteCode": "nikki23",
+      "balance": 15000,
+      "trades": [
+        {
+          "id": 1754640388072,
+          "pair": "LTC/USDT",
+          "direction": "sell",
+          "amount": 4000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T08:06:28.072Z",
+          "startTime": 1754640388072,
+          "status": "completed",
+          "profit": "4000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        {
+          "id": 1754642725317,
+          "pair": "BTC/USDT",
+          "direction": "buy",
+          "amount": 2000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T08:45:25.317Z",
+          "startTime": 1754642725317,
+          "status": "completed",
+          "profit": "2000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        }
+      ],
+      "frozen": false,
+      "loginHistory": [
+        "2025-08-08T07:43:31.170Z",
+        "2025-08-08T08:01:57.144Z",
+        "2025-08-08T08:42:35.682Z"
+      ],
+      "bank": {
+        "bankName": "abcd",
+        "accountNumber": "1234",
+        "accountHolderName": "1234"
+      },
+      "withdrawPassword": "abcd"
+    },
+    {
+      "email": "jeetu@gmail.com",
+      "password": "$2b$10$ynhesgjD5qiNr7hcwfIPiuv5wOanIiE41N.jg7i3F08PqfRrqxQom",
+      "inviteCode": "nikki23",
+      "balance": 1000,
+      "trades": [
+        {
+          "id": 1754654084241,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 1000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T11:54:44.241Z",
+          "startTime": 1754654084241,
+          "status": "completed",
+          "profit": "1000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        }
+      ],
+      "frozen": false,
+      "loginHistory": [
+        "2025-08-08T11:28:21.430Z",
+        "2025-08-08T11:44:36.103Z",
+        "2025-08-08T11:57:28.431Z",
+        "2025-08-08T12:08:59.032Z"
+      ]
+    },
+    {
+      "email": "90@gmail.com",
+      "password": "$2b$10$DDKVwQI7jdea/zwdVNTLWeKlCSLv0G1oSbJwB/lIWrCEU0EADBw12",
+      "inviteCode": "nikki23",
+      "balance": 1900,
+      "trades": [
+        {
+          "id": 1754655670272,
+          "pair": "LTC/USDT",
+          "direction": "buy",
+          "amount": 1000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T12:21:10.272Z",
+          "startTime": 1754655670272,
+          "status": "completed",
+          "profit": "-1000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        },
+        {
+          "id": 1754656245529,
+          "pair": "LTC/USDT",
+          "direction": "sell",
+          "amount": 100,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-08T12:30:45.529Z",
+          "startTime": 1754656245529,
+          "status": "completed",
+          "profit": "-100.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      ],
+      "frozen": false,
+      "loginHistory": [
+        "2025-08-08T12:18:55.905Z",
+        "2025-08-08T12:25:13.976Z",
+        "2025-08-08T12:30:08.861Z"
+      ],
+      "bank": {
+        "bankName": "hdfc",
+        "accountNumber": "987778787",
+        "accountHolderName": "apple"
+      },
+      "withdrawPassword": "some"
+    },
+    {
+      "email": "mantavya@gmail.com",
+      "password": "$2b$10$LXlLJbzc33p4HkdE6UNiU.7Kjn6Sh/cTyheURGBY9Z33n0zXXVWGO",
+      "inviteCode": "nikki23",
+      "balance": 2000,
+      "trades": [
+        {
+          "id": 1754676497069,
+          "pair": "LTC/USDT",
+          "direction": "sell",
+          "amount": 2000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T18:08:17.069Z",
+          "startTime": 1754676497069,
+          "status": "completed",
+          "profit": "-2000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        },
+        {
+          "id": 1754676595718,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 100,
+          "profitPercent": 30,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T18:09:55.718Z",
+          "startTime": 1754676595718,
+          "status": "completed",
+          "profit": "30.00",
+          "result": "WIN",
+          "forcedLoss": false
+        }
+      ],
+      "frozen": false,
+      "loginHistory": [
+        "2025-08-08T18:07:20.597Z"
+      ],
+      "bank": {
+        "bankName": "hdfc",
+        "accountNumber": "123456789",
+        "accountHolderName": "mantavya"
+      }
+    },
+    {
+      "email": "krushika@gmail.com",
+      "password": "$2b$10$ZxUH5QhIzSepqUqJMh32Eur0JD52R2dxHt2wchRi2x5t1zl2QbOZC",
+      "inviteCode": "nikki23",
+      "balance": 10000,
+      "trades": [
+        {
+          "id": 1754762268660,
+          "pair": "BTC/USDT",
+          "direction": "sell",
+          "amount": 2000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-09T17:57:48.660Z",
+          "startTime": 1754762268660,
+          "status": "completed",
+          "profit": "-2000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        },
+        {
+          "id": 1754762500924,
+          "pair": "BTC/USDT",
+          "direction": "sell",
+          "amount": 1000,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-09T18:01:40.924Z",
+          "startTime": 1754762500924,
+          "status": "completed",
+          "profit": "-1000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      ],
+      "frozen": false,
+      "loginHistory": [
+        "2025-08-09T17:56:51.284Z",
+        "2025-08-09T18:03:18.403Z"
+      ]
+    },
+    {
+      "email": "e@gmail.com",
+      "password": "$2b$10$.2KLuUe3sAAWA6i/l1reNuWtuw6k8VlHS/nuXIb0aVv1a1ps2S.oC",
+      "inviteCode": "nikki23",
+      "userId": "001",
+      "balance": 1500,
+      "creditScore": 100,
+      "trades": [
+        {
+          "id": 1754820672198,
+          "pair": "BTC/USDT",
+          "direction": "sell",
+          "amount": 1000,
+          "profitPercent": 50,
+          "timeframe": 90,
+          "timestamp": "2025-08-10T10:11:12.198Z",
+          "startTime": 1754820672198,
+          "status": "completed",
+          "result": "LOSS",
+          "forcedLoss": false,
+          "adminDecision": "LOSS",
+          "profit": "-500.00"
+        }
+      ],
+      "frozen": false,
+      "loginHistory": [
+        "2025-08-10T07:55:19.209Z",
+        "2025-08-10T10:07:43.446Z",
+        "2025-08-10T11:01:00.000Z",
+        "2025-08-10T12:32:51.382Z"
+      ]
     }
   ],
-  "trades": []
+  "trades": [],
+  "adminActions": [
+    {
+      "id": "1754638074711-p9k88w",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T07:27:54.711Z"
+    },
+    {
+      "id": "1754638078982-jph2xs",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-08-08T07:27:58.982Z"
+    },
+    {
+      "id": "1754639340193-2w9vxt",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T07:49:00.193Z"
+    },
+    {
+      "id": "1754639620187-m9gm5z",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-08-08T07:53:40.188Z"
+    },
+    {
+      "id": "1754639628921-bw097c",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T07:53:48.921Z"
+    },
+    {
+      "id": "1754640054836-7bleg3",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-08-08T08:00:54.836Z"
+    },
+    {
+      "id": "1754640064831-h0iow2",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T08:01:04.831Z"
+    },
+    {
+      "id": "1754640075970-xe4t4a",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-08-08T08:01:15.970Z"
+    },
+    {
+      "id": "1754640084962-qg8tr8",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T08:01:24.962Z"
+    },
+    {
+      "id": "1754640505824-hikr53",
+      "admin": "admin",
+      "type": "FREEZE_ACCOUNT",
+      "target": "8@gmail.com",
+      "details": {
+        "freeze": true
+      },
+      "timestamp": "2025-08-08T08:08:25.824Z"
+    },
+    {
+      "id": "1754640521703-gz5t32",
+      "admin": "admin",
+      "type": "UPDATE_BALANCE",
+      "target": "8@gmail.com",
+      "details": {
+        "oldBalance": 8000,
+        "newBalance": 5000
+      },
+      "timestamp": "2025-08-08T08:08:41.703Z"
+    },
+    {
+      "id": "1754640535952-yxw8aq",
+      "admin": "admin",
+      "type": "UNFREEZE_ACCOUNT",
+      "target": "8@gmail.com",
+      "details": {
+        "freeze": false
+      },
+      "timestamp": "2025-08-08T08:08:55.952Z"
+    },
+    {
+      "id": "1754640549299-6d70yf",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "8@gmail.com",
+      "details": {
+        "tradeId": 1754640388072,
+        "oldTrade": {
+          "id": 1754640388072,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 4000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T08:06:28.072Z",
+          "startTime": 1754640388072,
+          "status": "completed",
+          "profit": "4000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1754640388072,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 4000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T08:06:28.072Z",
+          "startTime": 1754640388072,
+          "status": "completed",
+          "profit": "-4000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-08-08T08:09:09.299Z"
+    },
+    {
+      "id": "1754640838179-5e0ckv",
+      "admin": "admin",
+      "type": "DELETE_TRADE",
+      "target": "8@gmail.com",
+      "details": {
+        "tradeId": 1754640141171,
+        "prevProfit": 2000
+      },
+      "timestamp": "2025-08-08T08:13:58.179Z"
+    },
+    {
+      "id": "1754642644658-m27fsh",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T08:44:04.658Z"
+    },
+    {
+      "id": "1754642703114-7wcw2k",
+      "admin": "admin",
+      "type": "UPDATE_BALANCE",
+      "target": "8@gmail.com",
+      "details": {
+        "oldBalance": -5000,
+        "newBalance": 5000
+      },
+      "timestamp": "2025-08-08T08:45:03.114Z"
+    },
+    {
+      "id": "1754642763563-fgg7c3",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "8@gmail.com",
+      "details": {
+        "tradeId": 1754642725317,
+        "oldTrade": {
+          "id": 1754642725317,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 2000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T08:45:25.317Z",
+          "startTime": 1754642725317,
+          "status": "completed",
+          "profit": "2000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1754642725317,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 2000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T08:45:25.317Z",
+          "startTime": 1754642725317,
+          "status": "completed",
+          "profit": "-2000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-08-08T08:46:03.563Z"
+    },
+    {
+      "id": "1754643426780-bmmkq3",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "8@gmail.com",
+      "details": {
+        "tradeId": 1754640388072,
+        "oldTrade": {
+          "id": 1754640388072,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 4000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T08:06:28.072Z",
+          "startTime": 1754640388072,
+          "status": "completed",
+          "profit": "-4000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1754640388072,
+          "pair": "LTC/USDT",
+          "direction": "sell",
+          "amount": 4000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T08:06:28.072Z",
+          "startTime": 1754640388072,
+          "status": "completed",
+          "profit": "-4000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-08-08T08:57:06.780Z"
+    },
+    {
+      "id": "1754643468868-826bk9",
+      "admin": "admin",
+      "type": "FREEZE_ACCOUNT",
+      "target": "8@gmail.com",
+      "details": {
+        "freeze": true
+      },
+      "timestamp": "2025-08-08T08:57:48.868Z"
+    },
+    {
+      "id": "1754643535830-lx64xu",
+      "admin": "admin",
+      "type": "UNFREEZE_ACCOUNT",
+      "target": "8@gmail.com",
+      "details": {
+        "freeze": false
+      },
+      "timestamp": "2025-08-08T08:58:55.830Z"
+    },
+    {
+      "id": "1754643539679-isti5n",
+      "admin": "admin",
+      "type": "FREEZE_ACCOUNT",
+      "target": "8@gmail.com",
+      "details": {
+        "freeze": true
+      },
+      "timestamp": "2025-08-08T08:58:59.679Z"
+    },
+    {
+      "id": "1754643541754-h9gshr",
+      "admin": "admin",
+      "type": "UNFREEZE_ACCOUNT",
+      "target": "8@gmail.com",
+      "details": {
+        "freeze": false
+      },
+      "timestamp": "2025-08-08T08:59:01.754Z"
+    },
+    {
+      "id": "1754643544294-8pytop",
+      "admin": "admin",
+      "type": "FREEZE_ACCOUNT",
+      "target": "8@gmail.com",
+      "details": {
+        "freeze": true
+      },
+      "timestamp": "2025-08-08T08:59:04.294Z"
+    },
+    {
+      "id": "1754643547967-xbeaq2",
+      "admin": "admin",
+      "type": "UNFREEZE_ACCOUNT",
+      "target": "8@gmail.com",
+      "details": {
+        "freeze": false
+      },
+      "timestamp": "2025-08-08T08:59:07.967Z"
+    },
+    {
+      "id": "1754644452568-b9b7k2",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-08-08T09:14:12.568Z"
+    },
+    {
+      "id": "1754644462008-997mgn",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T09:14:22.008Z"
+    },
+    {
+      "id": "1754644517187-q8vnov",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "8@gmail.com",
+      "details": {
+        "tradeId": 1754640388072,
+        "oldTrade": {
+          "id": 1754640388072,
+          "pair": "LTC/USDT",
+          "direction": "sell",
+          "amount": 4000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T08:06:28.072Z",
+          "startTime": 1754640388072,
+          "status": "completed",
+          "profit": "-4000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1754640388072,
+          "pair": "LTC/USDT",
+          "direction": "sell",
+          "amount": 4000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T08:06:28.072Z",
+          "startTime": 1754640388072,
+          "status": "completed",
+          "profit": "4000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-08-08T09:15:17.187Z"
+    },
+    {
+      "id": "1754644530129-5p540z",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "8@gmail.com",
+      "details": {
+        "tradeId": 1754642725317,
+        "oldTrade": {
+          "id": 1754642725317,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 2000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T08:45:25.317Z",
+          "startTime": 1754642725317,
+          "status": "completed",
+          "profit": "-2000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1754642725317,
+          "pair": "BTC/USDT",
+          "direction": "buy",
+          "amount": 2000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T08:45:25.317Z",
+          "startTime": 1754642725317,
+          "status": "completed",
+          "profit": "2000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-08-08T09:15:30.129Z"
+    },
+    {
+      "id": "1754646282592-ybv5ca",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T09:44:42.592Z"
+    },
+    {
+      "id": "1754646422829-2zopil",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T09:47:02.829Z"
+    },
+    {
+      "id": "1754652526408-64h6xm",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T11:28:46.408Z"
+    },
+    {
+      "id": "1754652596474-exscmn",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "jeetu@gmail.com",
+      "details": {
+        "tradeId": 1754652552806,
+        "oldTrade": {
+          "id": 1754652552806,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 2000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T11:29:12.806Z",
+          "startTime": 1754652552806,
+          "status": "completed",
+          "profit": "2000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1754652552806,
+          "pair": "LTC/USDT",
+          "direction": "sell",
+          "amount": 2000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T11:29:12.806Z",
+          "startTime": 1754652552806,
+          "status": "completed",
+          "profit": "-2000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-08-08T11:29:56.474Z"
+    },
+    {
+      "id": "1754652627284-oi1mhw",
+      "admin": "admin",
+      "type": "FREEZE_ACCOUNT",
+      "target": "jeetu@gmail.com",
+      "details": {
+        "freeze": true
+      },
+      "timestamp": "2025-08-08T11:30:27.284Z"
+    },
+    {
+      "id": "1754652645432-9zz8oz",
+      "admin": "admin",
+      "type": "UPDATE_BALANCE",
+      "target": "jeetu@gmail.com",
+      "details": {
+        "oldBalance": 0,
+        "newBalance": 2000
+      },
+      "timestamp": "2025-08-08T11:30:45.432Z"
+    },
+    {
+      "id": "1754652661622-h8aqtm",
+      "admin": "admin",
+      "type": "UNFREEZE_ACCOUNT",
+      "target": "jeetu@gmail.com",
+      "details": {
+        "freeze": false
+      },
+      "timestamp": "2025-08-08T11:31:01.622Z"
+    },
+    {
+      "id": "1754652742494-1n3jfe",
+      "admin": "admin",
+      "type": "DELETE_TRADE",
+      "target": "jeetu@gmail.com",
+      "details": {
+        "tradeId": 1754652552806,
+        "prevProfit": -2000
+      },
+      "timestamp": "2025-08-08T11:32:22.494Z"
+    },
+    {
+      "id": "1754652755465-a116z3",
+      "admin": "admin",
+      "type": "DELETE_TRADE",
+      "target": "jeetu@gmail.com",
+      "details": {
+        "tradeId": 1754652669029,
+        "prevProfit": 70
+      },
+      "timestamp": "2025-08-08T11:32:35.465Z"
+    },
+    {
+      "id": "1754653722142-qu6sot",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T11:48:42.142Z"
+    },
+    {
+      "id": "1754654111769-9kc8ql",
+      "admin": "admin",
+      "type": "FREEZE_ACCOUNT",
+      "target": "jeetu@gmail.com",
+      "details": {
+        "freeze": true
+      },
+      "timestamp": "2025-08-08T11:55:11.769Z"
+    },
+    {
+      "id": "1754654169171-keoi6r",
+      "admin": "admin",
+      "type": "UNFREEZE_ACCOUNT",
+      "target": "jeetu@gmail.com",
+      "details": {
+        "freeze": false
+      },
+      "timestamp": "2025-08-08T11:56:09.171Z"
+    },
+    {
+      "id": "1754654191809-h8dacj",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-08-08T11:56:31.809Z"
+    },
+    {
+      "id": "1754654216276-f8fq9v",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T11:56:56.276Z"
+    },
+    {
+      "id": "1754654233249-dh4tlj",
+      "admin": "admin",
+      "type": "SEND_NOTIFICATION",
+      "target": "jeetu@gmail.com",
+      "details": {
+        "message": "you can be freezed"
+      },
+      "timestamp": "2025-08-08T11:57:13.249Z"
+    },
+    {
+      "id": "1754654287296-6reakz",
+      "admin": "admin",
+      "type": "UPDATE_WITHDRAWAL",
+      "target": "jeetu@gmail.com",
+      "details": {
+        "id": 1754654279386,
+        "status": "approved"
+      },
+      "timestamp": "2025-08-08T11:58:07.296Z"
+    },
+    {
+      "id": "1754654325267-7rdvus",
+      "admin": "admin",
+      "type": "UPDATE_WITHDRAWAL",
+      "target": "jeetu@gmail.com",
+      "details": {
+        "id": 1754654317631,
+        "status": "rejected"
+      },
+      "timestamp": "2025-08-08T11:58:45.267Z"
+    },
+    {
+      "id": "1754654581096-5pcc6x",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-08-08T12:03:01.096Z"
+    },
+    {
+      "id": "1754655304969-3fbk90",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T12:15:04.969Z"
+    },
+    {
+      "id": "1754655854308-qq56ea",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-08-08T12:24:14.308Z"
+    },
+    {
+      "id": "1754655883254-cjviky",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T12:24:43.254Z"
+    },
+    {
+      "id": "1754656000629-pz5v7s",
+      "admin": "admin",
+      "type": "FREEZE_ACCOUNT",
+      "target": "90@gmail.com",
+      "details": {
+        "freeze": true
+      },
+      "timestamp": "2025-08-08T12:26:40.629Z"
+    },
+    {
+      "id": "1754656031808-kuwkl6",
+      "admin": "admin",
+      "type": "UNFREEZE_ACCOUNT",
+      "target": "90@gmail.com",
+      "details": {
+        "freeze": false
+      },
+      "timestamp": "2025-08-08T12:27:11.809Z"
+    },
+    {
+      "id": "1754656067542-kftzxp",
+      "admin": "admin",
+      "type": "UPDATE_WITHDRAWAL",
+      "target": "90@gmail.com",
+      "details": {
+        "id": 1754656041921,
+        "status": "approved"
+      },
+      "timestamp": "2025-08-08T12:27:47.542Z"
+    },
+    {
+      "id": "1754656109331-uj34jd",
+      "admin": "admin",
+      "type": "SEND_NOTIFICATION",
+      "target": "90@gmail.com",
+      "details": {
+        "message": "hello welcome"
+      },
+      "timestamp": "2025-08-08T12:28:29.331Z"
+    },
+    {
+      "id": "1754656126992-dif1uc",
+      "admin": "admin",
+      "type": "SEND_NOTIFICATION",
+      "target": "all",
+      "details": {
+        "message": "welcome back earn"
+      },
+      "timestamp": "2025-08-08T12:28:46.992Z"
+    },
+    {
+      "id": "1754656162089-0cwh07",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "90@gmail.com",
+      "details": {
+        "tradeId": 1754655670272,
+        "oldTrade": {
+          "id": 1754655670272,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 1000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T12:21:10.272Z",
+          "startTime": 1754655670272,
+          "status": "completed",
+          "profit": "1000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1754655670272,
+          "pair": "LTC/USDT",
+          "direction": "buy",
+          "amount": 1000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T12:21:10.272Z",
+          "startTime": 1754655670272,
+          "status": "completed",
+          "profit": "-1000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-08-08T12:29:22.089Z"
+    },
+    {
+      "id": "1754656233642-wx96he",
+      "admin": "admin",
+      "type": "UPDATE_BALANCE",
+      "target": "90@gmail.com",
+      "details": {
+        "oldBalance": 0,
+        "newBalance": 2000
+      },
+      "timestamp": "2025-08-08T12:30:33.642Z"
+    },
+    {
+      "id": "1754656270879-bq210m",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "90@gmail.com",
+      "details": {
+        "tradeId": 1754656245529,
+        "oldTrade": {
+          "id": 1754656245529,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 100,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-08T12:30:45.529Z",
+          "startTime": 1754656245529,
+          "status": "pending",
+          "profit": 0,
+          "result": null,
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1754656245529,
+          "pair": "LTC/USDT",
+          "direction": "sell",
+          "amount": 100,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-08T12:30:45.529Z",
+          "startTime": 1754656245529,
+          "status": "completed",
+          "profit": "-100.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-08-08T12:31:10.879Z"
+    },
+    {
+      "id": "1754676463592-vy16uw",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T18:07:43.592Z"
+    },
+    {
+      "id": "1754676543872-7erczu",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "mantavya@gmail.com",
+      "details": {
+        "tradeId": 1754676497069,
+        "oldTrade": {
+          "id": 1754676497069,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 2000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T18:08:17.069Z",
+          "startTime": 1754676497069,
+          "status": "completed",
+          "profit": "2000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1754676497069,
+          "pair": "LTC/USDT",
+          "direction": "sell",
+          "amount": 2000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T18:08:17.069Z",
+          "startTime": 1754676497069,
+          "status": "completed",
+          "profit": "-2000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-08-08T18:09:03.872Z"
+    },
+    {
+      "id": "1754676559623-06sqi6",
+      "admin": "admin",
+      "type": "UPDATE_BALANCE",
+      "target": "mantavya@gmail.com",
+      "details": {
+        "oldBalance": 0,
+        "newBalance": 2000
+      },
+      "timestamp": "2025-08-08T18:09:19.623Z"
+    },
+    {
+      "id": "1754676567766-cln26m",
+      "admin": "admin",
+      "type": "FREEZE_ACCOUNT",
+      "target": "mantavya@gmail.com",
+      "details": {
+        "freeze": true
+      },
+      "timestamp": "2025-08-08T18:09:27.766Z"
+    },
+    {
+      "id": "1754676589847-za2a0i",
+      "admin": "admin",
+      "type": "UNFREEZE_ACCOUNT",
+      "target": "mantavya@gmail.com",
+      "details": {
+        "freeze": false
+      },
+      "timestamp": "2025-08-08T18:09:49.847Z"
+    },
+    {
+      "id": "1754676685502-2nusni",
+      "admin": "admin",
+      "type": "UPDATE_WITHDRAWAL",
+      "target": "mantavya@gmail.com",
+      "details": {
+        "id": 1754676667648,
+        "status": "approved"
+      },
+      "timestamp": "2025-08-08T18:11:25.502Z"
+    },
+    {
+      "id": "1754676720063-q2nkis",
+      "admin": "admin",
+      "type": "SEND_NOTIFICATION",
+      "target": "all",
+      "details": {
+        "message": "Hello Mantavya"
+      },
+      "timestamp": "2025-08-08T18:12:00.063Z"
+    },
+    {
+      "id": "1754762240636-agun09",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-09T17:57:20.636Z"
+    },
+    {
+      "id": "1754762411770-vpq9kj",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "krushika@gmail.com",
+      "details": {
+        "tradeId": 1754762268660,
+        "oldTrade": {
+          "id": 1754762268660,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 2000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-09T17:57:48.660Z",
+          "startTime": 1754762268660,
+          "status": "completed",
+          "profit": "2000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1754762268660,
+          "pair": "BTC/USDT",
+          "direction": "sell",
+          "amount": 2000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-09T17:57:48.660Z",
+          "startTime": 1754762268660,
+          "status": "completed",
+          "profit": "-2000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-08-09T18:00:11.770Z"
+    },
+    {
+      "id": "1754762450054-5b1qdd",
+      "admin": "admin",
+      "type": "UPDATE_BALANCE",
+      "target": "krushika@gmail.com",
+      "details": {
+        "oldBalance": 0,
+        "newBalance": 2000
+      },
+      "timestamp": "2025-08-09T18:00:50.054Z"
+    },
+    {
+      "id": "1754762463989-06e0hr",
+      "admin": "admin",
+      "type": "UPDATE_BALANCE",
+      "target": "krushika@gmail.com",
+      "details": {
+        "oldBalance": 2000,
+        "newBalance": 2000
+      },
+      "timestamp": "2025-08-09T18:01:03.989Z"
+    },
+    {
+      "id": "1754762529095-zaegk0",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "krushika@gmail.com",
+      "details": {
+        "tradeId": 1754762500924,
+        "oldTrade": {
+          "id": 1754762500924,
+          "pair": "BTC/USDT",
+          "direction": "Buy DOWN",
+          "amount": 1000,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-09T18:01:40.924Z",
+          "startTime": 1754762500924,
+          "status": "pending",
+          "profit": 0,
+          "result": null,
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1754762500924,
+          "pair": "BTC/USDT",
+          "direction": "sell",
+          "amount": 1000,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-09T18:01:40.924Z",
+          "startTime": 1754762500924,
+          "status": "completed",
+          "profit": "-1000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-08-09T18:02:09.095Z"
+    },
+    {
+      "id": "1754808171965-eqq37r",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T06:42:51.965Z"
+    },
+    {
+      "id": "1754809328038-vqmavx",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-08-10T07:02:08.038Z"
+    },
+    {
+      "id": "1754809347135-ugsm05",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T07:02:27.135Z"
+    },
+    {
+      "id": "1754810211261-g4v1ng",
+      "admin": "admin",
+      "type": "UPDATE_BALANCE",
+      "target": "krushika@gmail.com",
+      "details": {
+        "oldBalance": 1000,
+        "newBalance": 10000
+      },
+      "timestamp": "2025-08-10T07:16:51.261Z"
+    },
+    {
+      "id": "1754810221898-zxyg8f",
+      "admin": "admin",
+      "type": "UPDATE_BALANCE",
+      "target": "keshav@gmail.com",
+      "details": {
+        "oldBalance": 2700,
+        "newBalance": 27000
+      },
+      "timestamp": "2025-08-10T07:17:01.898Z"
+    },
+    {
+      "id": "1754810325921-nj6xac",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T07:18:45.921Z"
+    },
+    {
+      "id": "1754810334981-3o0f95",
+      "admin": "admin",
+      "type": "UPDATE_CREDIT_SCORE",
+      "target": "keshav@gmail.com",
+      "details": {
+        "oldCreditScore": 0,
+        "newCreditScore": 500
+      },
+      "timestamp": "2025-08-10T07:18:54.981Z"
+    },
+    {
+      "id": "1754812474636-zseosf",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T07:54:34.636Z"
+    },
+    {
+      "id": "1754812538647-unbdbg",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T07:55:38.647Z"
+    },
+    {
+      "id": "1754812564368-ke2b0r",
+      "admin": "admin",
+      "type": "UPDATE_CREDIT_SCORE",
+      "target": "e@gmail.com",
+      "details": {
+        "oldCreditScore": 0,
+        "newCreditScore": 100
+      },
+      "timestamp": "2025-08-10T07:56:04.368Z"
+    },
+    {
+      "id": "1754813515974-7h38u2",
+      "admin": "admin",
+      "type": "FREEZE_ACCOUNT",
+      "target": "e@gmail.com",
+      "details": {
+        "freeze": true
+      },
+      "timestamp": "2025-08-10T08:11:55.974Z"
+    },
+    {
+      "id": "1754813518888-aj1ynt",
+      "admin": "admin",
+      "type": "UNFREEZE_ACCOUNT",
+      "target": "e@gmail.com",
+      "details": {
+        "freeze": false
+      },
+      "timestamp": "2025-08-10T08:11:58.888Z"
+    },
+    {
+      "id": "1754820475999-034s0d",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:07:55.999Z"
+    },
+    {
+      "id": "1754820503495-ho2fat",
+      "admin": "admin",
+      "type": "UNDO_NOTIFICATION",
+      "target": "all",
+      "details": {
+        "message": "Hello Mantavya"
+      },
+      "timestamp": "2025-08-10T10:08:23.495Z"
+    },
+    {
+      "id": "1754820513854-ape3z5",
+      "admin": "admin",
+      "type": "UNDO_NOTIFICATION",
+      "target": "all",
+      "details": {
+        "message": "welcome back earn"
+      },
+      "timestamp": "2025-08-10T10:08:33.854Z"
+    },
+    {
+      "id": "1754820688645-stjx0o",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "e@gmail.com",
+      "details": {
+        "tradeId": 1754820672198,
+        "oldTrade": {
+          "id": 1754820672198,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 1000,
+          "profitPercent": 50,
+          "timeframe": 90,
+          "timestamp": "2025-08-10T10:11:12.198Z",
+          "startTime": 1754820672198,
+          "status": "pending",
+          "profit": 0,
+          "result": null,
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1754820672198,
+          "pair": "BTC/USDT",
+          "direction": "sell",
+          "amount": 1000,
+          "profitPercent": 50,
+          "timeframe": 90,
+          "timestamp": "2025-08-10T10:11:12.198Z",
+          "startTime": 1754820672198,
+          "status": "completed",
+          "result": "LOSS",
+          "forcedLoss": false,
+          "adminDecision": "LOSS",
+          "profit": "-500.00"
+        }
+      },
+      "timestamp": "2025-08-10T10:11:28.645Z"
+    },
+    {
+      "id": "1754820988732-ifmcav",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:16:28.732Z"
+    },
+    {
+      "id": "1754821003771-3i5unk",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:16:43.772Z"
+    },
+    {
+      "id": "1754821021394-6rutl3",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:17:01.394Z"
+    },
+    {
+      "id": "1754821045185-9fp9pm",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:17:25.185Z"
+    },
+    {
+      "id": "1754821077805-m6hxh0",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:17:57.805Z"
+    },
+    {
+      "id": "1754821126836-glsscf",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:18:46.836Z"
+    },
+    {
+      "id": "1754821173077-t6hian",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:19:33.077Z"
+    },
+    {
+      "id": "1754821199389-8e64yz",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:19:59.389Z"
+    },
+    {
+      "id": "1754821266894-4885ea",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:21:06.895Z"
+    },
+    {
+      "id": "1754821337813-7vpis8",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:22:17.813Z"
+    },
+    {
+      "id": "1754821358821-4jaz4i",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:22:38.821Z"
+    },
+    {
+      "id": "1754821640059-kfngmq",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:27:20.059Z"
+    },
+    {
+      "id": "1754821728343-766sgf",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:28:48.343Z"
+    },
+    {
+      "id": "1754821806275-cb9ab7",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:30:06.275Z"
+    },
+    {
+      "id": "1754821860173-r1sdxz",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:31:00.173Z"
+    },
+    {
+      "id": "1754821907260-jr6ndd",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:31:47.260Z"
+    },
+    {
+      "id": "1754822082176-zen7fb",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:34:42.176Z"
+    },
+    {
+      "id": "1754822184024-bpd8da",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-08-10T10:36:24.024Z"
+    },
+    {
+      "id": "1754822190965-ob6jhb",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:36:30.965Z"
+    },
+    {
+      "id": "1754822220264-xw5ekq",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:37:00.264Z"
+    },
+    {
+      "id": "1754822240292-zyfvbf",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:37:20.292Z"
+    },
+    {
+      "id": "1754822272996-3yjfja",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:37:52.996Z"
+    },
+    {
+      "id": "1754822361768-at44l8",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:39:21.768Z"
+    },
+    {
+      "id": "1754822624915-cyo48l",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:43:44.915Z"
+    },
+    {
+      "id": "1754822731002-z8dbdl",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:45:31.002Z"
+    },
+    {
+      "id": "1754822748642-ebabxz",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:45:48.642Z"
+    },
+    {
+      "id": "1754822760542-c69te5",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:46:00.542Z"
+    },
+    {
+      "id": "1754822798350-p7v5r3",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:46:38.350Z"
+    },
+    {
+      "id": "1754822809504-nhld2v",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:46:49.504Z"
+    },
+    {
+      "id": "1754822820746-2p1m9b",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:47:00.746Z"
+    },
+    {
+      "id": "1754823031006-tpe5j1",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:50:31.006Z"
+    },
+    {
+      "id": "1754823038102-tlaezw",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:50:38.102Z"
+    },
+    {
+      "id": "1754823166174-un8o7h",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:52:46.174Z"
+    },
+    {
+      "id": "1754823192523-2td4jm",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:53:12.523Z"
+    },
+    {
+      "id": "1754823632016-ikxa4p",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T11:00:32.016Z"
+    },
+    {
+      "id": "1754823640499-oc0qf5",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-08-10T11:00:40.499Z"
+    },
+    {
+      "id": "1754823724239-5op90c",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T11:02:04.239Z"
+    },
+    {
+      "id": "1754824774064-qocozk",
+      "admin": "admin",
+      "type": "SEND_NOTIFICATION",
+      "target": "e@gmail.com",
+      "details": {
+        "message": "start"
+      },
+      "timestamp": "2025-08-10T11:19:34.064Z"
+    },
+    {
+      "id": "1754825448444-z7agr4",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T11:30:48.444Z"
+    },
+    {
+      "id": "1754826482734-w5dmzz",
+      "admin": "admin",
+      "type": "DELETE_NOTIFICATION",
+      "target": "e@gmail.com",
+      "details": {
+        "message": "start"
+      },
+      "timestamp": "2025-08-10T11:48:02.734Z"
+    },
+    {
+      "id": "1754826577134-6zfuz3",
+      "admin": "admin",
+      "type": "SEND_NOTIFICATION",
+      "target": "e@gmail.com",
+      "details": {
+        "message": "hello"
+      },
+      "timestamp": "2025-08-10T11:49:37.134Z"
+    },
+    {
+      "id": "1754826970593-ru3bll",
+      "admin": "admin",
+      "type": "DELETE_NOTIFICATION",
+      "target": "e@gmail.com",
+      "details": {
+        "message": "hello"
+      },
+      "timestamp": "2025-08-10T11:56:10.593Z"
+    },
+    {
+      "id": "1754829184409-q5y3nv",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T12:33:04.409Z"
+    },
+    {
+      "id": "1754829194577-rphudc",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "e@gmail.com",
+      "details": {
+        "tradeId": 1754820672198,
+        "oldTrade": {
+          "id": 1754820672198,
+          "pair": "BTC/USDT",
+          "direction": "sell",
+          "amount": 1000,
+          "profitPercent": 50,
+          "timeframe": 90,
+          "timestamp": "2025-08-10T10:11:12.198Z",
+          "startTime": 1754820672198,
+          "status": "completed",
+          "result": "LOSS",
+          "forcedLoss": false,
+          "adminDecision": "LOSS",
+          "profit": "-500.00"
+        },
+        "newTrade": {
+          "id": 1754820672198,
+          "pair": "BTC/USDT",
+          "direction": "sell",
+          "amount": 1000,
+          "profitPercent": 50,
+          "timeframe": 90,
+          "timestamp": "2025-08-10T10:11:12.198Z",
+          "startTime": 1754820672198,
+          "status": "completed",
+          "result": "LOSS",
+          "forcedLoss": false,
+          "adminDecision": "LOSS",
+          "profit": "-500.00"
+        }
+      },
+      "timestamp": "2025-08-10T12:33:14.577Z"
+    }
+  ],
+  "auditLog": [
+    {
+      "id": "1754638074711-p9k88w",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T07:27:54.711Z"
+    },
+    {
+      "id": "1754638078982-jph2xs",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-08-08T07:27:58.982Z"
+    },
+    {
+      "id": "1754639340193-2w9vxt",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T07:49:00.193Z"
+    },
+    {
+      "id": "1754639620187-m9gm5z",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-08-08T07:53:40.188Z"
+    },
+    {
+      "id": "1754639628921-bw097c",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T07:53:48.921Z"
+    },
+    {
+      "id": "1754640054836-7bleg3",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-08-08T08:00:54.836Z"
+    },
+    {
+      "id": "1754640064831-h0iow2",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T08:01:04.831Z"
+    },
+    {
+      "id": "1754640075970-xe4t4a",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-08-08T08:01:15.970Z"
+    },
+    {
+      "id": "1754640084962-qg8tr8",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T08:01:24.962Z"
+    },
+    {
+      "id": "1754640505824-hikr53",
+      "admin": "admin",
+      "type": "FREEZE_ACCOUNT",
+      "target": "8@gmail.com",
+      "details": {
+        "freeze": true
+      },
+      "timestamp": "2025-08-08T08:08:25.824Z"
+    },
+    {
+      "id": "1754640521703-gz5t32",
+      "admin": "admin",
+      "type": "UPDATE_BALANCE",
+      "target": "8@gmail.com",
+      "details": {
+        "oldBalance": 8000,
+        "newBalance": 5000
+      },
+      "timestamp": "2025-08-08T08:08:41.703Z"
+    },
+    {
+      "id": "1754640535952-yxw8aq",
+      "admin": "admin",
+      "type": "UNFREEZE_ACCOUNT",
+      "target": "8@gmail.com",
+      "details": {
+        "freeze": false
+      },
+      "timestamp": "2025-08-08T08:08:55.952Z"
+    },
+    {
+      "id": "1754640549299-6d70yf",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "8@gmail.com",
+      "details": {
+        "tradeId": 1754640388072,
+        "oldTrade": {
+          "id": 1754640388072,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 4000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T08:06:28.072Z",
+          "startTime": 1754640388072,
+          "status": "completed",
+          "profit": "4000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1754640388072,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 4000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T08:06:28.072Z",
+          "startTime": 1754640388072,
+          "status": "completed",
+          "profit": "-4000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-08-08T08:09:09.299Z"
+    },
+    {
+      "id": "1754640838179-5e0ckv",
+      "admin": "admin",
+      "type": "DELETE_TRADE",
+      "target": "8@gmail.com",
+      "details": {
+        "tradeId": 1754640141171,
+        "prevProfit": 2000
+      },
+      "timestamp": "2025-08-08T08:13:58.179Z"
+    },
+    {
+      "id": "1754642644658-m27fsh",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T08:44:04.658Z"
+    },
+    {
+      "id": "1754642703114-7wcw2k",
+      "admin": "admin",
+      "type": "UPDATE_BALANCE",
+      "target": "8@gmail.com",
+      "details": {
+        "oldBalance": -5000,
+        "newBalance": 5000
+      },
+      "timestamp": "2025-08-08T08:45:03.114Z"
+    },
+    {
+      "id": "1754642763563-fgg7c3",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "8@gmail.com",
+      "details": {
+        "tradeId": 1754642725317,
+        "oldTrade": {
+          "id": 1754642725317,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 2000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T08:45:25.317Z",
+          "startTime": 1754642725317,
+          "status": "completed",
+          "profit": "2000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1754642725317,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 2000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T08:45:25.317Z",
+          "startTime": 1754642725317,
+          "status": "completed",
+          "profit": "-2000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-08-08T08:46:03.563Z"
+    },
+    {
+      "id": "1754643426780-bmmkq3",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "8@gmail.com",
+      "details": {
+        "tradeId": 1754640388072,
+        "oldTrade": {
+          "id": 1754640388072,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 4000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T08:06:28.072Z",
+          "startTime": 1754640388072,
+          "status": "completed",
+          "profit": "-4000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1754640388072,
+          "pair": "LTC/USDT",
+          "direction": "sell",
+          "amount": 4000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T08:06:28.072Z",
+          "startTime": 1754640388072,
+          "status": "completed",
+          "profit": "-4000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-08-08T08:57:06.780Z"
+    },
+    {
+      "id": "1754643468868-826bk9",
+      "admin": "admin",
+      "type": "FREEZE_ACCOUNT",
+      "target": "8@gmail.com",
+      "details": {
+        "freeze": true
+      },
+      "timestamp": "2025-08-08T08:57:48.868Z"
+    },
+    {
+      "id": "1754643535830-lx64xu",
+      "admin": "admin",
+      "type": "UNFREEZE_ACCOUNT",
+      "target": "8@gmail.com",
+      "details": {
+        "freeze": false
+      },
+      "timestamp": "2025-08-08T08:58:55.830Z"
+    },
+    {
+      "id": "1754643539679-isti5n",
+      "admin": "admin",
+      "type": "FREEZE_ACCOUNT",
+      "target": "8@gmail.com",
+      "details": {
+        "freeze": true
+      },
+      "timestamp": "2025-08-08T08:58:59.679Z"
+    },
+    {
+      "id": "1754643541754-h9gshr",
+      "admin": "admin",
+      "type": "UNFREEZE_ACCOUNT",
+      "target": "8@gmail.com",
+      "details": {
+        "freeze": false
+      },
+      "timestamp": "2025-08-08T08:59:01.754Z"
+    },
+    {
+      "id": "1754643544294-8pytop",
+      "admin": "admin",
+      "type": "FREEZE_ACCOUNT",
+      "target": "8@gmail.com",
+      "details": {
+        "freeze": true
+      },
+      "timestamp": "2025-08-08T08:59:04.294Z"
+    },
+    {
+      "id": "1754643547967-xbeaq2",
+      "admin": "admin",
+      "type": "UNFREEZE_ACCOUNT",
+      "target": "8@gmail.com",
+      "details": {
+        "freeze": false
+      },
+      "timestamp": "2025-08-08T08:59:07.967Z"
+    },
+    {
+      "id": "1754644452568-b9b7k2",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-08-08T09:14:12.568Z"
+    },
+    {
+      "id": "1754644462008-997mgn",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T09:14:22.008Z"
+    },
+    {
+      "id": "1754644517187-q8vnov",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "8@gmail.com",
+      "details": {
+        "tradeId": 1754640388072,
+        "oldTrade": {
+          "id": 1754640388072,
+          "pair": "LTC/USDT",
+          "direction": "sell",
+          "amount": 4000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T08:06:28.072Z",
+          "startTime": 1754640388072,
+          "status": "completed",
+          "profit": "-4000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1754640388072,
+          "pair": "LTC/USDT",
+          "direction": "sell",
+          "amount": 4000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T08:06:28.072Z",
+          "startTime": 1754640388072,
+          "status": "completed",
+          "profit": "4000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-08-08T09:15:17.187Z"
+    },
+    {
+      "id": "1754644530129-5p540z",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "8@gmail.com",
+      "details": {
+        "tradeId": 1754642725317,
+        "oldTrade": {
+          "id": 1754642725317,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 2000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T08:45:25.317Z",
+          "startTime": 1754642725317,
+          "status": "completed",
+          "profit": "-2000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1754642725317,
+          "pair": "BTC/USDT",
+          "direction": "buy",
+          "amount": 2000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T08:45:25.317Z",
+          "startTime": 1754642725317,
+          "status": "completed",
+          "profit": "2000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-08-08T09:15:30.129Z"
+    },
+    {
+      "id": "1754646282592-ybv5ca",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T09:44:42.592Z"
+    },
+    {
+      "id": "1754646422829-2zopil",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T09:47:02.829Z"
+    },
+    {
+      "id": "1754652526408-64h6xm",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T11:28:46.408Z"
+    },
+    {
+      "id": "1754652596474-exscmn",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "jeetu@gmail.com",
+      "details": {
+        "tradeId": 1754652552806,
+        "oldTrade": {
+          "id": 1754652552806,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 2000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T11:29:12.806Z",
+          "startTime": 1754652552806,
+          "status": "completed",
+          "profit": "2000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1754652552806,
+          "pair": "LTC/USDT",
+          "direction": "sell",
+          "amount": 2000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T11:29:12.806Z",
+          "startTime": 1754652552806,
+          "status": "completed",
+          "profit": "-2000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-08-08T11:29:56.474Z"
+    },
+    {
+      "id": "1754652627284-oi1mhw",
+      "admin": "admin",
+      "type": "FREEZE_ACCOUNT",
+      "target": "jeetu@gmail.com",
+      "details": {
+        "freeze": true
+      },
+      "timestamp": "2025-08-08T11:30:27.284Z"
+    },
+    {
+      "id": "1754652645432-9zz8oz",
+      "admin": "admin",
+      "type": "UPDATE_BALANCE",
+      "target": "jeetu@gmail.com",
+      "details": {
+        "oldBalance": 0,
+        "newBalance": 2000
+      },
+      "timestamp": "2025-08-08T11:30:45.432Z"
+    },
+    {
+      "id": "1754652661622-h8aqtm",
+      "admin": "admin",
+      "type": "UNFREEZE_ACCOUNT",
+      "target": "jeetu@gmail.com",
+      "details": {
+        "freeze": false
+      },
+      "timestamp": "2025-08-08T11:31:01.622Z"
+    },
+    {
+      "id": "1754652742494-1n3jfe",
+      "admin": "admin",
+      "type": "DELETE_TRADE",
+      "target": "jeetu@gmail.com",
+      "details": {
+        "tradeId": 1754652552806,
+        "prevProfit": -2000
+      },
+      "timestamp": "2025-08-08T11:32:22.494Z"
+    },
+    {
+      "id": "1754652755465-a116z3",
+      "admin": "admin",
+      "type": "DELETE_TRADE",
+      "target": "jeetu@gmail.com",
+      "details": {
+        "tradeId": 1754652669029,
+        "prevProfit": 70
+      },
+      "timestamp": "2025-08-08T11:32:35.465Z"
+    },
+    {
+      "id": "1754653722142-qu6sot",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T11:48:42.142Z"
+    },
+    {
+      "id": "1754654111769-9kc8ql",
+      "admin": "admin",
+      "type": "FREEZE_ACCOUNT",
+      "target": "jeetu@gmail.com",
+      "details": {
+        "freeze": true
+      },
+      "timestamp": "2025-08-08T11:55:11.769Z"
+    },
+    {
+      "id": "1754654169171-keoi6r",
+      "admin": "admin",
+      "type": "UNFREEZE_ACCOUNT",
+      "target": "jeetu@gmail.com",
+      "details": {
+        "freeze": false
+      },
+      "timestamp": "2025-08-08T11:56:09.171Z"
+    },
+    {
+      "id": "1754654191809-h8dacj",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-08-08T11:56:31.809Z"
+    },
+    {
+      "id": "1754654216276-f8fq9v",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T11:56:56.276Z"
+    },
+    {
+      "id": "1754654233249-dh4tlj",
+      "admin": "admin",
+      "type": "SEND_NOTIFICATION",
+      "target": "jeetu@gmail.com",
+      "details": {
+        "message": "you can be freezed"
+      },
+      "timestamp": "2025-08-08T11:57:13.249Z"
+    },
+    {
+      "id": "1754654287296-6reakz",
+      "admin": "admin",
+      "type": "UPDATE_WITHDRAWAL",
+      "target": "jeetu@gmail.com",
+      "details": {
+        "id": 1754654279386,
+        "status": "approved"
+      },
+      "timestamp": "2025-08-08T11:58:07.296Z"
+    },
+    {
+      "id": "1754654325267-7rdvus",
+      "admin": "admin",
+      "type": "UPDATE_WITHDRAWAL",
+      "target": "jeetu@gmail.com",
+      "details": {
+        "id": 1754654317631,
+        "status": "rejected"
+      },
+      "timestamp": "2025-08-08T11:58:45.267Z"
+    },
+    {
+      "id": "1754654581096-5pcc6x",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-08-08T12:03:01.096Z"
+    },
+    {
+      "id": "1754655304969-3fbk90",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T12:15:04.969Z"
+    },
+    {
+      "id": "1754655854308-qq56ea",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-08-08T12:24:14.308Z"
+    },
+    {
+      "id": "1754655883254-cjviky",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T12:24:43.254Z"
+    },
+    {
+      "id": "1754656000629-pz5v7s",
+      "admin": "admin",
+      "type": "FREEZE_ACCOUNT",
+      "target": "90@gmail.com",
+      "details": {
+        "freeze": true
+      },
+      "timestamp": "2025-08-08T12:26:40.629Z"
+    },
+    {
+      "id": "1754656031808-kuwkl6",
+      "admin": "admin",
+      "type": "UNFREEZE_ACCOUNT",
+      "target": "90@gmail.com",
+      "details": {
+        "freeze": false
+      },
+      "timestamp": "2025-08-08T12:27:11.809Z"
+    },
+    {
+      "id": "1754656067542-kftzxp",
+      "admin": "admin",
+      "type": "UPDATE_WITHDRAWAL",
+      "target": "90@gmail.com",
+      "details": {
+        "id": 1754656041921,
+        "status": "approved"
+      },
+      "timestamp": "2025-08-08T12:27:47.542Z"
+    },
+    {
+      "id": "1754656109331-uj34jd",
+      "admin": "admin",
+      "type": "SEND_NOTIFICATION",
+      "target": "90@gmail.com",
+      "details": {
+        "message": "hello welcome"
+      },
+      "timestamp": "2025-08-08T12:28:29.331Z"
+    },
+    {
+      "id": "1754656126992-dif1uc",
+      "admin": "admin",
+      "type": "SEND_NOTIFICATION",
+      "target": "all",
+      "details": {
+        "message": "welcome back earn"
+      },
+      "timestamp": "2025-08-08T12:28:46.992Z"
+    },
+    {
+      "id": "1754656162089-0cwh07",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "90@gmail.com",
+      "details": {
+        "tradeId": 1754655670272,
+        "oldTrade": {
+          "id": 1754655670272,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 1000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T12:21:10.272Z",
+          "startTime": 1754655670272,
+          "status": "completed",
+          "profit": "1000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1754655670272,
+          "pair": "LTC/USDT",
+          "direction": "buy",
+          "amount": 1000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T12:21:10.272Z",
+          "startTime": 1754655670272,
+          "status": "completed",
+          "profit": "-1000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-08-08T12:29:22.089Z"
+    },
+    {
+      "id": "1754656233642-wx96he",
+      "admin": "admin",
+      "type": "UPDATE_BALANCE",
+      "target": "90@gmail.com",
+      "details": {
+        "oldBalance": 0,
+        "newBalance": 2000
+      },
+      "timestamp": "2025-08-08T12:30:33.642Z"
+    },
+    {
+      "id": "1754656270879-bq210m",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "90@gmail.com",
+      "details": {
+        "tradeId": 1754656245529,
+        "oldTrade": {
+          "id": 1754656245529,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 100,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-08T12:30:45.529Z",
+          "startTime": 1754656245529,
+          "status": "pending",
+          "profit": 0,
+          "result": null,
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1754656245529,
+          "pair": "LTC/USDT",
+          "direction": "sell",
+          "amount": 100,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-08T12:30:45.529Z",
+          "startTime": 1754656245529,
+          "status": "completed",
+          "profit": "-100.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-08-08T12:31:10.879Z"
+    },
+    {
+      "id": "1754676463592-vy16uw",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-08T18:07:43.592Z"
+    },
+    {
+      "id": "1754676543872-7erczu",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "mantavya@gmail.com",
+      "details": {
+        "tradeId": 1754676497069,
+        "oldTrade": {
+          "id": 1754676497069,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 2000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T18:08:17.069Z",
+          "startTime": 1754676497069,
+          "status": "completed",
+          "profit": "2000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1754676497069,
+          "pair": "LTC/USDT",
+          "direction": "sell",
+          "amount": 2000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-08T18:08:17.069Z",
+          "startTime": 1754676497069,
+          "status": "completed",
+          "profit": "-2000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-08-08T18:09:03.872Z"
+    },
+    {
+      "id": "1754676559623-06sqi6",
+      "admin": "admin",
+      "type": "UPDATE_BALANCE",
+      "target": "mantavya@gmail.com",
+      "details": {
+        "oldBalance": 0,
+        "newBalance": 2000
+      },
+      "timestamp": "2025-08-08T18:09:19.623Z"
+    },
+    {
+      "id": "1754676567766-cln26m",
+      "admin": "admin",
+      "type": "FREEZE_ACCOUNT",
+      "target": "mantavya@gmail.com",
+      "details": {
+        "freeze": true
+      },
+      "timestamp": "2025-08-08T18:09:27.766Z"
+    },
+    {
+      "id": "1754676589847-za2a0i",
+      "admin": "admin",
+      "type": "UNFREEZE_ACCOUNT",
+      "target": "mantavya@gmail.com",
+      "details": {
+        "freeze": false
+      },
+      "timestamp": "2025-08-08T18:09:49.847Z"
+    },
+    {
+      "id": "1754676685502-2nusni",
+      "admin": "admin",
+      "type": "UPDATE_WITHDRAWAL",
+      "target": "mantavya@gmail.com",
+      "details": {
+        "id": 1754676667648,
+        "status": "approved"
+      },
+      "timestamp": "2025-08-08T18:11:25.502Z"
+    },
+    {
+      "id": "1754676720063-q2nkis",
+      "admin": "admin",
+      "type": "SEND_NOTIFICATION",
+      "target": "all",
+      "details": {
+        "message": "Hello Mantavya"
+      },
+      "timestamp": "2025-08-08T18:12:00.063Z"
+    },
+    {
+      "id": "1754762240636-agun09",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-09T17:57:20.636Z"
+    },
+    {
+      "id": "1754762411770-vpq9kj",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "krushika@gmail.com",
+      "details": {
+        "tradeId": 1754762268660,
+        "oldTrade": {
+          "id": 1754762268660,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 2000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-09T17:57:48.660Z",
+          "startTime": 1754762268660,
+          "status": "completed",
+          "profit": "2000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1754762268660,
+          "pair": "BTC/USDT",
+          "direction": "sell",
+          "amount": 2000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-09T17:57:48.660Z",
+          "startTime": 1754762268660,
+          "status": "completed",
+          "profit": "-2000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-08-09T18:00:11.770Z"
+    },
+    {
+      "id": "1754762450054-5b1qdd",
+      "admin": "admin",
+      "type": "UPDATE_BALANCE",
+      "target": "krushika@gmail.com",
+      "details": {
+        "oldBalance": 0,
+        "newBalance": 2000
+      },
+      "timestamp": "2025-08-09T18:00:50.054Z"
+    },
+    {
+      "id": "1754762463989-06e0hr",
+      "admin": "admin",
+      "type": "UPDATE_BALANCE",
+      "target": "krushika@gmail.com",
+      "details": {
+        "oldBalance": 2000,
+        "newBalance": 2000
+      },
+      "timestamp": "2025-08-09T18:01:03.989Z"
+    },
+    {
+      "id": "1754762529095-zaegk0",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "krushika@gmail.com",
+      "details": {
+        "tradeId": 1754762500924,
+        "oldTrade": {
+          "id": 1754762500924,
+          "pair": "BTC/USDT",
+          "direction": "Buy DOWN",
+          "amount": 1000,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-09T18:01:40.924Z",
+          "startTime": 1754762500924,
+          "status": "pending",
+          "profit": 0,
+          "result": null,
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1754762500924,
+          "pair": "BTC/USDT",
+          "direction": "sell",
+          "amount": 1000,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-09T18:01:40.924Z",
+          "startTime": 1754762500924,
+          "status": "completed",
+          "profit": "-1000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-08-09T18:02:09.095Z"
+    },
+    {
+      "id": "1754808171965-eqq37r",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T06:42:51.965Z"
+    },
+    {
+      "id": "1754809328038-vqmavx",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-08-10T07:02:08.038Z"
+    },
+    {
+      "id": "1754809347135-ugsm05",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T07:02:27.135Z"
+    },
+    {
+      "id": "1754810211261-g4v1ng",
+      "admin": "admin",
+      "type": "UPDATE_BALANCE",
+      "target": "krushika@gmail.com",
+      "details": {
+        "oldBalance": 1000,
+        "newBalance": 10000
+      },
+      "timestamp": "2025-08-10T07:16:51.261Z"
+    },
+    {
+      "id": "1754810221898-zxyg8f",
+      "admin": "admin",
+      "type": "UPDATE_BALANCE",
+      "target": "keshav@gmail.com",
+      "details": {
+        "oldBalance": 2700,
+        "newBalance": 27000
+      },
+      "timestamp": "2025-08-10T07:17:01.898Z"
+    },
+    {
+      "id": "1754810325921-nj6xac",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T07:18:45.921Z"
+    },
+    {
+      "id": "1754810334981-3o0f95",
+      "admin": "admin",
+      "type": "UPDATE_CREDIT_SCORE",
+      "target": "keshav@gmail.com",
+      "details": {
+        "oldCreditScore": 0,
+        "newCreditScore": 500
+      },
+      "timestamp": "2025-08-10T07:18:54.981Z"
+    },
+    {
+      "id": "1754812474636-zseosf",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T07:54:34.636Z"
+    },
+    {
+      "id": "1754812538647-unbdbg",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T07:55:38.647Z"
+    },
+    {
+      "id": "1754812564368-ke2b0r",
+      "admin": "admin",
+      "type": "UPDATE_CREDIT_SCORE",
+      "target": "e@gmail.com",
+      "details": {
+        "oldCreditScore": 0,
+        "newCreditScore": 100
+      },
+      "timestamp": "2025-08-10T07:56:04.368Z"
+    },
+    {
+      "id": "1754813515974-7h38u2",
+      "admin": "admin",
+      "type": "FREEZE_ACCOUNT",
+      "target": "e@gmail.com",
+      "details": {
+        "freeze": true
+      },
+      "timestamp": "2025-08-10T08:11:55.974Z"
+    },
+    {
+      "id": "1754813518888-aj1ynt",
+      "admin": "admin",
+      "type": "UNFREEZE_ACCOUNT",
+      "target": "e@gmail.com",
+      "details": {
+        "freeze": false
+      },
+      "timestamp": "2025-08-10T08:11:58.888Z"
+    },
+    {
+      "id": "1754820475999-034s0d",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:07:55.999Z"
+    },
+    {
+      "id": "1754820503495-ho2fat",
+      "admin": "admin",
+      "type": "UNDO_NOTIFICATION",
+      "target": "all",
+      "details": {
+        "message": "Hello Mantavya"
+      },
+      "timestamp": "2025-08-10T10:08:23.495Z"
+    },
+    {
+      "id": "1754820513854-ape3z5",
+      "admin": "admin",
+      "type": "UNDO_NOTIFICATION",
+      "target": "all",
+      "details": {
+        "message": "welcome back earn"
+      },
+      "timestamp": "2025-08-10T10:08:33.854Z"
+    },
+    {
+      "id": "1754820688645-stjx0o",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "e@gmail.com",
+      "details": {
+        "tradeId": 1754820672198,
+        "oldTrade": {
+          "id": 1754820672198,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 1000,
+          "profitPercent": 50,
+          "timeframe": 90,
+          "timestamp": "2025-08-10T10:11:12.198Z",
+          "startTime": 1754820672198,
+          "status": "pending",
+          "profit": 0,
+          "result": null,
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1754820672198,
+          "pair": "BTC/USDT",
+          "direction": "sell",
+          "amount": 1000,
+          "profitPercent": 50,
+          "timeframe": 90,
+          "timestamp": "2025-08-10T10:11:12.198Z",
+          "startTime": 1754820672198,
+          "status": "completed",
+          "result": "LOSS",
+          "forcedLoss": false,
+          "adminDecision": "LOSS",
+          "profit": "-500.00"
+        }
+      },
+      "timestamp": "2025-08-10T10:11:28.645Z"
+    },
+    {
+      "id": "1754820988732-ifmcav",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:16:28.732Z"
+    },
+    {
+      "id": "1754821003771-3i5unk",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:16:43.772Z"
+    },
+    {
+      "id": "1754821021394-6rutl3",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:17:01.394Z"
+    },
+    {
+      "id": "1754821045185-9fp9pm",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:17:25.185Z"
+    },
+    {
+      "id": "1754821077805-m6hxh0",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:17:57.805Z"
+    },
+    {
+      "id": "1754821126836-glsscf",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:18:46.836Z"
+    },
+    {
+      "id": "1754821173077-t6hian",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:19:33.077Z"
+    },
+    {
+      "id": "1754821199389-8e64yz",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:19:59.389Z"
+    },
+    {
+      "id": "1754821266894-4885ea",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:21:06.895Z"
+    },
+    {
+      "id": "1754821337813-7vpis8",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:22:17.813Z"
+    },
+    {
+      "id": "1754821358821-4jaz4i",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:22:38.821Z"
+    },
+    {
+      "id": "1754821640059-kfngmq",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:27:20.059Z"
+    },
+    {
+      "id": "1754821728343-766sgf",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:28:48.343Z"
+    },
+    {
+      "id": "1754821806275-cb9ab7",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:30:06.275Z"
+    },
+    {
+      "id": "1754821860173-r1sdxz",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:31:00.173Z"
+    },
+    {
+      "id": "1754821907260-jr6ndd",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:31:47.260Z"
+    },
+    {
+      "id": "1754822082176-zen7fb",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:34:42.176Z"
+    },
+    {
+      "id": "1754822184024-bpd8da",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-08-10T10:36:24.024Z"
+    },
+    {
+      "id": "1754822190965-ob6jhb",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:36:30.965Z"
+    },
+    {
+      "id": "1754822220264-xw5ekq",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:37:00.264Z"
+    },
+    {
+      "id": "1754822240292-zyfvbf",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:37:20.292Z"
+    },
+    {
+      "id": "1754822272996-3yjfja",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:37:52.996Z"
+    },
+    {
+      "id": "1754822361768-at44l8",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:39:21.768Z"
+    },
+    {
+      "id": "1754822624915-cyo48l",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:43:44.915Z"
+    },
+    {
+      "id": "1754822731002-z8dbdl",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:45:31.002Z"
+    },
+    {
+      "id": "1754822748642-ebabxz",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:45:48.642Z"
+    },
+    {
+      "id": "1754822760542-c69te5",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:46:00.542Z"
+    },
+    {
+      "id": "1754822798350-p7v5r3",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:46:38.350Z"
+    },
+    {
+      "id": "1754822809504-nhld2v",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:46:49.504Z"
+    },
+    {
+      "id": "1754822820746-2p1m9b",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:47:00.746Z"
+    },
+    {
+      "id": "1754823031006-tpe5j1",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:50:31.006Z"
+    },
+    {
+      "id": "1754823038102-tlaezw",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:50:38.102Z"
+    },
+    {
+      "id": "1754823166174-un8o7h",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:52:46.174Z"
+    },
+    {
+      "id": "1754823192523-2td4jm",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T10:53:12.523Z"
+    },
+    {
+      "id": "1754823632016-ikxa4p",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T11:00:32.016Z"
+    },
+    {
+      "id": "1754823640499-oc0qf5",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-08-10T11:00:40.499Z"
+    },
+    {
+      "id": "1754823724239-5op90c",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T11:02:04.239Z"
+    },
+    {
+      "id": "1754824774064-qocozk",
+      "admin": "admin",
+      "type": "SEND_NOTIFICATION",
+      "target": "e@gmail.com",
+      "details": {
+        "message": "start"
+      },
+      "timestamp": "2025-08-10T11:19:34.064Z"
+    },
+    {
+      "id": "1754825448444-z7agr4",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T11:30:48.444Z"
+    },
+    {
+      "id": "1754826482734-w5dmzz",
+      "admin": "admin",
+      "type": "DELETE_NOTIFICATION",
+      "target": "e@gmail.com",
+      "details": {
+        "message": "start"
+      },
+      "timestamp": "2025-08-10T11:48:02.734Z"
+    },
+    {
+      "id": "1754826577134-6zfuz3",
+      "admin": "admin",
+      "type": "SEND_NOTIFICATION",
+      "target": "e@gmail.com",
+      "details": {
+        "message": "hello"
+      },
+      "timestamp": "2025-08-10T11:49:37.134Z"
+    },
+    {
+      "id": "1754826970593-ru3bll",
+      "admin": "admin",
+      "type": "DELETE_NOTIFICATION",
+      "target": "e@gmail.com",
+      "details": {
+        "message": "hello"
+      },
+      "timestamp": "2025-08-10T11:56:10.593Z"
+    },
+    {
+      "id": "1754829184409-q5y3nv",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-10T12:33:04.409Z"
+    },
+    {
+      "id": "1754829194577-rphudc",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "e@gmail.com",
+      "details": {
+        "tradeId": 1754820672198,
+        "oldTrade": {
+          "id": 1754820672198,
+          "pair": "BTC/USDT",
+          "direction": "sell",
+          "amount": 1000,
+          "profitPercent": 50,
+          "timeframe": 90,
+          "timestamp": "2025-08-10T10:11:12.198Z",
+          "startTime": 1754820672198,
+          "status": "completed",
+          "result": "LOSS",
+          "forcedLoss": false,
+          "adminDecision": "LOSS",
+          "profit": "-500.00"
+        },
+        "newTrade": {
+          "id": 1754820672198,
+          "pair": "BTC/USDT",
+          "direction": "sell",
+          "amount": 1000,
+          "profitPercent": 50,
+          "timeframe": 90,
+          "timestamp": "2025-08-10T10:11:12.198Z",
+          "startTime": 1754820672198,
+          "status": "completed",
+          "result": "LOSS",
+          "forcedLoss": false,
+          "adminDecision": "LOSS",
+          "profit": "-500.00"
+        }
+      },
+      "timestamp": "2025-08-10T12:33:14.577Z"
+    }
+  ],
+  "withdrawals": [
+    {
+      "id": 1754654279386,
+      "email": "jeetu@gmail.com",
+      "amount": 4000,
+      "status": "approved",
+      "requestedAt": "2025-08-08T11:57:59.386Z"
+    },
+    {
+      "id": 1754654317631,
+      "email": "jeetu@gmail.com",
+      "amount": 800,
+      "status": "rejected",
+      "requestedAt": "2025-08-08T11:58:37.631Z"
+    },
+    {
+      "id": 1754656041921,
+      "email": "90@gmail.com",
+      "amount": 1000,
+      "status": "approved",
+      "requestedAt": "2025-08-08T12:27:21.921Z"
+    },
+    {
+      "id": 1754676667648,
+      "email": "mantavya@gmail.com",
+      "amount": 30,
+      "status": "approved",
+      "requestedAt": "2025-08-08T18:11:07.648Z"
+    },
+    {
+      "id": 1754820823402,
+      "userId": "001",
+      "email": "e@gmail.com",
+      "amount": 1000,
+      "status": "pending",
+      "requestedAt": "2025-08-10T10:13:43.402Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": 1754654233245,
+      "to": "jeetu@gmail.com",
+      "message": "you can be freezed",
+      "timestamp": "2025-08-08T11:57:13.245Z"
+    },
+    {
+      "id": 1754654287291,
+      "to": "jeetu@gmail.com",
+      "message": "Your withdrawal of $4000 has been approved",
+      "timestamp": "2025-08-08T11:58:07.291Z"
+    },
+    {
+      "id": 1754654325263,
+      "to": "jeetu@gmail.com",
+      "message": "Your withdrawal of $800 has been rejected",
+      "timestamp": "2025-08-08T11:58:45.263Z"
+    },
+    {
+      "id": 1754656067537,
+      "to": "90@gmail.com",
+      "message": "Your withdrawal of $1000 has been approved",
+      "timestamp": "2025-08-08T12:27:47.537Z"
+    },
+    {
+      "id": 1754656109327,
+      "to": "90@gmail.com",
+      "message": "hello welcome",
+      "timestamp": "2025-08-08T12:28:29.327Z"
+    },
+    {
+      "id": 1754676685500,
+      "to": "mantavya@gmail.com",
+      "message": "Your withdrawal of $30 has been approved",
+      "timestamp": "2025-08-08T18:11:25.500Z"
+    }
+  ]
 }

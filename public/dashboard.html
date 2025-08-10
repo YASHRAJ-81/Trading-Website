@@ -18,7 +18,7 @@
       </div>
       <div class="relative">
         <div onclick="goToProfile()" 
-             class="w-8 h-8 bg-gradient-to-br from-green-600 to-green-400 rounded-full flex items-center justify-center cursor-pointer 
+             class="w-9 h-9 bg-gradient-to-br to-green-400 rounded-full flex items-center justify-center cursor-pointer 
                     shadow-lg ring-2 ring-green-500 hover:ring-green-300 transition-transform duration-100 ease-in-out
                     hover:scale-110 select-none"
              title="Go to Profile"
@@ -127,7 +127,7 @@
   </div>
 
   <!-- Markets -->
-  <div id="markets" class="px-2 pt-2 pb-4">
+  <div id="markets" class="px-2 pt-2 pb-8">
     <div class="bg-gray-800 p-3 rounded text-sm space-y-2">
       <div class="flex justify-between text-gray-400 font-semibold border-b border-gray-600 pb-1">
         <div class="w-1/3">Trading Pair</div>
@@ -139,21 +139,21 @@
   </div>
 
   <!-- Bottom Navigation -->
-  <div class="fixed bottom-0 left-0 right-0 bg-gray-800 py-2 flex justify-around text-sm text-white border-t border-gray-700">
+  <div class="fixed bottom-0 left-0 right-0 bg-gray-800 py-4 flex justify-around text-sm text-white border-t border-gray-700">
     <div id="tab-home" onclick="scrollToSection('home', 'tab-home')" class="text-green-400 flex flex-col items-center cursor-pointer">
-      <span>🏠</span><span class="text-xs">Home</span>
+      <span>🏠</span><span class="text-medium">Home</span>
     </div>
     <div id="tab-market" onclick="scrollToSection('markets', 'tab-market')" class="flex flex-col items-center cursor-pointer">
-      <span>📊</span><span class="text-xs">Market</span>
+      <span>📊</span><span class="text-medium">Market</span>
     </div>
     <div id="tab-mining" onclick="goToMining()" class="flex flex-col items-center cursor-pointer">
-      <span>🔁</span><span class="text-xs">Mining</span>
+      <span>🔁</span><span class="text-medium">Mining</span>
     </div>
     <div id="tab-contract" onclick="goToTrade('btcusdt')" class="flex flex-col items-center cursor-pointer">
-      <span>📈</span><span class="text-xs">Contract</span>
+      <span>📈</span><span class="text-medium">Contract</span>
     </div>
     <div id="tab-assets" onclick="goToAssets()" class="flex flex-col items-center cursor-pointer">
-      <span>📁</span><span class="text-xs">Assets</span>
+      <span>📁</span><span class="text-medium">Assets</span>
     </div>
   </div>
 
@@ -232,6 +232,10 @@
       return `https://cryptoicon-api.pages.dev/api/icon/${base}`;
     }
 
+    function formatPair(pair) {
+      return pair.slice(0, -4).toUpperCase() + '/' + pair.slice(-4).toUpperCase();
+    }
+
     pairs.forEach(pair => {
       const row = document.createElement('div');
       row.className = 'text-sm';
@@ -242,7 +246,7 @@
         <div onclick="goToTrade('${pair}')" class="w-full flex justify-between items-center gap-2 uppercase cursor-pointer hover:bg-gray-700 px-2 py-1 rounded">
           <div class="w-1/3 flex items-center gap-2">
             <img src="${getIconUrl(pair)}" alt="${pair}" onerror="this.style.display='none'" class="w-6 h-6" />
-            ${pair}
+            ${formatPair(pair)}
           </div>
           <div class="w-1/3 text-center price text-gray-300">--</div>
           <div class="w-1/3 text-right">

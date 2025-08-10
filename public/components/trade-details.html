@@ -67,7 +67,7 @@
     <button onclick="submitTrade()" class="w-full bg-green-600 py-2 rounded text-lg font-semibold" id="placeOrderBtn">Place Order</button>
     <div id="errorMessage" class="text-red-400 mt-2 text-sm hidden"></div>
     <div id="timer" class="text-yellow-400 text-lg font-bold text-center pt-4 hidden"></div>
-    <div class="pt-6 pb-24">
+    <div class="pt-6 pb-6">
       <h2 class="text-lg font-semibold mb-2 flex items-center gap-1">
         Recent Trades
         <span class="text-gray-400 text-xs italic" title="Click trade rows below to see details"></span>
@@ -200,10 +200,6 @@
       } catch (err) {
         console.error('Failed to refresh profile:', err);
       }
-    }
-
-    function updateBalanceHint() {
-      balanceHint.textContent = `Balance: ${userBalance.toFixed(2)}`;
     }
 
     async function submitTrade() {
@@ -340,7 +336,6 @@
             <span class="trade-arrow">▼</span>
           </div>
         `;
-        div.onclick = () => toggleDetails(trade);
         tradeHistoryEl.appendChild(div);
       });
     }
@@ -414,7 +409,7 @@ Timestamp: ${new Date(trade.timestamp).toLocaleString()}
   </script>
 
   <footer class="bg-gray-800 text-gray-400 p-2 text-center flex-shrink-0">
-    <a href="assets.html" class="underline hover:text-white">View All Trades here</a>
+    <a href="assets.html" class="underline hover:text-white">View All Trade Details here</a>
   </footer>
 </body>
 </html>

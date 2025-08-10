@@ -21,7 +21,7 @@
     }
     #tvChart {
       width: 100%;
-      min-height: 350px;
+      height: 450px;
       border: 0;
       border-radius: 0.5rem;
     }
@@ -90,12 +90,13 @@
   </div>
 
   <!-- Chart -->
-  <div class="px-2 flex-grow">
-    <iframe id="tvChart" src="https://www.tradingview.com/widgetembed/?symbol=BINANCE:BTCUSDT&interval=1&theme=dark&hide_top_toolbar=1&hide_side_toolbar=1&locale=en" allowfullscreen scrolling="no"></iframe>
+  <div class="px-2 mt-2">
+    <!-- TradingView Widget -->
+    <div id="tvChart"></div>
   </div>
 
-  <!-- Trade Controls (Buy UP/DOWN only) -->
-  <div class="px-4 py-4 space-y-4 flex-shrink-0">
+  <!-- Trade Controls (2 cm below chart) -->
+  <div class="px-4 py-8 space-y-4">
     <div>
       <label class="block mb-1">Direction:</label>
       <div class="flex gap-2">
@@ -105,8 +106,40 @@
     </div>
   </div>
 
+  <!-- TradingView Script -->
+  <script type="text/javascript">
+    function createTradingViewWidget(pair = 'BTCUSDT') {
+      const existing = document.getElementById("tradingview-widget");
+      if (existing) existing.remove();
+
+      const script = document.createElement("script");
+      script.id = "tradingview-widget";
+      script.src = "https://s3.tradingview.com/tv.js";
+      script.onload = () => {
+        new TradingView.widget({
+          container_id: "tvChart",
+          autosize: true,
+          symbol: "BINANCE:" + pair,
+          interval: "1",
+          timezone: "Etc/UTC",
+          theme: "dark",
+          style: "1",
+          locale: "en",
+          toolbar_bg: "#1f2937",
+          enable_publishing: false,
+          allow_symbol_change: false,
+          withdateranges: true,
+          hide_side_toolbar: false,
+          hide_top_toolbar: false,
+          studies: [],
+        });
+      };
+      document.body.appendChild(script);
+    }
+  </script>
+
   <script>
-    const availablePairs = ['BTCUSDT', 'LTCUSDT', 'ETHUSDT', 'BNBUSDT', 'XRPUSDT', 'SOLUSDT', 'DOGEUSDT', 'ADAUSDT'];
+    const availablePairs = ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'SOLUSDT', 'ADAUSDT', 'XRPUSDT', 'DOGEUSDT', 'DOTUSDT', 'LTCUSDT', 'LINKUSDT', 'SHIBUSDT', 'ATOMUSDT', 'AVAXUSDT', 'FTTUSDT', 'ETHBTC'];
     let currentPair = 'BTCUSDT';
 
     async function renderPairList() {
@@ -134,7 +167,7 @@
     async function updatePageForPair(pair, userClick = false) {
       currentPair = pair;
       document.getElementById('pairDropdownBtn').textContent = `${pair.slice(0, 3)}/${pair.slice(3)}`;
-      document.getElementById('tvChart').src = `https://www.tradingview.com/widgetembed/?symbol=BINANCE:${pair}&interval=1&theme=dark&hide_top_toolbar=1&hide_side_toolbar=1&locale=en`;
+      createTradingViewWidget(pair);
 
       try {
         const ticker = await fetch(`https://api.binance.com/api/v3/ticker/24hr?symbol=${pair}`).then(r => r.json());
@@ -167,7 +200,6 @@
     }
 
     function openTradeDetails(direction) {
-      // Navigate to trade-details.html with chosen pair and direction as URL parameters
       const params = new URLSearchParams({
         pair: currentPair,
         direction: direction

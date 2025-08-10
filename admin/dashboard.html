@@ -1,0 +1,742 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+    }
+    .sidebar {
+      width: 220px;
+      height: 100vh;
+      background-color: #343a40;
+      color: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding-top: 1rem;
+      overflow-y: auto;
+    }
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 0.75rem 1.25rem;
+      cursor: pointer;
+    }
+    .sidebar a:hover {
+      background-color: #495057;
+      color: #ffc107;
+    }
+    .content {
+      margin-left: 220px;
+      padding: 1.5rem;
+      flex-grow: 1;
+    }
+    table { width: 100%; }
+    .spinner { margin: 1rem 0; }
+    .modal-content label { font-weight: 600; }
+    .pagination { cursor: pointer; }
+    code { user-select: all; background: #e9ecef; padding: 0.15em 0.4em; border-radius: 0.2rem; font-size: 0.875em; }
+    table button { margin-right: 5px; }
+    textarea#notifMsg { width: 100%; height: 120px; resize: vertical; }
+    input#notifTo { width: 100%; margin-bottom: 10px; }
+    .form-section { margin-bottom: 1.5rem; }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h4 class="px-3">Admin Panel</h4>
+    <a onclick="goUsers()" href="#">Users</a>
+    <a onclick="goWithdrawals()" href="#">Withdrawal Requests</a>
+    <a onclick="goNotification()" href="#">Send Notification</a>
+    <a onclick="goAuditLog()" href="#">Audit Log</a>
+    <a href="/admin/logout">Logout</a>
+  </div>
+
+
+  <div class="content">
+    <div id="mainContent">
+      <h3>Welcome, Admin</h3>
+      <p>Select a menu option on the left to get started.</p>
+    </div>
+  </div>
+
+
+  <!-- Trade Edit Modal -->
+  <div class="modal fade" id="tradeModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form id="tradeForm">
+          <div class="modal-header">
+            <h5 class="modal-title">Edit Trade</h5>
+            <button type="button" class="btn-close" onclick="closeTradeModal()"></button>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" id="tradeUserEmail" />
+            <input type="hidden" id="tradeId" />
+           <div class="mb-3">
+  <label class="form-label">Trading Pair</label>
+  <select id="tradePair" class="form-control custom-select" required>
+    <option value="BTC/USDT">BTC/USDT</option>
+<option value="ETH/USDT">ETH/USDT</option>
+<option value="BNB/USDT">BNB/USDT</option>
+<option value="SOL/USDT">SOL/USDT</option>
+<option value="ADA/USDT">ADA/USDT</option>
+<option value="XRP/USDT">XRP/USDT</option>
+<option value="DOGE/USDT">DOGE/USDT</option>
+<option value="DOT/USDT">DOT/USDT</option>
+<option value="LTC/USDT">LTC/USDT</option>
+<option value="LINK/USDT">LINK/USDT</option>
+<option value="SHIB/USDT">SHIB/USDT</option>
+<option value="ATOM/USDT">ATOM/USDT</option>
+<option value="AVAX/USDT">AVAX/USDT</option>
+<option value="FTT/USDT">FTT/USDT</option>
+<option value="ETH/BTC">ETH/BTC</option>
+
+  </select>
+</div>
+
+            <div class="mb-3">
+              <label class="form-label">Direction</label>
+              <select id="tradeDirection" class="form-select" required>
+                <option value="buy">Buy UP</option>
+                <option value="sell">Buy Down</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Amount</label>
+              <input type="number" id="tradeAmount" class="form-control" min="0" step="0.01" required />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Profit %</label>
+              <input type="number" id="tradeProfitPercent" class="form-control" min="0" step="0.01" required />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Result</label>
+              <select id="tradeResult" class="form-select" required>
+                <option value="">--Pending--</option>
+                <option value="WIN">WIN</option>
+                <option value="LOSS">LOSS</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Duration (seconds)</label>
+              <input type="number" id="tradeTimeframe" class="form-control" min="1" required />
+            </div>
+            <div id="tradeFormStatus" style="color:red;"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" onclick="closeTradeModal()">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const tradeModal = new bootstrap.Modal(document.getElementById('tradeModal'));
+
+
+// Helper for "last admin section save/restore"
+function setLastAdminPage(obj) {
+  localStorage.setItem('adminLastPage_v2', JSON.stringify(obj));
+}
+function getLastAdminPage() {
+  try {
+    return JSON.parse(localStorage.getItem('adminLastPage_v2'));
+  } catch(e) { return null; }
+}
+
+
+// Menu wrappers
+function goUsers() {
+  setLastAdminPage({ page:'users' });
+  loadUsers();
+}
+function goWithdrawals() {
+  setLastAdminPage({ page:'withdrawals' });
+  loadWithdrawals();
+}
+function goNotification() {
+  setLastAdminPage({ page:'notification' });
+  showNotificationForm();
+}
+function goAuditLog(page = 1) {
+  setLastAdminPage({ page:'audit', auditPage: page });
+  loadAuditLog(page);
+}
+
+
+function goUserDetails(email) {
+  setLastAdminPage({ page:'userDetails', email });
+  viewUser(email);
+}
+
+
+// Restore last page (after refresh or direct open)
+window.onload = () => {
+  const last = getLastAdminPage();
+  if (!last || !last.page) {
+    loadUsers(); setLastAdminPage({page:'users'}); return;
+  }
+  switch(last.page) {
+    case 'users':
+      loadUsers(); break;
+    case 'withdrawals':
+      loadWithdrawals(); break;
+    case 'notification':
+      showNotificationForm(); break;
+    case 'audit':
+      loadAuditLog(last.auditPage||1); break;
+    case 'userDetails':
+      if (last.email) viewUser(last.email); else loadUsers();
+      break;
+    default: loadUsers(); setLastAdminPage({page:'users'}); break;
+  }
+};
+
+
+function showStatus(id, message, isError = false) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.textContent = message;
+  el.style.color = isError ? 'red' : 'green';
+  setTimeout(() => { el.textContent = ''; }, 4000);
+}
+
+
+function handleAuthError() {
+  alert("Session expired or unauthorized. Redirecting to admin login.");
+  window.location.href = "/admin/login.html";
+}
+
+
+async function fetchWithAuth(url, options = {}) {
+  try {
+    const res = await fetch(url, options);
+    if (res.status === 401 || res.status === 403) {
+      handleAuthError();
+      return null;
+    }
+    return await res.json();
+  } catch (e) {
+    console.error(e);
+    alert("Network error or server unreachable.");
+    return null;
+  }
+}
+
+
+// ==========================
+// Users Management
+// ==========================
+async function loadUsers() {
+  setLastAdminPage({ page:'users' });
+  document.getElementById('mainContent').innerHTML = '<div class="spinner-border" role="status"></div>';
+  const data = await fetchWithAuth('/admin/api/users', { credentials: 'include' });
+  if (!data || !data.success) {
+    document.getElementById('mainContent').innerHTML = `<p class="text-danger">Failed to load users</p>`;
+    return;
+  }
+  let html = `<div class="mb-3 text-center">
+    <input id="admin-search" type="text" class="form-control d-inline-block w-auto" placeholder="Search by User ID or Email" style="display:inline-block; width:auto; max-width:300px;" />
+    <button class="btn btn-primary ms-2" onclick="adminUserSearch()">Search</button>
+  </div> <h3>User List</h3><table class="table table-hover table-bordered align-middle">
+    <thead class="table-dark">
+      <tr><th>User ID</th><th>Email</th><th>Balance</th><th>Credit Score</th><th>Frozen</th><th>Last Login</th><th>Trades</th><th>Actions</th></tr>
+    </thead><tbody>`;
+  data.users.forEach(u => {
+    html += `<tr>
+      <td>${u.userId}</td>
+      <td>${u.email}</td>
+      <td>${Number(u.balance).toFixed(2)}</td>
+      <td>${typeof u.creditScore !== "undefined" ? u.creditScore : 0}</td>
+      <td>${u.frozen ? 'Yes' : 'No'}</td>
+      <td>${u.lastLogin ? new Date(u.lastLogin).toLocaleString() : 'Never'}</td>
+      <td>${u.tradesCount}</td>
+      <td><button class="btn btn-sm btn-primary" onclick="goUserDetails('${u.email}')">View</button></td>
+    </tr>`;
+  });
+  html += '</tbody></table>';
+  document.getElementById('mainContent').innerHTML = html;
+}
+async function adminUserSearch() {
+  const query = document.getElementById('admin-search').value.trim();
+  if (!query) return;
+
+
+  const data = await fetchWithAuth('/admin/api/users', { credentials: 'include' });
+  if (!data || !data.success) {
+    alert("Unable to fetch users for searching.");
+    return;
+  }
+
+
+  // Find by exact userId or case-insensitive email
+  const found = data.users.find(u =>
+    u.userId === query ||
+    (u.email && u.email.toLowerCase() === query.toLowerCase())
+  );
+
+
+  if (found) {
+    goUserDetails(found.email);
+  } else {
+    alert("No user found with this User ID or Email.");
+  }
+}
+
+
+async function viewUser(email) {
+  setLastAdminPage({ page:'userDetails', email });
+  document.getElementById('mainContent').innerHTML = '<div class="spinner-border" role="status"></div>';
+  const data = await fetchWithAuth(`/admin/api/user/${encodeURIComponent(email)}`, { credentials: 'include' });
+  if (!data || !data.success) {
+    document.getElementById('mainContent').innerHTML = `<p class="text-danger">Failed to load user</p>`;
+    return;
+  }
+  const user = data.user;
+
+
+  let tradesHtml = '';
+  if (user.trades && user.trades.length > 0) {
+    tradesHtml = `<table class="table table-sm table-bordered">
+    <thead><tr><th>Pair</th><th>Direction</th><th>Amount</th><th>Profit %</th><th>Result</th><th>Actions</th></tr></thead><tbody>`;
+    user.trades.forEach(t => {
+      tradesHtml += `<tr>
+        <td>${t.pair}</td><td>${t.direction === 'buy' ? 'Buy UP' : t.direction === 'sell' ? 'Buy DOWN' : t.direction}</td>
+<td>${t.amount}</td><td>${t.profitPercent}</td>
+        <td>${t.result || 'Pending'}</td>
+        <td>
+          <button class="btn btn-sm btn-warning" onclick="openTradeModal('${user.email}', ${t.id}, ${JSON.stringify(t).replace(/"/g,'&quot;')})">Edit</button>
+          <button class="btn btn-sm btn-danger" onclick="deleteTradeConfirm('${user.email}', ${t.id})">Delete</button>
+        </td>
+      </tr>`;
+    });
+    tradesHtml += '</tbody></table>';
+  } else {
+    tradesHtml = '<p>No trades yet.</p>';
+  }
+
+
+  let html = `
+  <button class="btn btn-secondary mb-3" onclick="goUsers()">← Back</button>
+  <h3>User Details: ${user.email}</h3>
+  <p><strong>User ID:</strong> ${user.userId}</p>
+  <p><strong>Email:</strong> ${user.email}</p>
+  <p><strong>Invite Code:</strong> ${user.inviteCode || '(none)'}</p>
+  <p><strong>Withdraw Password:</strong> <code>${user.withdrawPassword || '(none)'}</code></p>
+  <p><strong>Login History:</strong></p>
+  <ul>`;
+  if (user.loginHistory && user.loginHistory.length > 0) {
+    html += user.loginHistory.map(dt => `<li>${new Date(dt).toLocaleString()}</li>`).join('');
+  } else {
+    html += '<li>No login history</li>';
+  }
+  html += `</ul>
+  <p><strong>Bank Card Info:</strong></p>`;
+  if (user.bank) {
+    html += `<ul>
+      <li>Bank Name: ${user.bank.bankName}</li>
+      <li>Account Number: ${user.bank.accountNumber}</li>
+      <li>Account Holder: ${user.bank.accountHolderName}</li>
+    </ul>`;
+  } else {
+    html += '<p>No bank card bound</p>';
+  }
+  html += `
+  <div class="mb-3">
+    <label class="form-label"><strong>Balance:</strong></label>
+    <input type="number" id="balanceInput" value="${Number(user.balance).toFixed(2)}" min="0" step="0.01" class="form-control w-auto d-inline-block" />
+    <button class="btn btn-success ms-2" onclick="updateBalance('${user.email}')">Update Balance</button>
+    <div id="balanceStatus" class="mt-1"></div>
+  </div>
+
+
+  <div class="mb-3">
+    <label class="form-label"><strong>Credit Score:</strong></label>
+    <input type="number" id="creditScoreInput" value="${typeof user.creditScore !== "undefined" ? user.creditScore : 0}" min="0" step="1" class="form-control w-auto d-inline-block" />
+    <button class="btn btn-success ms-2" onclick="updateCreditScore('${user.email}')">Update Credit Score</button>
+    <div id="creditScoreStatus" class="mt-1"></div>
+  </div>
+   <h4 class="mt-4">Send Notification to This User</h4>
+  <div class="form-section">
+    <textarea id="singleUserNotifMsg" placeholder="Enter message for ${user.email}" class="form-control" style="height:70px;"></textarea>
+    <button class="btn btn-primary mt-2" onclick="sendUserNotification('${user.email}')">Send Notification</button>
+    <div id="userNotifStatus" style="color:green;margin-top:10px;"></div>
+  </div>
+
+
+  <div class="mb-3">
+    <label class="form-label"><strong>Account Status:</strong></label><br />
+    <input type="checkbox" id="freezeCheckbox" ${user.frozen ? 'checked' : ''} onchange="toggleFreeze('${user.email}')" />
+    <label for="freezeCheckbox">${user.frozen ? 'Frozen' : 'Active'}</label>
+    <div id="freezeStatus" class="mt-1"></div>
+    
+  </div>
+  
+
+
+  <h4>Trades Management</h4>
+  ${tradesHtml}
+  `;
+  document.getElementById('mainContent').innerHTML = html;
+}
+
+
+async function updateBalance(email) {
+  const input = document.getElementById('balanceInput');
+  const val = input.value;
+  if (val === '' || isNaN(val) || Number(val) < 0) {
+    showStatus('balanceStatus', 'Please enter a valid balance', true);
+    return;
+  }
+  const data = await fetchWithAuth('/admin/api/update-balance', {
+    method: 'POST',
+    credentials: 'include',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ email, newBalance: val })
+  });
+  if (data && data.success) {
+    showStatus('balanceStatus', 'Balance updated successfully');
+    viewUser(email);
+  } else {
+    showStatus('balanceStatus', data?.message || 'Failed to update balance', true);
+  }
+}
+
+
+async function updateCreditScore(email) {
+  const val = document.getElementById('creditScoreInput').value;
+  if (val === '' || isNaN(val) || Number(val) < 0) {
+    showStatus('creditScoreStatus', 'Enter a valid credit score', true);
+    return;
+  }
+  const data = await fetchWithAuth('/admin/api/update-credit-score', {
+    method: 'POST',
+    credentials: 'include',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, newCreditScore: Number(val) })
+  });
+  if (data && data.success) {
+    showStatus('creditScoreStatus', 'Credit score updated');
+    viewUser(email);
+  } else {
+    showStatus('creditScoreStatus', data?.message || 'Failed', true);
+  }
+}
+
+
+async function toggleFreeze(email) {
+  const checkbox = document.getElementById('freezeCheckbox');
+  const freeze = checkbox.checked;
+  if (!confirm(`Are you sure you want to ${freeze ? 'freeze' : 'unfreeze'} this account?`)) {
+    checkbox.checked = !freeze;
+    return;
+  }
+  const data = await fetchWithAuth('/admin/api/freeze-account', {
+    method: 'POST',
+    credentials: 'include',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ email, freeze })
+  });
+  if (data && data.success) {
+    showStatus('freezeStatus', `Account ${freeze ? 'frozen' : 'unfrozen'} successfully`);
+    viewUser(email);
+  } else {
+    showStatus('freezeStatus', data?.message || 'Failed to update freeze status', true);
+    checkbox.checked = !freeze;
+  }
+}
+
+
+function openTradeModal(email, tradeId, trade) {
+  document.getElementById('tradeUserEmail').value = email;
+  document.getElementById('tradeId').value = tradeId;
+  document.getElementById('tradePair').value = trade.pair || '';
+  document.getElementById('tradeDirection').value = trade.direction || 'buy';
+  document.getElementById('tradeAmount').value = trade.amount || 0;
+  document.getElementById('tradeProfitPercent').value = trade.profitPercent || 0;
+  document.getElementById('tradeResult').value = trade.result || '';
+  document.getElementById('tradeTimeframe').value = trade.timeframe || 10;
+  document.getElementById('tradeFormStatus').textContent = '';
+  tradeModal.show();
+}
+
+
+function closeTradeModal() {
+  tradeModal.hide();
+}
+
+
+document.getElementById('tradeForm').addEventListener('submit', async function(event) {
+  event.preventDefault();
+  const email = document.getElementById('tradeUserEmail').value;
+  const tradeId = Number(document.getElementById('tradeId').value);
+  const changes = {
+    pair: document.getElementById('tradePair').value,
+    direction: document.getElementById('tradeDirection').value,
+    amount: Number(document.getElementById('tradeAmount').value),
+    profitPercent: Number(document.getElementById('tradeProfitPercent').value),
+    result: document.getElementById('tradeResult').value || null,
+    timeframe: Number(document.getElementById('tradeTimeframe').value)
+  };
+  if (!changes.pair) {
+    document.getElementById('tradeFormStatus').textContent = 'Trading pair is required';
+    return;
+  }
+  if (isNaN(changes.amount) || changes.amount <= 0) {
+    document.getElementById('tradeFormStatus').textContent = 'Amount must be positive number';
+    return;
+  }
+  if (isNaN(changes.profitPercent) || changes.profitPercent < 0) {
+    document.getElementById('tradeFormStatus').textContent = 'Profit % must be non-negative number';
+    return;
+  }
+  if (!['buy','sell'].includes(changes.direction)) {
+    document.getElementById('tradeFormStatus').textContent = 'Direction must be buy or sell';
+    return;
+  }
+  if (isNaN(changes.timeframe) || changes.timeframe <= 0) {
+    document.getElementById('tradeFormStatus').textContent = 'Timeframe must be positive integer';
+    return;
+  }
+  const data = await fetchWithAuth('/admin/api/modify-trade', {
+    method: 'POST',
+    credentials: 'include',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ email, tradeId, changes })
+  });
+  if (data && data.success) {
+    alert('Trade updated successfully');
+    closeTradeModal();
+    viewUser(email);
+  } else {
+    document.getElementById('tradeFormStatus').textContent = data?.message || 'Failed to update trade';
+  }
+});
+
+
+async function deleteTradeConfirm(email, tradeId) {
+  if (!confirm('Are you sure you want to delete this trade? This action cannot be undone.')) return;
+  const data = await fetchWithAuth('/admin/api/delete-trade', {
+    method: 'POST',
+    credentials: 'include',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ email, tradeId })
+  });
+  if (data && data.success) {
+    alert('Trade deleted successfully');
+    viewUser(email);
+  } else {
+    alert(data?.message || 'Failed to delete trade');
+  }
+}
+
+
+let auditPage = 1;
+const auditPageSize = 20;
+
+
+async function loadAuditLog(page = 1) {
+  auditPage = page;
+  setLastAdminPage({ page:'audit', auditPage: page });
+  document.getElementById('mainContent').innerHTML = '<div class="spinner-border" role="status"></div>';
+  const data = await fetchWithAuth('/admin/api/actions', { credentials: 'include' });
+  if (!data || !data.success) {
+    document.getElementById('mainContent').innerHTML = `<p class="text-danger">Failed to load audit log</p>`;
+    return;
+  }
+  const start = (auditPage - 1) * auditPageSize;
+  const actionsPage = data.actions.slice(start, start + auditPageSize);
+  let html = '<h3>Audit Log</h3><ul class="list-group">';
+  if (actionsPage.length === 0) {
+    html += '<li class="list-group-item">No audit entries on this page</li>';
+  } else {
+    actionsPage.forEach(entry => {
+      html += `<li class="list-group-item">
+        <strong>${new Date(entry.timestamp).toLocaleString()}</strong> - Admin <em>${entry.admin}</em>
+        performed <code>${entry.type}</code> on <code>${entry.target}</code>
+        <div><small>Details: ${JSON.stringify(entry.details)}</small></div>
+      </li>`;
+    });
+  }
+  html += '</ul>';
+  const totalPages = Math.ceil(data.actions.length / auditPageSize);
+  if (totalPages > 1) {
+    html += '<nav><ul class="pagination mt-3">';
+    for (let i = 1; i <= totalPages; i++) {
+      html += `<li class="page-item ${i === auditPage ? 'active' : ''}"><a class="page-link" href="#" onclick="goAuditLog(${i});return false;">${i}</a></li>`;
+    }
+    html += '</ul></nav>';
+  }
+  document.getElementById('mainContent').innerHTML = html;
+}
+
+
+async function loadWithdrawals() {
+  setLastAdminPage({ page:'withdrawals' });
+  document.getElementById('mainContent').innerHTML = '<div class="spinner-border" role="status"></div>';
+  const data = await fetchWithAuth('/admin/api/withdrawals', { credentials: 'include' });
+  if (!data || !data.success) {
+    document.getElementById('mainContent').innerHTML = `<p class="text-danger">Failed to load withdrawal requests</p>`;
+    return;
+  }
+  let html = `<h3>Withdrawal Requests</h3>
+    <table class="table table-bordered table-hover align-middle">
+    <thead class="table-dark">
+    <tr><th>User Email</th><th>Amount</th><th>Status</th><th>Requested At</th><th>Actions</th></tr>
+    </thead><tbody>`;
+  data.withdrawals.forEach(w => {
+    html += `<tr>
+      <td>${w.email}</td>
+      <td>$${w.amount.toFixed(2)}</td>
+      <td>${w.status.charAt(0).toUpperCase() + w.status.slice(1)}</td>
+      <td>${new Date(w.requestedAt).toLocaleString()}</td>
+      <td>${w.status === "pending" ? `
+        <button class="btn btn-sm btn-success" onclick="updateWithdrawal(${w.id}, 'approved')">Approve</button>
+        <button class="btn btn-sm btn-danger" onclick="updateWithdrawal(${w.id}, 'rejected')">Reject</button>` : ''}
+      </td>
+    </tr>`;
+  });
+  html += `</tbody></table>`;
+  document.getElementById('mainContent').innerHTML = html;
+}
+
+
+async function updateWithdrawal(id, status) {
+  if (!confirm(`Are you sure you want to ${status} this withdrawal request?`)) return;
+  const data = await fetchWithAuth("/admin/api/withdrawals/update", {
+    method: "POST",
+    credentials: "include",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ id, status })
+  });
+  if (data && data.success) {
+    alert(`Withdrawal request ${status} successfully.`);
+    loadWithdrawals();
+  } else {
+    alert(data?.error || "Failed to update withdrawal status");
+  }
+}
+
+
+async function showNotificationForm() {
+  setLastAdminPage({ page:'notification' });
+  // Form for Sending Notification
+  let html = `
+    <h3>Send Notification</h3>
+    <div class="form-section">
+      <label for="notifTo" class="form-label">Send To (User Email or "all")</label>
+      <input id="notifTo" type="text" placeholder='e.g. user@example.com or "all"' class="form-control" />
+    </div>
+    <div class="form-section">
+      <label for="notifMsg" class="form-label">Notification Message</label>
+      <textarea id="notifMsg" placeholder="Enter notification message here..." class="form-control"></textarea>
+    </div>
+    <button class="btn btn-primary" onclick="sendNotification()">Send Notification</button>
+    <div id="notifStatus" style="margin-top:10px;"></div>
+    <hr>
+    <h4>All Sent Notifications</h4>
+    <table class="table table-hover" id="notifTable">
+      <thead>
+        <tr>
+          <th>To</th>
+          <th>Message</th>
+          <th>Timestamp</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  `;
+  document.getElementById('mainContent').innerHTML = html;
+  loadAdminNotifications();
+}
+
+// Loads all notifications for the admin, with Undo/Delete
+async function loadAdminNotifications() {
+  const data = await fetchWithAuth('/admin/api/notifications', { credentials: 'include' });
+  if (!data || !data.success) return;
+  
+  const tbody = document.querySelector('#notifTable tbody');
+  tbody.innerHTML = ''; // Clear existing rows
+
+  data.notifications.forEach(n => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${n.to}</td>
+      <td>${n.message}</td>
+      <td>${new Date(n.timestamp).toLocaleString()}</td>
+      <td><button class="btn btn-sm btn-danger" onclick="deleteAdminNotification(${n.id})">Undo</button></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+// Deletes the notification (undoes it) after confirmation
+async function deleteAdminNotification(id) {
+  if (!confirm('Are you sure you want to remove this notification?')) return;
+  
+  const res = await fetchWithAuth('/admin/api/notifications/' + id, { 
+    method: 'DELETE', 
+    credentials: 'include' 
+  });
+  
+  if (res && res.success) {
+    loadAdminNotifications(); // Reload the notifications
+  } else {
+    alert(res?.error || 'Failed to delete notification.');
+  }
+}
+
+// Sends notification to a single user
+async function sendUserNotification(email) {
+  const msgEl = document.getElementById('singleUserNotifMsg');
+  const statusEl = document.getElementById('userNotifStatus');
+  
+  const message = msgEl.value.trim();
+  
+  if (!message) {
+    statusEl.style.color = "red";
+    statusEl.textContent = "Enter a message first.";
+    return;
+  }
+  
+  const res = await fetchWithAuth('/admin/api/notifications/send', {
+    method: 'POST',
+    credentials: 'include',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ to: email, message })
+  });
+  
+  if (res && res.success) {
+    statusEl.style.color = "green";
+    statusEl.textContent = "Notification sent!";
+    msgEl.value = ""; // Clear the input field after sending
+  } else {
+    statusEl.style.color = "red";
+    statusEl.textContent = res?.error || "Failed to send notification.";
+  }
+}
+
+
+
+</script>
+</body>
+</html>
+
+

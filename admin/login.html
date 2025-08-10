@@ -1,0 +1,18 @@
+<!-- admin/login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white flex items-center justify-center h-screen">
+  <form action="/admin/login" method="POST" class="bg-gray-800 p-8 rounded shadow-md w-full max-w-sm">
+    <h2 class="text-2xl mb-6 text-center">Admin Login</h2>
+    <input type="text" name="username" placeholder="Username" class="w-full mb-4 p-2 rounded bg-gray-700 border border-gray-600 text-white" required />
+    <input type="password" name="password" placeholder="Password" class="w-full mb-4 p-2 rounded bg-gray-700 border border-gray-600 text-white" required />
+    <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded">Login</button>
+  </form>
+</body>
+</html>

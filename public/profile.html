@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>User Profile</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-  button:disabled {
-    opacity: 0.5; cursor: not-allowed;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>User Profile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  </style>
 </head>
-<body class="bg-[#0a9376] text-white min-h-screen flex flex-col" >
+<body class="bg-[#0a9376] text-white min-h-screen flex flex-col">
 
   <!-- Header -->
   <div class="relative bg-[#0a9376] px-4 pt-6 pb-3">
@@ -23,24 +24,35 @@
       </button>
     </div>
     <div class="flex items-center justify-center mt-4">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Tether_USDT_logo.svg" class="w-12 h-12 bg-black rounded-full p-1" />
+      <!-- Working Profile Logo -->
+      <img id="profile-logo" src="https://ui-avatars.com/api/?name=User&background=0a9376&color=fff&rounded=true&size=96" class="w-11 h-11 rounded-full border-2 border-black shadow-md" alt="User Profile" />
     </div>
     <div class="text-center mt-2">
       <h2 class="text-lg font-semibold" id="user-email">example@email.com</h2>
-      <div class="text-sm mt-1">
+      <div class="text-sm mt-1 flex flex-wrap justify-between items-center">
+        <div class="flex items-center">
+          <span>User ID:</span>
+          <span id="user-id" class="font-semibold ml-1">-------</span>
+        </div>
+        <div class="flex items-center">
+          <span>Balance:</span>
+          <span id="user-balance" class="font-semibold ml-1">--</span>
+        </div>
+      </div>
+      <div class="text-sm mt-2 flex flex-wrap justify-between items-center">
+        <div class="flex items-center">
+          <span>Account Status:</span>
+          <span id="account-status" class="font-semibold ml-1 text-white-300">--</span>
+        </div>
+        <div class="flex items-center">
+          <span>Credit Score:</span>
+          <span id="user-credit-score" class="font-semibold ml-1">--</span>
+        </div>
+      </div>
+      <div class="text-sm mt-4 text-center">
         <span>Invite Code:</span>
         <span id="invite-code" class="font-semibold">STLDERWNZ</span>
         <button onclick="copyCode()" class="ml-1">📋</button>
-        <span class="ml-4">
-          <span>Credit Score:</span>
-          <span id="credit-score" class="font-semibold">1000</span>
-        </span>
-      </div>
-      <div class="text-sm mt-2">
-        <span>Balance:</span>
-        <span id="user-balance" class="font-semibold">--</span>
-        <span class="ml-4">Traded Balance:</span>
-        <span id="user-traded" class="font-semibold">--</span>
       </div>
     </div>
   </div>
@@ -73,7 +85,7 @@
         <span class="text-gray-300">➤</span>
       </li>
       <li class="flex justify-between items-center border-b border-gray-700 py-2 cursor-pointer" onclick="goToCoinAddress()">
-        <span>🏦 Withdraw coins address</span>
+        <span>🏦 Withdraw</span>
         <span class="text-gray-300">➤</span>
       </li>
       <li class="flex justify-between items-center border-b border-gray-700 py-2 cursor-pointer" onclick="goToUserAuthentication()">
@@ -102,11 +114,27 @@
       if (!res.ok) throw new Error('Unauthorized');
       const data = await res.json();
       document.getElementById("user-email").innerText = data.email;
+      document.getElementById("user-id").innerText = data.userId || "--"; // NEW
       document.getElementById("invite-code").innerText = data.inviteCode;
-      document.getElementById("credit-score").innerText = "1000";
       document.getElementById("user-balance").innerText = parseFloat(data.balance).toFixed(2);
-      // Assuming tradedBalance property exists or zero fallback
-      document.getElementById("user-traded").innerText = data.tradedBalance ? parseFloat(data.tradedBalance).toFixed(2) : '0.00';
+      document.getElementById("user-credit-score").innerText =data.creditScore !== undefined ? data.creditScore : "--";
+      
+
+      // Display account status properly
+      const statusElem = document.getElementById("account-status");
+      if (data.frozen) {
+        statusElem.innerText = "Freezed";
+        statusElem.classList.add("text-white-500");
+        statusElem.classList.remove("text-white-300");
+      } else {
+        statusElem.innerText = "Active";
+        statusElem.classList.remove("text-red-500");
+        statusElem.classList.add("text-white-300");
+      }
+      // Set profile image with initials dynamically
+      const profileImg = document.getElementById("profile-logo");
+      const initials = data.email ? data.email.charAt(0).toUpperCase() : "U";
+      profileImg.src = `https://ui-avatars.com/api/?name=${initials}&background=0a9376&color=fff&rounded=true&size=96`;
     } catch (e) {
       alert('Not logged in. Redirecting.');
       window.location.href = '/';
@@ -121,15 +149,14 @@
 
   function copyCode() {
     const code = document.getElementById("invite-code").innerText;
-    navigator.clipboard.writeText(code).then(() => {
-      alert("Invite code copied to clipboard!");
-    });
+    navigator.clipboard.writeText(code);
   }
 
-  // Navigation functions (adjust as per real URL paths)
   function goBackToDashboard() {
     window.location.href = "dashboard.html";
   }
+
+  // Navigation functions
   function goToLanguagePage() { window.location.href = "components/language.html"; }
   function goToHelpCenter() { window.location.href = "components/help-center.html"; }
   function goToBindBankCard() { window.location.href = "components/bind-bank-card.html"; }
@@ -140,7 +167,6 @@
   function goToUserAuthentication() { window.location.href = "components/UserAuthentication.html"; }
   function goToMsbCertificate() { window.location.href = "components/MsbCertificate.html"; }
 
-  // Refresh profile every 5 seconds so balance updates after trades
   async function refreshLoop() {
     await fetchProfile();
     setTimeout(refreshLoop, 5000);
@@ -148,7 +174,6 @@
 
   fetchProfile();
   refreshLoop();
-
 </script>
 </body>
 </html>

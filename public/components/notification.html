@@ -44,6 +44,7 @@
       color: white;
       border-radius: 8px;
       line-height: 1.6;
+      min-height: 200px;
     }
     .notification {
       display: flex;
@@ -60,6 +61,12 @@
       flex-shrink: 0;
       margin-top: 2px;
     }
+    .no-notifications {
+      text-align: center;
+      color: #ddd;
+      font-style: italic;
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
@@ -69,36 +76,10 @@
     <span>Important Account Notifications</span>
   </div>
 
-  <main role="main">
-    <div class="notification">
-      <svg class="icon-bell" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0a3 3 0 11-6 0h6z"/>
-      </svg>
-      <p>Investing early can significantly improve your financial future. Start small and stay consistent.</p>
-    </div>
-    <div class="notification">
-      <svg class="icon-bell" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0a3 3 0 11-6 0h6z"/>
-      </svg>
-      <p>Always use a strong, unique password and enable two-factor authentication to protect your account.</p>
-    </div>
-    <div class="notification">
-      <svg class="icon-bell" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0a3 3 0 11-6 0h6z"/>
-      </svg>
-      <p>Be cautious when trading: understand the risks and never invest money you can't afford to lose.</p>
-    </div>
-    <div class="notification">
-      <svg class="icon-bell" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0a3 3 0 11-6 0h6z"/>
-      </svg>
-      <p>Regularly review your transaction history to detect any unauthorized activity promptly.</p>
-    </div>
-    <div class="notification">
-      <svg class="icon-bell" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0a3 3 0 11-6 0h6z"/>
-      </svg>
-      <p>Withdrawals may take up to 24 hours to process depending on your bank and transaction volume.</p>
+  <main role="main" aria-live="polite" aria-relevant="additions removals" aria-atomic="true">
+    <!-- Notifications will be loaded here -->
+    <div id="notificationsContainer">
+      <p class="no-notifications">Loading notifications...</p>
     </div>
   </main>
 
@@ -106,6 +87,39 @@
     function goBack() {
       window.location.href = document.referrer || '/profile.html';
     }
+
+    async function loadNotifications() {
+      const container = document.getElementById('notificationsContainer');
+      container.innerHTML = '<p class="no-notifications">Loading notifications...</p>';
+      try {
+        const response = await fetch('/notifications', { cache: 'no-store' });
+        if (!response.ok) throw new Error('Failed to fetch notifications');
+        const data = await response.json();
+        if (!data.success || !Array.isArray(data.notifications)) {
+          container.innerHTML = '<p class="no-notifications">No notifications available.</p>';
+          return;
+        }
+        if (data.notifications.length === 0) {
+          container.innerHTML = '<p class="no-notifications">You have no notifications.</p>';
+          return;
+        }
+        // Build notification HTML
+        const html = data.notifications.map(n => `
+          <div class="notification" role="article" aria-label="Notification">
+            <svg class="icon-bell" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0a3 3 0 11-6 0h6z"/>
+            </svg>
+            <p>${n.message}</p>
+          </div>
+        `).join('');
+        container.innerHTML = html;
+      } catch (error) {
+        console.error('Error loading notifications:', error);
+        container.innerHTML = '<p class="no-notifications">Failed to load notifications. Please try again later.</p>';
+      }
+    }
+
+    window.onload = loadNotifications;
   </script>
 </body>
 </html>

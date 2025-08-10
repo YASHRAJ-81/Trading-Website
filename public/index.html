@@ -1,4 +1,3 @@
-<!-- public/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +8,17 @@
 </head>
 <body class="bg-gray-900 text-white p-4">
   <div class="max-w-sm mx-auto mt-10 space-y-6">
-    <div class="flex justify-around text-lg font-semibold">
-      <button onclick="showTab('register')">Register</button>
-      <button onclick="showTab('login')">Login</button>
+
+    <!-- Tab Switcher -->
+    <div id="tabSwitcher" class="relative h-10">
+      <div id="loginTab" class="absolute inset-0 flex justify-center items-center text-2xl font-semibold hidden">
+        Login
+      </div>
+      <div id="registerTab" class="absolute inset-0 flex justify-center items-center text-2xl font-semibold hidden">
+        Register
+      </div>
+      <button id="switchToRegister" onclick="showTab('register')" class="absolute right-0 text-sm underline text-blue-400 hidden">Register</button>
+      <button id="switchToLogin" onclick="showTab('login')" class="absolute right-0 text-sm underline text-blue-400 hidden">Login</button>
     </div>
 
     <!-- Register Form -->
@@ -57,13 +64,29 @@
         document.getElementById(id).classList.add('hidden');
         const errId = id + 'Error';
         if (document.getElementById(errId)) {
-          document.getElementById(errId).textContent = ''; // Clear errors
+          document.getElementById(errId).textContent = '';
         }
       });
+
+      // Handle form visibility
       document.getElementById(tab).classList.remove('hidden');
 
-      if (tab === 'login') refreshCaptcha();
-      if (tab === 'forgot') refreshForgotCaptcha();
+      // Handle top switcher display
+      document.getElementById('loginTab').classList.add('hidden');
+      document.getElementById('registerTab').classList.add('hidden');
+      document.getElementById('switchToRegister').classList.add('hidden');
+      document.getElementById('switchToLogin').classList.add('hidden');
+
+      if (tab === 'login') {
+        document.getElementById('loginTab').classList.remove('hidden');
+        document.getElementById('switchToRegister').classList.remove('hidden');
+        refreshCaptcha();
+      } else if (tab === 'register') {
+        document.getElementById('registerTab').classList.remove('hidden');
+        document.getElementById('switchToLogin').classList.remove('hidden');
+      } else if (tab === 'forgot') {
+        refreshForgotCaptcha();
+      }
     }
 
     function refreshCaptcha() {
@@ -138,15 +161,8 @@
     }
 
     window.onload = function () {
-      const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.get('from') === 'register') {
-        showTab('login');
-      } else {
-        showTab('register');
-      }
+      showTab('login');
     };
   </script>
 </body>
 </html>
-
- 
