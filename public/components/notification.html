@@ -8,78 +8,46 @@
   <style>
     body {
       margin: 0;
-      background-color: #0a9376;
-      color: white;
+      background-color: #0a0a0a;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    #notification-bar {
-      background-color: #0a9376;
-      padding: 12px 24px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 600;
-      font-size: 1rem;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    .fade-in {
+      animation: fadeIn 0.4s ease-in-out;
     }
-    #notification-bar button.back-btn {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.2rem;
-      cursor: pointer;
-      padding: 0;
-      margin: 0;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    main {
-      padding: 80px 20px 40px;
-      max-width: 600px;
-      margin: 0 auto;
-      background-color: #000;
-      color: white;
-      border-radius: 8px;
-      line-height: 1.6;
-      min-height: 200px;
+    /* Loader Animation */
+    .spinner {
+      border: 4px solid rgba(255,255,255,0.2);
+      border-left-color: #4ade80;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      animation: spin 1s linear infinite;
+      margin: auto;
     }
-    .notification {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 1rem;
-    }
-    .icon-bell {
-      width: 20px;
-      height: 20px;
-      stroke: white;
-      stroke-width: 1.5;
-      fill: none;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-    .no-notifications {
-      text-align: center;
-      color: #ddd;
-      font-style: italic;
-      margin-top: 40px;
+    @keyframes spin {
+      to { transform: rotate(360deg); }
     }
   </style>
 </head>
-<body>
+<body class="text-white">
 
-  <div id="notification-bar" role="banner">
-    <button onclick="goBack()" class="back-btn" aria-label="Go back">←</button>
-    <span>Important Account Notifications</span>
+  <!-- Top Bar -->
+  <div id="notification-bar" class="bg-gradient-to-r from-emerald-600 to-green-700 shadow-lg flex items-center gap-3 px-5 py-3 fixed top-0 inset-x-0 z-50">
+    <button onclick="goBack()" class="text-white hover:text-gray-200 text-xl transition" aria-label="Go back">←</button>
+    <span class="font-semibold text-lg">🔔 Important Account Notifications</span>
   </div>
 
-  <main role="main" aria-live="polite" aria-relevant="additions removals" aria-atomic="true">
-    <!-- Notifications will be loaded here -->
-    <div id="notificationsContainer">
-      <p class="no-notifications">Loading notifications...</p>
+  <!-- Main Content -->
+  <main class="pt-20 px-4 pb-10 max-w-3xl mx-auto">
+    <div id="notificationsContainer" class="space-y-4">
+      <div class="flex flex-col items-center justify-center py-12 space-y-4">
+        <div class="spinner"></div>
+        <p class="text-gray-300 italic">Loading notifications...</p>
+      </div>
     </div>
   </main>
 
@@ -90,32 +58,50 @@
 
     async function loadNotifications() {
       const container = document.getElementById('notificationsContainer');
-      container.innerHTML = '<p class="no-notifications">Loading notifications...</p>';
+      container.innerHTML = `
+        <div class="flex flex-col items-center justify-center py-12 space-y-4">
+          <div class="spinner"></div>
+          <p class="text-gray-300 italic">Loading notifications...</p>
+        </div>
+      `;
       try {
         const response = await fetch('/notifications', { cache: 'no-store' });
         if (!response.ok) throw new Error('Failed to fetch notifications');
         const data = await response.json();
-        if (!data.success || !Array.isArray(data.notifications)) {
-          container.innerHTML = '<p class="no-notifications">No notifications available.</p>';
+
+        if (!data.success || !Array.isArray(data.notifications) || data.notifications.length === 0) {
+          container.innerHTML = `
+            <div class="flex flex-col items-center justify-center pt-12 space-y-3 fade-in">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0a3 3 0 11-6 0h6z"/>
+              </svg>
+              <p class="text-gray-400 italic">You have no new notifications.</p>
+            </div>
+          `;
           return;
         }
-        if (data.notifications.length === 0) {
-          container.innerHTML = '<p class="no-notifications">You have no notifications.</p>';
-          return;
-        }
-        // Build notification HTML
+
         const html = data.notifications.map(n => `
-          <div class="notification" role="article" aria-label="Notification">
-            <svg class="icon-bell" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0a3 3 0 11-6 0h6z"/>
-            </svg>
-            <p>${n.message}</p>
+          <div class="notification flex items-start gap-4 p-4 bg-gray-900 rounded-lg shadow border border-gray-700 hover:border-emerald-500 transition duration-200 fade-in">
+            <div class="flex-shrink-0">
+              <svg class="w-6 h-6 text-emerald-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0a3 3 0 11-6 0h6z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-base leading-snug">${n.message}</p>
+              <p class="text-xs text-gray-500 mt-1">${new Date(n.date || Date.now()).toLocaleString()}</p>
+            </div>
           </div>
         `).join('');
         container.innerHTML = html;
       } catch (error) {
         console.error('Error loading notifications:', error);
-        container.innerHTML = '<p class="no-notifications">Failed to load notifications. Please try again later.</p>';
+        container.innerHTML = `
+          <div class="text-center text-red-400 pt-12 fade-in">
+            ⚠ Failed to load notifications. Please try again later.
+          </div>
+        `;
       }
     }
 

@@ -26,9 +26,6 @@
     #errorMessage {
       margin-top: 0.5rem;
     }
-    #timer {
-      font-family: monospace;
-    }
   </style>
 </head>
 <body class="bg-gray-900 text-white min-h-screen flex flex-col">
@@ -42,14 +39,14 @@
   <div id="tradeDetailsContainer" class="px-4 py-4 space-y-4 flex-grow">
     <div>
       <label class="block mb-1">Timeframe (seconds):</label>
-      <div class="grid grid-cols-5 gap-2">
-        <button onclick="selectOption('timeframe', 10)" class="py-2 rounded bg-gray-700" id="tf-10">10s</button>
+      <div class="grid grid-cols-4 gap-2">
         <button onclick="selectOption('timeframe', 60)" class="py-2 rounded bg-gray-700" id="tf-60">60s</button>
         <button onclick="selectOption('timeframe', 90)" class="py-2 rounded bg-gray-700" id="tf-90">90s</button>
         <button onclick="selectOption('timeframe', 120)" class="py-2 rounded bg-gray-700" id="tf-120">120s</button>
         <button onclick="selectOption('timeframe', 180)" class="py-2 rounded bg-gray-700" id="tf-180">180s</button>
       </div>
     </div>
+
     <div>
       <label class="block mb-1">Profit %:</label>
       <div class="grid grid-cols-4 gap-2">
@@ -59,14 +56,49 @@
         <button onclick="selectOption('profit', 100)" class="py-2 rounded bg-gray-700" id="p-100">100%</button>
       </div>
     </div>
+
     <div>
       <label class="block mb-1">Amount:</label>
       <input id="tradeAmount" type="number" min="1" placeholder="Enter amount" class="w-full px-3 py-2 rounded bg-gray-800 text-white" />
       <small id="balanceHint" class="text-gray-400 italic"></small>
     </div>
+
     <button onclick="submitTrade()" class="w-full bg-green-600 py-2 rounded text-lg font-semibold" id="placeOrderBtn">Place Order</button>
     <div id="errorMessage" class="text-red-400 mt-2 text-sm hidden"></div>
-    <div id="timer" class="text-yellow-400 text-lg font-bold text-center pt-4 hidden"></div>
+
+    <!-- Popup (replaces the timer area). Shows a live countdown synced with the selected timeframe -->
+    <div id="tradePopup" class="hidden py-4">
+      <div class="mx-auto w-full max-w-md rounded-lg overflow-hidden shadow-lg bg-gradient-to-br from-gray-800 to-gray-700">
+        <div class="p-4 text-center">
+          <div class="inline-block rounded-full border-2 border-yellow-500 p-4 mb-2">
+            <!-- Big realtime countdown (seconds) -->
+            <div id="popupTimerBig" class="text-5xl font-bold text-yellow-400">60</div>
+            
+            <div id="popupPair" class="text-sm text-gray-300 mt-1">BTC/USDT</div>
+          </div>
+        </div>
+
+        <div class="px-5 pb-4">
+          <div class="bg-gray-800 rounded p-3 mb-3">
+            <div class="flex justify-between text-sm text-gray-300 mb-2">
+              <span>Type</span>
+              <span id="popupType" class="font-semibold">Buy UP</span>
+            </div>
+            <div class="flex justify-between text-sm text-gray-300">
+              <span>Amount</span>
+              <span id="popupAmount" class="font-semibold">1000.00</span>
+            </div>
+          </div>
+
+          <button id="popupContinueBtn" class="w-full bg-green-600 hover:bg-green-500 py-3 rounded text-lg font-semibold text-white">
+            Continue to place an order
+          </button>
+          <button id="popupCancelBtn" class="w-full mt-2 text-center text-sm text-gray-400 underline">Cancel</button>
+        </div>
+      </div>
+    </div>
+    <!-- END popup -->
+
     <div class="pt-6 pb-6">
       <h2 class="text-lg font-semibold mb-2 flex items-center gap-1">
         Recent Trades
@@ -78,6 +110,8 @@
   </div>
 
   <script>
+    const STORAGE_KEY = 'tradeTimerData';
+
     const urlParams = new URLSearchParams(window.location.search);
     const currentPair = urlParams.get('pair') || 'BTCUSDT';
     const selectedDirection = urlParams.get('direction') || null;
@@ -93,13 +127,12 @@
 
     const balanceHint = document.getElementById('balanceHint');
     const errorMessageEl = document.getElementById('errorMessage');
-    const timerEl = document.getElementById('timer');
 
     function selectOption(type, value) {
       if (tradeRunning) return;
       selected[type] = value;
       const ids = {
-        timeframe: ['tf-10', 'tf-60', 'tf-90', 'tf-120', 'tf-180'],
+        timeframe: ['tf-60', 'tf-90', 'tf-120', 'tf-180'],
         profit: ['p-30', 'p-50', 'p-70', 'p-100'],
       };
       ids[type].forEach(id => {
@@ -114,7 +147,7 @@
     function setInputsDisabled(disabled) {
       document.getElementById('placeOrderBtn').disabled = disabled;
       document.getElementById('tradeAmount').disabled = disabled;
-      ['tf-10', 'tf-60', 'tf-90', 'tf-120', 'tf-180', 'p-30', 'p-50', 'p-70', 'p-100'].forEach(id => {
+      ['tf-60', 'tf-90', 'tf-120', 'tf-180', 'p-30', 'p-50', 'p-70', 'p-100'].forEach(id => {
         const btn = document.getElementById(id);
         if (btn) btn.disabled = disabled;
       });
@@ -129,54 +162,6 @@
       errorMessageEl.classList.add('hidden');
     }
 
-    function formatTime(s) {
-      const m = Math.floor(s / 60).toString().padStart(2, '0');
-      const ss = (s % 60).toString().padStart(2, '0');
-      return `${m}:${ss}`;
-    }
-
-    // Starts the timer with given seconds. Persists state in localStorage.
-    function startTimer(seconds) {
-      timerEl.classList.remove('hidden');
-      const startTimestamp = Date.now();
-      const endTimestamp = startTimestamp + seconds * 1000;
-
-      // Store timer data in localStorage for persistence
-      localStorage.setItem('tradeTimerData', JSON.stringify({
-        startedAt: startTimestamp,
-        endsAt: endTimestamp
-      }));
-
-      runTimer(endTimestamp);
-    }
-
-    // Actually runs timer given the end time in ms
-    function runTimer(endTimestamp) {
-      clearTimer(); // clear any existing interval
-
-      function update() {
-        const now = Date.now();
-        let remainingMs = endTimestamp - now;
-        let remainingSec = Math.ceil(remainingMs / 1000);
-
-        if (remainingSec <= 0) {
-          clearTimer();
-          timerEl.textContent = '⏳ Trade completed.';
-          setTimeout(() => {
-            timerEl.classList.add('hidden');
-            // Finalize trade process
-            finalizeTrade();
-          }, 3000);
-          localStorage.removeItem('tradeTimerData');
-          return;
-        }
-        timerEl.textContent = `⏱ ${formatTime(remainingSec)} remaining`;
-      }
-
-      update(); // initial update
-      timerInterval = setInterval(update, 1000);
-    }
-
     function clearTimer() {
       if (timerInterval) {
         clearInterval(timerInterval);
@@ -184,10 +169,157 @@
       }
     }
 
-    function resetTimerUI() {
-      timerEl.classList.add('hidden');
-      timerEl.textContent = '';
-      localStorage.removeItem('tradeTimerData');
+    // Start a live timer that counts down to `endTimestamp` (ms since epoch).
+    function startTimer(endTimestamp) {
+      clearTimer();
+      const bigEl = document.getElementById('popupTimerBig');
+
+      function update() {
+        const now = Date.now();
+        const remainingMs = endTimestamp - now;
+        const remainingSec = Math.max(0, Math.ceil(remainingMs / 1000));
+        if (bigEl) bigEl.textContent = String(remainingSec);
+
+        if (remainingMs <= 0) {
+          clearTimer();
+          // remove stored timer
+          localStorage.removeItem(STORAGE_KEY);
+          // finalize trade automatically
+          // small delay so UI shows 0 briefly
+          setTimeout(() => finalizeTrade(), 250);
+        }
+      }
+
+      update(); // immediate update
+      timerInterval = setInterval(update, 250);
+    }
+
+    // Shows the inline popup and starts a timer for `timeframe` seconds.
+    function showTradePopup(trade, timeframeSeconds) {
+      const popup = document.getElementById('tradePopup');
+      if (!popup) return;
+
+      // determine fields to display (prefer data from server's trade object; fall back to calculated values)
+      const pairText = trade.pair || `${currentPair.slice(0,3)}/${currentPair.slice(3)}`;
+      const directionText = trade.direction || (selected.direction === 'UP' ? 'Buy UP' : 'Buy DOWN');
+      const amountText = (trade.amount != null) ? parseFloat(trade.amount).toFixed(2) : (trade.amount || '0.00');
+
+      // fill popup UI
+      const typeEl = document.getElementById('popupType');
+      const amountEl = document.getElementById('popupAmount');
+      const pairEl = document.getElementById('popupPair');
+
+      if (typeEl) typeEl.textContent = directionText;
+      if (amountEl) amountEl.textContent = amountText;
+      if (pairEl) pairEl.textContent = pairText;
+
+      // compute end timestamp and persist to localStorage so refresh resumes it
+      const endsAt = Date.now() + (Number(timeframeSeconds) * 1000);
+      const store = {
+        endsAt,
+        pair: pairText,
+        amount: amountText,
+        direction: directionText
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+
+      // show popup and lock inputs
+      popup.classList.remove('hidden');
+      setInputsDisabled(true);
+      tradeRunning = true;
+      currentTradeData = trade; // keep reference for finalize
+
+      // wire buttons
+      const contBtn = document.getElementById('popupContinueBtn');
+      if (contBtn) {
+        contBtn.onclick = async function () {
+          // user confirmed early — remove stored timer, clear interval and finalize
+          localStorage.removeItem(STORAGE_KEY);
+          clearTimer();
+          popup.classList.add('hidden');
+          await finalizeTrade();
+        };
+      }
+
+      const cancelBtn = document.getElementById('popupCancelBtn');
+      if (cancelBtn) {
+        cancelBtn.onclick = function () {
+          // client-side cancel: hide popup, clear timer and re-enable inputs.
+          popup.classList.add('hidden');
+          localStorage.removeItem(STORAGE_KEY);
+          clearTimer();
+          tradeRunning = false;
+          currentTradeData = null;
+          setInputsDisabled(false);
+          clearError();
+        };
+      }
+
+      // start the live countdown
+      startTimer(endsAt);
+
+        // Smooth scroll to make sure the popup is visible
+  
+  if (popup) {
+    popup.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+    }
+
+    // Show popup using an already-saved localStorage entry (used on page load)
+    function restorePopupFromStorage(stored) {
+      const popup = document.getElementById('tradePopup');
+      if (!popup) return;
+
+      if (stored.pair) {
+        const pairEl = document.getElementById('popupPair');
+        if (pairEl) pairEl.textContent = stored.pair;
+      }
+      if (stored.amount) {
+        const amountEl = document.getElementById('popupAmount');
+        if (amountEl) amountEl.textContent = stored.amount;
+      }
+      if (stored.direction) {
+        const typeEl = document.getElementById('popupType');
+        if (typeEl) typeEl.textContent = stored.direction;
+      }
+
+      popup.classList.remove('hidden');
+      setInputsDisabled(true);
+      tradeRunning = true;
+      // start countdown towards stored.endsAt
+      startTimer(stored.endsAt);
+
+      // wire buttons same as showTradePopup
+      const contBtn = document.getElementById('popupContinueBtn');
+      if (contBtn) {
+        contBtn.onclick = async function () {
+          localStorage.removeItem(STORAGE_KEY);
+          clearTimer();
+          popup.classList.add('hidden');
+          await finalizeTrade();
+        };
+      }
+      const cancelBtn = document.getElementById('popupCancelBtn');
+      if (cancelBtn) {
+        cancelBtn.onclick = function () {
+          popup.classList.add('hidden');
+          localStorage.removeItem(STORAGE_KEY);
+          clearTimer();
+          tradeRunning = false;
+          currentTradeData = null;
+          setInputsDisabled(false);
+          clearError();
+        };
+      }
+    }
+
+    function hideTradePopup() {
+      const popup = document.getElementById('tradePopup');
+      if (!popup) return;
+      popup.classList.add('hidden');
+      clearTimer();
+      localStorage.removeItem(STORAGE_KEY);
     }
 
     async function refreshProfileBalance() {
@@ -199,6 +331,13 @@
         updateBalanceHint();
       } catch (err) {
         console.error('Failed to refresh profile:', err);
+      }
+    }
+
+    function updateBalanceHint() {
+      const hint = document.getElementById('balanceHint');
+      if (hint) {
+        hint.textContent = `Balance: ${userBalance.toFixed(2)}`;
       }
     }
 
@@ -223,10 +362,10 @@
       const timeframeSelected = selected.timeframe;
       const profitSelected = selected.profit;
 
-      // Clear selections and inputs immediately on order success
+      // reset selections visually and lock inputs (we keep this behavior)
       selected.timeframe = null;
       selected.profit = null;
-      ['tf-10', 'tf-60', 'tf-90', 'tf-120', 'tf-180', 'p-30', 'p-50', 'p-70', 'p-100'].forEach(id => {
+      ['tf-60', 'tf-90', 'tf-120', 'tf-180', 'p-30', 'p-50', 'p-70', 'p-100'].forEach(id => {
         const btn = document.getElementById(id);
         if (btn) btn.classList.remove('active-btn', 'bg-yellow-600');
         if (btn) btn.disabled = true;
@@ -255,31 +394,27 @@
           showError(data.message || 'Trade failed.');
           tradeRunning = false;
           setInputsDisabled(false);
-          clearTimer();
-          localStorage.removeItem('tradeTimerData');
           return;
         }
 
-        currentTradeData = data.trade;
-        tradeRunning = true;
-        // Start timer storing persistent state
-        startTimer(timeframeSelected);
+        // server responded with created trade; keep reference
+        currentTradeData = data.trade || tradeData;
+
+        // show popup with live timer (client-side timeframe used)
+        showTradePopup(currentTradeData, timeframeSelected);
 
       } catch (err) {
         showError(`Error placing trade: ${err.message}`);
         tradeRunning = false;
         setInputsDisabled(false);
-        clearTimer();
-        localStorage.removeItem('tradeTimerData');
       }
     }
 
     async function finalizeTrade() {
-      // Remove timer and clear stored data
-      clearTimer();
-      resetTimerUI();
+      // ensure popup is hidden, timer cleared and storage removed
+      hideTradePopup();
 
-      // Refresh UI and state
+      // refresh balance and trade-history like before
       await refreshProfileBalance();
       await fetchTradeHistory();
 
@@ -287,12 +422,13 @@
       setInputsDisabled(false);
       currentTradeData = null;
 
-      ['tf-10', 'tf-60', 'tf-90', 'tf-120', 'tf-180', 'p-30', 'p-50', 'p-70', 'p-100'].forEach(id => {
+      ['tf-60', 'tf-90', 'tf-120', 'tf-180', 'p-30', 'p-50', 'p-70', 'p-100'].forEach(id => {
         const btn = document.getElementById(id);
         if (btn) btn.classList.remove('active-btn', 'bg-yellow-600');
       });
 
-      document.getElementById('tradeAmount').value = '';
+      const amtEl = document.getElementById('tradeAmount');
+      if (amtEl) amtEl.value = '';
     }
 
     const tradeHistoryEl = document.getElementById('tradeHistory');
@@ -336,6 +472,10 @@
             <span class="trade-arrow">▼</span>
           </div>
         `;
+        // clicking a trade entry toggles details (keeps old UI behavior)
+        div.onclick = function () {
+          toggleDetails(trade);
+        };
         tradeHistoryEl.appendChild(div);
       });
     }
@@ -369,37 +509,28 @@ Timestamp: ${new Date(trade.timestamp).toLocaleString()}
       window.location.href = `trade.html?${params.toString()}`;
     }
 
-    // On page load, check for running trade timer in localStorage and resume timer if active
     async function init() {
       await refreshProfileBalance();
       await fetchTradeHistory();
 
-      const timerDataJSON = localStorage.getItem('tradeTimerData');
+      // restore any in-progress client-side timer (no backend required)
+      const timerDataJSON = localStorage.getItem(STORAGE_KEY);
       if (timerDataJSON) {
-        const timerData = JSON.parse(timerDataJSON);
-        const now = Date.now();
-
-        if (timerData.endsAt > now) {
-          tradeRunning = true;
-          setInputsDisabled(true);
-          // Clear UI selections/inputs since trade is in progress
-          selected.timeframe = null;
-          selected.profit = null;
-          ['tf-10', 'tf-60', 'tf-90', 'tf-120', 'tf-180', 'p-30', 'p-50', 'p-70', 'p-100'].forEach(id => {
-            const btn = document.getElementById(id);
-            if (btn) btn.classList.remove('active-btn', 'bg-yellow-600');
-            if (btn) btn.disabled = true;
-          });
-          document.getElementById('tradeAmount').value = '';
-          document.getElementById('tradeAmount').disabled = true;
-          document.getElementById('placeOrderBtn').disabled = true;
-
-          runTimer(timerData.endsAt);
-        } else {
-          // Timer expired - clean up
-          localStorage.removeItem('tradeTimerData');
-          tradeRunning = false;
-          setInputsDisabled(false);
+        try {
+          const timerData = JSON.parse(timerDataJSON);
+          const now = Date.now();
+          if (timerData.endsAt && timerData.endsAt > now) {
+            // there is still time left — restore popup with stored values
+            restorePopupFromStorage(timerData);
+          } else {
+            // timer expired while user was away — remove and finalize
+            localStorage.removeItem(STORAGE_KEY);
+            // finalize immediately to sync UI with server (the backend created the trade earlier)
+            await finalizeTrade();
+          }
+        } catch (e) {
+          // invalid storage, clear it
+          localStorage.removeItem(STORAGE_KEY);
         }
       }
     }

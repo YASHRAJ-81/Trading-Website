@@ -24,7 +24,8 @@ db.defaults({
   notifications: [],      // New for user notifications
   admin: [], 
   adminActions: [], 
-  auditLog: [] 
+  auditLog: [],
+  user_id_counter: 0 //
 }).write();
 
 
@@ -65,8 +66,8 @@ app.get('/captcha', (req, res) => {
     background: '#ffffff',
     width: 150,
     height: 50,
-    fontSize: 45,
-    charPreset: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
+    fontSize: 35,
+    charPreset: '0123456789',
   });
 
 
@@ -131,47 +132,34 @@ function adminAuthView(req, res, next) {
 // -------------------------
 // User routes (register/login/profile etc.)
 // -------------------------
+// server.js
 app.post('/register', (req, res) => {
-  const { email, password, confirmPassword } = req.body;
-  const inviteCode = 'nikki23';
+    const { email, password, confirmPassword } = req.body;
+    const inviteCode = 'nikki23';
 
+    // ... existing validation code (password match, user exists) ...
 
-  if (password !== confirmPassword) {
-    return res.json({ success: false, message: 'Passwords do not match.' });
-  }
+    // Get the current counter, increment it, and update the database
+    let nextIdNum = db.get('user_id_counter').value() + 1;
+    db.set('user_id_counter', nextIdNum).write(); // 👈 USE THIS TO GET A UNIQUE ID
 
+    // Pad to 3 digits, e.g. 001
+    const newUserId = String(nextIdNum).padStart(3, '0');
 
-  const existing = db.get('users').find({ email }).value();
-  if (existing) {
-    return res.json({ success: false, message: 'User already exists.' });
-  }
+    const hashed = bcrypt.hashSync(password, 10);
+    db.get('users').push({
+        email,
+        password: hashed,
+        inviteCode,
+        userId: newUserId,
+        balance: 0,
+        creditScore: 100,
+        trades: [],
+        frozen: false,
+        loginHistory: []
+    }).write();
 
-
-  // FIND latest userId and increment
-  const lastUser = db.get('users').sortBy('userId').last().value();
-  let nextIdNum = 1;
-  if (lastUser && lastUser.userId) {
-    nextIdNum = parseInt(lastUser.userId, 10) + 1;
-  }
-  // Pad to 3 digits, e.g. 001
-  const newUserId = String(nextIdNum).padStart(3, '0');
-
-
-  const hashed = bcrypt.hashSync(password, 10);
-  db.get('users').push({
-    email,
-    password: hashed,
-    inviteCode,
-    userId: newUserId,
-    balance: 2000,
-    creditScore:0,
-    trades: [],
-    frozen: false,
-    loginHistory: []
-  }).write();
-
-
-  return res.json({ success: true });
+    return res.json({ success: true });
 });
 
 

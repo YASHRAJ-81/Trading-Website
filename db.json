@@ -52,7 +52,7 @@
       "email": "keshav@gmail.com",
       "password": "$2b$10$Q6iXYyIBk4H2rsc7NXJfcu/xZBN8LGPZecoTFQeg6FYKwha..tGrS",
       "inviteCode": "nikki23",
-      "balance": 27000,
+      "balance": 2000,
       "trades": [
         {
           "id": 1754326133003,
@@ -717,6 +717,230 @@
           "profit": "-24.80",
           "result": "LOSS",
           "forcedLoss": true
+        },
+        {
+          "id": 1754987646693,
+          "pair": "ETH/USDT",
+          "direction": "sell",
+          "amount": 25000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-12T08:34:06.693Z",
+          "startTime": 1754987646693,
+          "status": "completed",
+          "profit": "-25000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        },
+        {
+          "id": 1756373777120,
+          "pair": "BTC/USDT",
+          "direction": "sell",
+          "amount": 200,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-28T09:36:17.120Z",
+          "startTime": 1756373777120,
+          "status": "completed",
+          "profit": "-200.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        },
+        {
+          "id": 1756553332949,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 500,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-30T11:28:52.949Z",
+          "startTime": 1756553332949,
+          "status": "completed",
+          "profit": "500.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        {
+          "id": 1756554530349,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 1000,
+          "profitPercent": 70,
+          "timeframe": 60,
+          "timestamp": "2025-08-30T11:48:50.349Z",
+          "startTime": 1756554530349,
+          "status": "completed",
+          "profit": "700.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        {
+          "id": 1756554613937,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 100,
+          "profitPercent": 50,
+          "timeframe": 60,
+          "timestamp": "2025-08-30T11:50:13.937Z",
+          "startTime": 1756554613937,
+          "status": "completed",
+          "profit": "50.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        {
+          "id": 1756554644778,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 200,
+          "profitPercent": 70,
+          "timeframe": 90,
+          "timestamp": "2025-08-30T11:50:44.778Z",
+          "startTime": 1756554644778,
+          "status": "completed",
+          "profit": "140.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        {
+          "id": 1756554937803,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 190,
+          "profitPercent": 50,
+          "timeframe": 60,
+          "timestamp": "2025-08-30T11:55:37.803Z",
+          "startTime": 1756554937803,
+          "status": "completed",
+          "profit": "-95.00",
+          "result": "LOSS",
+          "forcedLoss": true
+        },
+        {
+          "id": 1756555023444,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 95,
+          "profitPercent": 100,
+          "timeframe": 90,
+          "timestamp": "2025-08-30T11:57:03.444Z",
+          "startTime": 1756555023444,
+          "status": "completed",
+          "profit": "-95.00",
+          "result": "LOSS",
+          "forcedLoss": true
+        },
+        {
+          "id": 1756555135714,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 120,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-30T11:58:55.714Z",
+          "startTime": 1756555135714,
+          "status": "completed",
+          "profit": "-120.00",
+          "result": "LOSS",
+          "forcedLoss": true
+        },
+        {
+          "id": 1756555189696,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 100,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-30T11:59:49.696Z",
+          "startTime": 1756555189696,
+          "status": "completed",
+          "profit": "-100.00",
+          "result": "LOSS",
+          "forcedLoss": true
+        },
+        {
+          "id": 1756555222121,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 100,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-30T12:00:22.121Z",
+          "startTime": 1756555222121,
+          "status": "completed",
+          "profit": "-100.00",
+          "result": "LOSS",
+          "forcedLoss": true
+        },
+        {
+          "id": 1756555464953,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 680,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-30T12:04:24.953Z",
+          "startTime": 1756555464953,
+          "status": "completed",
+          "profit": "-680.00",
+          "result": "LOSS",
+          "forcedLoss": true
+        },
+        {
+          "id": 1756555736677,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 100,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-30T12:08:56.677Z",
+          "startTime": 1756555736677,
+          "status": "completed",
+          "profit": "-100.00",
+          "result": "LOSS",
+          "forcedLoss": true
+        },
+        {
+          "id": 1756556260221,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 100,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-30T12:17:40.221Z",
+          "startTime": 1756556260221,
+          "status": "completed",
+          "profit": "100.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        {
+          "id": 1756556440357,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 900,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-30T12:20:40.357Z",
+          "startTime": 1756556440357,
+          "status": "completed",
+          "profit": "900.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        {
+          "id": 1756974060283,
+          "pair": "LTC/USDT",
+          "direction": "buy",
+          "amount": 900,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-09-04T08:21:00.283Z",
+          "startTime": 1756974060283,
+          "status": "completed",
+          "profit": "-900.00",
+          "result": "LOSS",
+          "forcedLoss": false
         }
       ],
       "bank": {
@@ -724,7 +948,8 @@
         "accountNumber": "1234",
         "accountHolderName": "keshav"
       },
-      "creditScore": 500
+      "creditScore": 500,
+      "frozen": false
     },
     {
       "email": "123@gmail.com",
@@ -1509,6 +1734,293 @@
         "2025-08-10T10:07:43.446Z",
         "2025-08-10T11:01:00.000Z",
         "2025-08-10T12:32:51.382Z"
+      ]
+    },
+    {
+      "email": "kinjal@gmail.com",
+      "password": "$2b$10$DlwtH2xLgC2wcIqYmSklWeTnEeReQc7AJW/wKUT.fFOAFsNfe3psu",
+      "inviteCode": "nikki23",
+      "userId": "001",
+      "balance": 2000,
+      "creditScore": 0,
+      "trades": [],
+      "frozen": false,
+      "loginHistory": [
+        "2025-08-12T07:14:15.157Z"
+      ]
+    },
+    {
+      "email": "khushi@gmail.com",
+      "password": "$2b$10$eOQK.hsvidROZjZI4FqhpOTcoz0n83M7DKt33/h0hMy.oKjBvOeEu",
+      "inviteCode": "nikki23",
+      "userId": "001",
+      "balance": 2000,
+      "creditScore": 0,
+      "trades": [],
+      "frozen": false,
+      "loginHistory": [
+        "2025-08-12T07:18:54.869Z"
+      ]
+    },
+    {
+      "email": "arpana@gmail.com",
+      "password": "$2b$10$X3v7aSj8DfCsG41aE7e52OVPUoVYz6c1gcLdOOeROsGpdMSdZCK4G",
+      "inviteCode": "nikki23",
+      "userId": "001",
+      "balance": 2000,
+      "creditScore": 0,
+      "trades": [],
+      "frozen": false,
+      "loginHistory": [
+        "2025-08-12T07:32:35.986Z"
+      ]
+    },
+    {
+      "email": "rohini@gmail.com",
+      "password": "$2b$10$9umA.wsnRCYCU/rtATYkOu3FOgQA4gaYQlRqEEsSY82H8/PlmV7oy",
+      "inviteCode": "nikki23",
+      "userId": "002",
+      "balance": 2000,
+      "creditScore": 0,
+      "trades": [],
+      "frozen": false,
+      "loginHistory": [
+        "2025-08-12T07:33:38.261Z"
+      ]
+    },
+    {
+      "email": "niranjan@gmail.com",
+      "password": "$2b$10$Ei2kRkHZbosKmakCECie0.0d3rrWBYuTiDI8r2/ggzx9nczyUfeeq",
+      "inviteCode": "nikki23",
+      "userId": "003",
+      "balance": 1900,
+      "creditScore": 0,
+      "trades": [
+        {
+          "id": 1754993522445,
+          "pair": "BTC/USDT",
+          "direction": "sell",
+          "amount": 100,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-12T10:12:02.445Z",
+          "startTime": 1754993522445,
+          "status": "completed",
+          "profit": "-100.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      ],
+      "frozen": false,
+      "loginHistory": [
+        "2025-08-12T08:19:05.136Z",
+        "2025-08-12T08:32:20.226Z",
+        "2025-08-12T09:48:18.920Z",
+        "2025-08-12T10:10:39.828Z"
+      ]
+    },
+    {
+      "email": "l@gmail.com",
+      "password": "$2b$10$UQ4qHlk00OJGI2.XmWPwG.mFoVOU7H2CWVoSugMDNi7Zy/YAQ/y3m",
+      "inviteCode": "nikki23",
+      "userId": "004",
+      "balance": 3000,
+      "creditScore": 0,
+      "trades": [
+        {
+          "id": 1755489942915,
+          "pair": "ETH/BTC",
+          "direction": "Buy UP",
+          "amount": 1000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-18T04:05:42.915Z",
+          "startTime": 1755489942915,
+          "status": "completed",
+          "profit": "1000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        }
+      ],
+      "frozen": false,
+      "loginHistory": [
+        "2025-08-18T04:04:56.022Z"
+      ]
+    },
+    {
+      "email": "lok@gmail.com",
+      "password": "$2b$10$GQYJ83YZr9oZBmj5QKWugucyizLy6fGknxEqk44OmUpBulnfmXLtu",
+      "inviteCode": "apple",
+      "userId": "005",
+      "balance": 2000,
+      "creditScore": 0,
+      "trades": [],
+      "frozen": false,
+      "loginHistory": []
+    },
+    {
+      "email": "908@gmail.com",
+      "password": "$2b$10$zuHWe5G7/6g46CmEIBbyfOPeNQZmy/eGG5MzF5GvB19Q0aEFjq3vC",
+      "inviteCode": "nikki23",
+      "userId": "006",
+      "balance": 2000,
+      "creditScore": 0,
+      "trades": [],
+      "frozen": false,
+      "loginHistory": [
+        "2025-08-23T18:23:20.225Z"
+      ]
+    },
+    {
+      "email": "panj@gmail.com",
+      "password": "$2b$10$f1nz9be/wV0qkHosrATfJOSCrE/xPIKwDfgvZdB/aNyPbsFe6C6Ue",
+      "inviteCode": "nikki23",
+      "userId": "007",
+      "balance": 0,
+      "creditScore": 100,
+      "trades": [],
+      "frozen": false,
+      "loginHistory": [
+        "2025-08-25T04:19:18.745Z"
+      ]
+    },
+    {
+      "email": "smaina@gmail.com",
+      "password": "$2b$10$/nBYQP7kwsEYac9DyM4DfeAOb8G.Mcoi/RWnRYf2RbdwQknDfdH8O",
+      "inviteCode": "nikki23",
+      "userId": "008",
+      "balance": 10000,
+      "creditScore": 100,
+      "trades": [
+        {
+          "id": 1757338042672,
+          "pair": "BTC/USDT",
+          "direction": "sell",
+          "amount": 5000,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-09-08T13:27:22.672Z",
+          "startTime": 1757338042672,
+          "status": "completed",
+          "profit": "5000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        }
+      ],
+      "frozen": false,
+      "loginHistory": [
+        "2025-09-08T13:23:26.094Z"
+      ]
+    },
+    {
+      "email": "varun123@gmail.com",
+      "password": "$2b$10$UdCaa.krIETLqIQjwW264.MS2ujEbQthhO.Qa004f5goWnUUSDlle",
+      "inviteCode": "nikki23",
+      "userId": "009",
+      "balance": 4000,
+      "creditScore": 100,
+      "trades": [
+        {
+          "id": 1758793594435,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 2000,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-09-25T09:46:34.435Z",
+          "startTime": 1758793594435,
+          "status": "completed",
+          "profit": "2000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        }
+      ],
+      "frozen": false,
+      "loginHistory": [
+        "2025-09-25T09:42:21.882Z"
+      ]
+    },
+    {
+      "email": "mayamam@gmail.com",
+      "password": "$2b$10$oyBr19/DFDgQ1t7R/cuBM.mI.0B6Oj3BadpsXh4lgKPb35ZtLGV/K",
+      "inviteCode": "nikki23",
+      "userId": "010",
+      "balance": 0,
+      "creditScore": 100,
+      "trades": [],
+      "frozen": false,
+      "loginHistory": [
+        "2025-10-09T10:27:13.248Z"
+      ]
+    },
+    {
+      "email": "an@gmail.com",
+      "password": "$2b$10$hkdRiQ9T9KGKtBqxuTFpq.M14FKDtePLOj0oTsIbugV9yK8xM6wnC",
+      "inviteCode": "nikki23",
+      "userId": "011",
+      "balance": 0,
+      "creditScore": 100,
+      "trades": [
+        {
+          "id": 1765294943770,
+          "pair": "BTC/USDT",
+          "direction": "sell",
+          "amount": 2000,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-12-09T15:42:23.770Z",
+          "startTime": 1765294943770,
+          "status": "completed",
+          "profit": "-2000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      ],
+      "frozen": false,
+      "loginHistory": [
+        "2025-12-09T15:38:27.749Z"
+      ]
+    },
+    {
+      "email": "rajeev@gmail.com",
+      "password": "$2b$10$5TvPWPoS7Ab1U5d5b/cvy.RLZMNX.3nTj981m2zMDMv7Gg1Ks0X62",
+      "inviteCode": "nikki23",
+      "userId": "012",
+      "balance": 3000,
+      "creditScore": 100,
+      "trades": [
+        {
+          "id": 1765802508197,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 1000,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-12-15T12:41:48.197Z",
+          "startTime": 1765802508197,
+          "status": "completed",
+          "profit": "1000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        }
+      ],
+      "frozen": false,
+      "loginHistory": [
+        "2025-12-15T12:37:24.235Z",
+        "2025-12-15T12:38:42.268Z"
+      ]
+    },
+    {
+      "email": "appolo@gmail.com",
+      "password": "$2b$10$NGqxi/dcvjVkD3nQAdfRV.WUQDQTshgJwxcYneAxtuZfgTvtcq8qO",
+      "inviteCode": "nikki23",
+      "userId": "013",
+      "balance": 0,
+      "creditScore": 100,
+      "trades": [],
+      "frozen": false,
+      "loginHistory": [
+        "2026-02-16T10:19:30.158Z"
       ]
     }
   ],
@@ -3188,6 +3700,738 @@
         }
       },
       "timestamp": "2025-08-10T12:33:14.577Z"
+    },
+    {
+      "id": "1754982946669-w4v2je",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-12T07:15:46.669Z"
+    },
+    {
+      "id": "1754983014607-n4kw7c",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-12T07:16:54.607Z"
+    },
+    {
+      "id": "1754983112360-x7h72v",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-08-12T07:18:32.360Z"
+    },
+    {
+      "id": "1754983147581-bzzcbo",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-12T07:19:07.581Z"
+    },
+    {
+      "id": "1754984043232-8th70t",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-12T07:34:03.232Z"
+    },
+    {
+      "id": "1754984104424-ttenpx",
+      "admin": "admin",
+      "type": "SEND_NOTIFICATION",
+      "target": "rohini@gmail.com",
+      "details": {
+        "message": "Hey Rohini welcome to the platform"
+      },
+      "timestamp": "2025-08-12T07:35:04.424Z"
+    },
+    {
+      "id": "1754984144267-bvlsxb",
+      "admin": "admin",
+      "type": "SEND_NOTIFICATION",
+      "target": "keshav@gmail.com",
+      "details": {
+        "message": "hi"
+      },
+      "timestamp": "2025-08-12T07:35:44.267Z"
+    },
+    {
+      "id": "1754984229020-8v9mc2",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-12T07:37:09.020Z"
+    },
+    {
+      "id": "1754984234362-x52htu",
+      "admin": "admin",
+      "type": "DELETE_NOTIFICATION",
+      "target": "keshav@gmail.com",
+      "details": {
+        "message": "hi"
+      },
+      "timestamp": "2025-08-12T07:37:14.362Z"
+    },
+    {
+      "id": "1754984236611-mdshb1",
+      "admin": "admin",
+      "type": "DELETE_NOTIFICATION",
+      "target": "rohini@gmail.com",
+      "details": {
+        "message": "Hey Rohini welcome to the platform"
+      },
+      "timestamp": "2025-08-12T07:37:16.611Z"
+    },
+    {
+      "id": "1754984356787-trlcb3",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-08-12T07:39:16.787Z"
+    },
+    {
+      "id": "1754986759836-tuly30",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-12T08:19:19.836Z"
+    },
+    {
+      "id": "1754987658886-jk2ho8",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-12T08:34:18.886Z"
+    },
+    {
+      "id": "1754987706751-9xb7wy",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "keshav@gmail.com",
+      "details": {
+        "tradeId": 1754987646693,
+        "oldTrade": {
+          "id": 1754987646693,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 25000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-12T08:34:06.693Z",
+          "startTime": 1754987646693,
+          "status": "completed",
+          "profit": "25000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1754987646693,
+          "pair": "ETH/USDT",
+          "direction": "sell",
+          "amount": 25000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-12T08:34:06.693Z",
+          "startTime": 1754987646693,
+          "status": "completed",
+          "profit": "-25000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-08-12T08:35:06.751Z"
+    },
+    {
+      "id": "1754987726649-d1x17e",
+      "admin": "admin",
+      "type": "FREEZE_ACCOUNT",
+      "target": "keshav@gmail.com",
+      "details": {
+        "freeze": true
+      },
+      "timestamp": "2025-08-12T08:35:26.649Z"
+    },
+    {
+      "id": "1754987758339-1dqrq6",
+      "admin": "admin",
+      "type": "UNFREEZE_ACCOUNT",
+      "target": "keshav@gmail.com",
+      "details": {
+        "freeze": false
+      },
+      "timestamp": "2025-08-12T08:35:58.339Z"
+    },
+    {
+      "id": "1754992318683-udf8p5",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-12T09:51:58.683Z"
+    },
+    {
+      "id": "1754992336335-riwfsu",
+      "admin": "admin",
+      "type": "SEND_NOTIFICATION",
+      "target": "niranjan@gmail.com",
+      "details": {
+        "message": "Lets start"
+      },
+      "timestamp": "2025-08-12T09:52:16.335Z"
+    },
+    {
+      "id": "1754992346641-5fo5gg",
+      "admin": "admin",
+      "type": "SEND_NOTIFICATION",
+      "target": "niranjan@gmail.com",
+      "details": {
+        "message": "when are you starting"
+      },
+      "timestamp": "2025-08-12T09:52:26.642Z"
+    },
+    {
+      "id": "1754992367125-2wk8fh",
+      "admin": "admin",
+      "type": "SEND_NOTIFICATION",
+      "target": "niranjan@gmail.com",
+      "details": {
+        "message": "i hope you need extra attention!!!!"
+      },
+      "timestamp": "2025-08-12T09:52:47.125Z"
+    },
+    {
+      "id": "1754992374657-39xyfh",
+      "admin": "admin",
+      "type": "SEND_NOTIFICATION",
+      "target": "niranjan@gmail.com",
+      "details": {
+        "message": "what is the problem"
+      },
+      "timestamp": "2025-08-12T09:52:54.657Z"
+    },
+    {
+      "id": "1754992442561-dipnpw",
+      "admin": "admin",
+      "type": "SEND_NOTIFICATION",
+      "target": "niranjan@gmail.com",
+      "details": {
+        "message": "The trees stood like silent giants, their bark covered in a thick coat of grape jelly, a mysterious substance that no one could explain. Birds, with feathers resembling potato chips, flew lazily through the air, squawking in what could only be described as a mixture of jazz and country music. The sky above was a brilliant shade of tangerine, fading into neon pink at the horizon. It wasn’t sunset, nor was it dawn—it was something entirely in between, like time itself had decided to take a break for a cup of tea.\n\nA bicycle with square wheels rolled down the winding path, creaking at every turn. Its rider, a man dressed in a polka-dotted suit made entirely of spaghetti noodles, hummed a tune that sounded oddly like a 1970s disco hit. He waved to a group of squirrels who were conducting an intense meeting at the foot of a nearby oak tree. The squirrels, deep in discussion about the best way to collect acorns, paid him no mind. They were far too busy debating the merits of various storage techniques—some swore by the “hole-in-the-ground method,” while others were more inclined toward the “tree cavity system.”\n\nAt the edge of the forest, a river ran backward, defying all known laws of physics. The water sparkled like a million tiny diamonds, only they were not diamonds—they were jellybeans. Each splash of the river created a cascade of bright red and blue jellybeans, which the ducks in the water quickly scooped up, discussing the day's weather in hushed quacks. The weather, for what it was worth, was pleasant—except for the occasional rain shower of chocolate syrup, which the trees absorbed eagerly, as if they had a craving for dessert.\n\nOn the far side of the river, a field of tulips grew, but instead of petals, the flowers bore the faces of old movie stars. Some were smiling, others pensive, but all of them were dressed in tiny tuxedos, making for an odd and slightly surreal garden. A lone gardener, whose hat was shaped like a giant taco, tended to the flowers with an oversized pair of scissors. He was pruning the tulips, though no one could quite figure out how to prune a flower with a face. His technique involved trimming the edges of the flower's smile, a delicate operation that required intense concentration.\n\nNot far from the tulips, a small wooden shack stood, its windows made of giant gummy bears. Inside, an elderly woman with a monocle and a large mustache knitted what could only be described as a scarf made of clouds. Every so often, she would stop to blow a small puff of air into the room, and the cloud would instantly take on the shape of a duck, which would then float around the room until it dissolved into nothingness. She never seemed surprised by this; in fact, she seemed rather pleased, humming a tune that sounded suspiciously like the theme song from an old black-and-white detective show.\n\nMeanwhile, across the street, a marching band made up entirely of penguins marched with great precision. They wore bright purple uniforms adorned with sequins and carried instruments that were far too large for their tiny bodies. The trombonists struggled to hold their instruments properly, but they still managed to produce a rather impressive sound. The trumpeters, meanwhile, squawked in delight, each note echoing through the streets like a foghorn in the distance.\n\nThe band’s leader, a tall penguin wearing a top hat and monocle, strutted proudly at the front, his baton raised high in the air. His feathers glistened in the peculiar sunlight, and he waved his baton dramatically, causing the penguins to break into an impromptu dance. The crowd that had gathered—made up of confused tourists, local cats, and a few very enthusiastic llamas—clapped and cheered, though they seemed to be clapping to a completely different beat than the band.\n\nIn the distance, a giant clock tower stood tall, though its hands spun wildly in every direction, as if the clock had grown bored with the concept of time. Every few minutes, it would strike, not the usual chimes, but a loud and unmistakable \"bloop,\" followed by a ripple in the air as if reality itself was taking a deep breath. People passing by would stop and look up, momentarily confused, but they quickly moved on—after all, this was just another day in the town of Oddsville, where time didn’t make sense, and neither did anything else.\n\nA group of children played hopscotch on the sidewalk, but instead of chalk, they used slices of watermelon. The numbers they hopped on changed each time, as if the sidewalk itself had a mind of its own. One child, a small girl with pigtails made of cotton candy, suddenly stopped mid-hop and pointed toward the sky. “Look!” she exclaimed, “There’s a flying pancake!”\n\nIndeed, high above them, a pancake floated gracefully through the air, its syrup glistening in the light. It wasn’t the only strange thing in the sky, either. A hot air balloon shaped like a giant pizza was drifting lazily by, and a group of cloud-watching enthusiasts were lying on the grass, pointing out clouds that looked suspiciously like famous historical figures—Abraham Lincoln, Cleopatra, and even Napoleon were all visible, lounging among the puffy masses.\n\nDown the street, a café stood with an orange sign that read “Soup of the Day: Invisible.” The patrons inside were happily sipping on steaming cups of nothing, all content in the belief that their imaginations were more than enough to satisfy their appetites. The waiters, dressed as giant tomatoes, scurried between the tables, delivering orders with great efficiency. At one table, a couple was discussing the merits of underwater basket weaving, while at another, a group of philosophers debated whether or not shoes had feelings.\n\nAbove all the chaos and confusion, the moon hung in the sky, not as a pale, glowing orb, but as a giant slice of pizza. It didn’t move, and no one seemed to find this odd. The pizza moon glowed a soft yellow, casting a cheesy light over the entire town. The stars, too, were unusual—each one was a different flavor of ice cream, twinkling in the night sky like tiny scoops in a cosmic sundae.\n\nAnd as the day wore on, the townspeople of Oddsville carried on with their strange, wonderful lives, where nothing made sense but everything felt perfectly right. The bicycles with square wheels rolled down the streets, the squirrels continued their storage debates, and the marching band of penguins played on. In Oddsville, reality was a fluid concept, and no one ever bothered to question it."
+      },
+      "timestamp": "2025-08-12T09:54:02.561Z"
+    },
+    {
+      "id": "1754992647969-93n3d6",
+      "admin": "admin",
+      "type": "DELETE_NOTIFICATION",
+      "target": "niranjan@gmail.com",
+      "details": {
+        "message": "The trees stood like silent giants, their bark covered in a thick coat of grape jelly, a mysterious substance that no one could explain. Birds, with feathers resembling potato chips, flew lazily through the air, squawking in what could only be described as a mixture of jazz and country music. The sky above was a brilliant shade of tangerine, fading into neon pink at the horizon. It wasn’t sunset, nor was it dawn—it was something entirely in between, like time itself had decided to take a break for a cup of tea.\n\nA bicycle with square wheels rolled down the winding path, creaking at every turn. Its rider, a man dressed in a polka-dotted suit made entirely of spaghetti noodles, hummed a tune that sounded oddly like a 1970s disco hit. He waved to a group of squirrels who were conducting an intense meeting at the foot of a nearby oak tree. The squirrels, deep in discussion about the best way to collect acorns, paid him no mind. They were far too busy debating the merits of various storage techniques—some swore by the “hole-in-the-ground method,” while others were more inclined toward the “tree cavity system.”\n\nAt the edge of the forest, a river ran backward, defying all known laws of physics. The water sparkled like a million tiny diamonds, only they were not diamonds—they were jellybeans. Each splash of the river created a cascade of bright red and blue jellybeans, which the ducks in the water quickly scooped up, discussing the day's weather in hushed quacks. The weather, for what it was worth, was pleasant—except for the occasional rain shower of chocolate syrup, which the trees absorbed eagerly, as if they had a craving for dessert.\n\nOn the far side of the river, a field of tulips grew, but instead of petals, the flowers bore the faces of old movie stars. Some were smiling, others pensive, but all of them were dressed in tiny tuxedos, making for an odd and slightly surreal garden. A lone gardener, whose hat was shaped like a giant taco, tended to the flowers with an oversized pair of scissors. He was pruning the tulips, though no one could quite figure out how to prune a flower with a face. His technique involved trimming the edges of the flower's smile, a delicate operation that required intense concentration.\n\nNot far from the tulips, a small wooden shack stood, its windows made of giant gummy bears. Inside, an elderly woman with a monocle and a large mustache knitted what could only be described as a scarf made of clouds. Every so often, she would stop to blow a small puff of air into the room, and the cloud would instantly take on the shape of a duck, which would then float around the room until it dissolved into nothingness. She never seemed surprised by this; in fact, she seemed rather pleased, humming a tune that sounded suspiciously like the theme song from an old black-and-white detective show.\n\nMeanwhile, across the street, a marching band made up entirely of penguins marched with great precision. They wore bright purple uniforms adorned with sequins and carried instruments that were far too large for their tiny bodies. The trombonists struggled to hold their instruments properly, but they still managed to produce a rather impressive sound. The trumpeters, meanwhile, squawked in delight, each note echoing through the streets like a foghorn in the distance.\n\nThe band’s leader, a tall penguin wearing a top hat and monocle, strutted proudly at the front, his baton raised high in the air. His feathers glistened in the peculiar sunlight, and he waved his baton dramatically, causing the penguins to break into an impromptu dance. The crowd that had gathered—made up of confused tourists, local cats, and a few very enthusiastic llamas—clapped and cheered, though they seemed to be clapping to a completely different beat than the band.\n\nIn the distance, a giant clock tower stood tall, though its hands spun wildly in every direction, as if the clock had grown bored with the concept of time. Every few minutes, it would strike, not the usual chimes, but a loud and unmistakable \"bloop,\" followed by a ripple in the air as if reality itself was taking a deep breath. People passing by would stop and look up, momentarily confused, but they quickly moved on—after all, this was just another day in the town of Oddsville, where time didn’t make sense, and neither did anything else.\n\nA group of children played hopscotch on the sidewalk, but instead of chalk, they used slices of watermelon. The numbers they hopped on changed each time, as if the sidewalk itself had a mind of its own. One child, a small girl with pigtails made of cotton candy, suddenly stopped mid-hop and pointed toward the sky. “Look!” she exclaimed, “There’s a flying pancake!”\n\nIndeed, high above them, a pancake floated gracefully through the air, its syrup glistening in the light. It wasn’t the only strange thing in the sky, either. A hot air balloon shaped like a giant pizza was drifting lazily by, and a group of cloud-watching enthusiasts were lying on the grass, pointing out clouds that looked suspiciously like famous historical figures—Abraham Lincoln, Cleopatra, and even Napoleon were all visible, lounging among the puffy masses.\n\nDown the street, a café stood with an orange sign that read “Soup of the Day: Invisible.” The patrons inside were happily sipping on steaming cups of nothing, all content in the belief that their imaginations were more than enough to satisfy their appetites. The waiters, dressed as giant tomatoes, scurried between the tables, delivering orders with great efficiency. At one table, a couple was discussing the merits of underwater basket weaving, while at another, a group of philosophers debated whether or not shoes had feelings.\n\nAbove all the chaos and confusion, the moon hung in the sky, not as a pale, glowing orb, but as a giant slice of pizza. It didn’t move, and no one seemed to find this odd. The pizza moon glowed a soft yellow, casting a cheesy light over the entire town. The stars, too, were unusual—each one was a different flavor of ice cream, twinkling in the night sky like tiny scoops in a cosmic sundae.\n\nAnd as the day wore on, the townspeople of Oddsville carried on with their strange, wonderful lives, where nothing made sense but everything felt perfectly right. The bicycles with square wheels rolled down the streets, the squirrels continued their storage debates, and the marching band of penguins played on. In Oddsville, reality was a fluid concept, and no one ever bothered to question it."
+      },
+      "timestamp": "2025-08-12T09:57:27.969Z"
+    },
+    {
+      "id": "1754993476169-vjql7l",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-12T10:11:16.169Z"
+    },
+    {
+      "id": "1754993766635-7pluln",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "niranjan@gmail.com",
+      "details": {
+        "tradeId": 1754993522445,
+        "oldTrade": {
+          "id": 1754993522445,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 100,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-12T10:12:02.445Z",
+          "startTime": 1754993522445,
+          "status": "completed",
+          "profit": "100.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1754993522445,
+          "pair": "BTC/USDT",
+          "direction": "sell",
+          "amount": 100,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-12T10:12:02.445Z",
+          "startTime": 1754993522445,
+          "status": "completed",
+          "profit": "-100.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-08-12T10:16:06.635Z"
+    },
+    {
+      "id": "1755490022588-b7dah3",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-18T04:07:02.588Z"
+    },
+    {
+      "id": "1755490372080-ha4jcc",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-08-18T04:12:52.080Z"
+    },
+    {
+      "id": "1756553285996-7x31pa",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-30T11:28:05.996Z"
+    },
+    {
+      "id": "1756553315490-7csqzt",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "keshav@gmail.com",
+      "details": {
+        "tradeId": 1756373777120,
+        "oldTrade": {
+          "id": 1756373777120,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 200,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-28T09:36:17.120Z",
+          "startTime": 1756373777120,
+          "status": "completed",
+          "profit": "200.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1756373777120,
+          "pair": "BTC/USDT",
+          "direction": "sell",
+          "amount": 200,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-28T09:36:17.120Z",
+          "startTime": 1756373777120,
+          "status": "completed",
+          "profit": "-200.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-08-30T11:28:35.490Z"
+    },
+    {
+      "id": "1756974163061-tqwn8c",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-09-04T08:22:43.061Z"
+    },
+    {
+      "id": "1756974186875-n5pc7u",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "keshav@gmail.com",
+      "details": {
+        "tradeId": 1756974060283,
+        "oldTrade": {
+          "id": 1756974060283,
+          "pair": "ETH/USDT",
+          "direction": "Buy DOWN",
+          "amount": 900,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-09-04T08:21:00.283Z",
+          "startTime": 1756974060283,
+          "status": "completed",
+          "profit": "900.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1756974060283,
+          "pair": "LTC/USDT",
+          "direction": "buy",
+          "amount": 900,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-09-04T08:21:00.283Z",
+          "startTime": 1756974060283,
+          "status": "completed",
+          "profit": "-900.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-09-04T08:23:06.875Z"
+    },
+    {
+      "id": "1756974331669-7gnoyg",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-09-04T08:25:31.669Z"
+    },
+    {
+      "id": "1757337922118-ry4nuj",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-09-08T13:25:22.118Z"
+    },
+    {
+      "id": "1757337932555-gmh5yq",
+      "admin": "admin",
+      "type": "UPDATE_BALANCE",
+      "target": "smaina@gmail.com",
+      "details": {
+        "oldBalance": 0,
+        "newBalance": 5000
+      },
+      "timestamp": "2025-09-08T13:25:32.555Z"
+    },
+    {
+      "id": "1757338118682-98xfu8",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "smaina@gmail.com",
+      "details": {
+        "tradeId": 1757338042672,
+        "oldTrade": {
+          "id": 1757338042672,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 5000,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-09-08T13:27:22.672Z",
+          "startTime": 1757338042672,
+          "status": "completed",
+          "profit": "5000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1757338042672,
+          "pair": "BTC/USDT",
+          "direction": "sell",
+          "amount": 5000,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-09-08T13:27:22.672Z",
+          "startTime": 1757338042672,
+          "status": "completed",
+          "profit": "5000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-09-08T13:28:38.682Z"
+    },
+    {
+      "id": "1757338155278-y9ru70",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-09-08T13:29:15.278Z"
+    },
+    {
+      "id": "1758793492445-ipgddr",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-09-25T09:44:52.446Z"
+    },
+    {
+      "id": "1758793511992-5r7cdx",
+      "admin": "admin",
+      "type": "UPDATE_BALANCE",
+      "target": "varun123@gmail.com",
+      "details": {
+        "oldBalance": 0,
+        "newBalance": 2000
+      },
+      "timestamp": "2025-09-25T09:45:11.992Z"
+    },
+    {
+      "id": "1765294823525-dvow5n",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-12-09T15:40:23.525Z"
+    },
+    {
+      "id": "1765294856969-biarpy",
+      "admin": "admin",
+      "type": "UPDATE_BALANCE",
+      "target": "an@gmail.com",
+      "details": {
+        "oldBalance": 0,
+        "newBalance": 2000
+      },
+      "timestamp": "2025-12-09T15:40:56.969Z"
+    },
+    {
+      "id": "1765295054335-619mt0",
+      "admin": "admin",
+      "type": "FREEZE_ACCOUNT",
+      "target": "an@gmail.com",
+      "details": {
+        "freeze": true
+      },
+      "timestamp": "2025-12-09T15:44:14.336Z"
+    },
+    {
+      "id": "1765295070594-n8dvca",
+      "admin": "admin",
+      "type": "UNFREEZE_ACCOUNT",
+      "target": "an@gmail.com",
+      "details": {
+        "freeze": false
+      },
+      "timestamp": "2025-12-09T15:44:30.594Z"
+    },
+    {
+      "id": "1765295088757-5048f1",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "an@gmail.com",
+      "details": {
+        "tradeId": 1765294943770,
+        "oldTrade": {
+          "id": 1765294943770,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 2000,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-12-09T15:42:23.770Z",
+          "startTime": 1765294943770,
+          "status": "completed",
+          "profit": "2000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1765294943770,
+          "pair": "BTC/USDT",
+          "direction": "sell",
+          "amount": 2000,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-12-09T15:42:23.770Z",
+          "startTime": 1765294943770,
+          "status": "completed",
+          "profit": "-2000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-12-09T15:44:48.757Z"
+    },
+    {
+      "id": "1765295152331-e7tgbe",
+      "admin": "admin",
+      "type": "SEND_NOTIFICATION",
+      "target": "an@gmail.com",
+      "details": {
+        "message": "Hello Good morning"
+      },
+      "timestamp": "2025-12-09T15:45:52.331Z"
+    },
+    {
+      "id": "1765792630869-dvy51q",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-12-15T09:57:10.869Z"
+    },
+    {
+      "id": "1765801364617-d97uxp",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-12-15T12:22:44.617Z"
+    },
+    {
+      "id": "1765801368786-jzo8i6",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-12-15T12:22:48.786Z"
+    },
+    {
+      "id": "1765802425342-dj9pqd",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-12-15T12:40:25.342Z"
+    },
+    {
+      "id": "1765802457467-1t5vye",
+      "admin": "admin",
+      "type": "UPDATE_BALANCE",
+      "target": "rajeev@gmail.com",
+      "details": {
+        "oldBalance": 0,
+        "newBalance": 2000
+      },
+      "timestamp": "2025-12-15T12:40:57.467Z"
+    },
+    {
+      "id": "1765803004036-la17qa",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-12-15T12:50:04.036Z"
+    },
+    {
+      "id": "1765803012800-trnn4l",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-12-15T12:50:12.800Z"
+    },
+    {
+      "id": "1765803124594-t741qs",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-12-15T12:52:04.594Z"
+    },
+    {
+      "id": "1771237045171-dc0mo1",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2026-02-16T10:17:25.171Z"
+    },
+    {
+      "id": "1771237116838-x1gqjp",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2026-02-16T10:18:36.838Z"
+    },
+    {
+      "id": "1771237210439-iu2ydw",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2026-02-16T10:20:10.439Z"
+    },
+    {
+      "id": "1771237308797-5gsqa1",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2026-02-16T10:21:48.797Z"
     }
   ],
   "auditLog": [
@@ -4865,6 +6109,738 @@
         }
       },
       "timestamp": "2025-08-10T12:33:14.577Z"
+    },
+    {
+      "id": "1754982946669-w4v2je",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-12T07:15:46.669Z"
+    },
+    {
+      "id": "1754983014607-n4kw7c",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-12T07:16:54.607Z"
+    },
+    {
+      "id": "1754983112360-x7h72v",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-08-12T07:18:32.360Z"
+    },
+    {
+      "id": "1754983147581-bzzcbo",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-12T07:19:07.581Z"
+    },
+    {
+      "id": "1754984043232-8th70t",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-12T07:34:03.232Z"
+    },
+    {
+      "id": "1754984104424-ttenpx",
+      "admin": "admin",
+      "type": "SEND_NOTIFICATION",
+      "target": "rohini@gmail.com",
+      "details": {
+        "message": "Hey Rohini welcome to the platform"
+      },
+      "timestamp": "2025-08-12T07:35:04.424Z"
+    },
+    {
+      "id": "1754984144267-bvlsxb",
+      "admin": "admin",
+      "type": "SEND_NOTIFICATION",
+      "target": "keshav@gmail.com",
+      "details": {
+        "message": "hi"
+      },
+      "timestamp": "2025-08-12T07:35:44.267Z"
+    },
+    {
+      "id": "1754984229020-8v9mc2",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-12T07:37:09.020Z"
+    },
+    {
+      "id": "1754984234362-x52htu",
+      "admin": "admin",
+      "type": "DELETE_NOTIFICATION",
+      "target": "keshav@gmail.com",
+      "details": {
+        "message": "hi"
+      },
+      "timestamp": "2025-08-12T07:37:14.362Z"
+    },
+    {
+      "id": "1754984236611-mdshb1",
+      "admin": "admin",
+      "type": "DELETE_NOTIFICATION",
+      "target": "rohini@gmail.com",
+      "details": {
+        "message": "Hey Rohini welcome to the platform"
+      },
+      "timestamp": "2025-08-12T07:37:16.611Z"
+    },
+    {
+      "id": "1754984356787-trlcb3",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-08-12T07:39:16.787Z"
+    },
+    {
+      "id": "1754986759836-tuly30",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-12T08:19:19.836Z"
+    },
+    {
+      "id": "1754987658886-jk2ho8",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-12T08:34:18.886Z"
+    },
+    {
+      "id": "1754987706751-9xb7wy",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "keshav@gmail.com",
+      "details": {
+        "tradeId": 1754987646693,
+        "oldTrade": {
+          "id": 1754987646693,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 25000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-12T08:34:06.693Z",
+          "startTime": 1754987646693,
+          "status": "completed",
+          "profit": "25000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1754987646693,
+          "pair": "ETH/USDT",
+          "direction": "sell",
+          "amount": 25000,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-12T08:34:06.693Z",
+          "startTime": 1754987646693,
+          "status": "completed",
+          "profit": "-25000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-08-12T08:35:06.751Z"
+    },
+    {
+      "id": "1754987726649-d1x17e",
+      "admin": "admin",
+      "type": "FREEZE_ACCOUNT",
+      "target": "keshav@gmail.com",
+      "details": {
+        "freeze": true
+      },
+      "timestamp": "2025-08-12T08:35:26.649Z"
+    },
+    {
+      "id": "1754987758339-1dqrq6",
+      "admin": "admin",
+      "type": "UNFREEZE_ACCOUNT",
+      "target": "keshav@gmail.com",
+      "details": {
+        "freeze": false
+      },
+      "timestamp": "2025-08-12T08:35:58.339Z"
+    },
+    {
+      "id": "1754992318683-udf8p5",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-12T09:51:58.683Z"
+    },
+    {
+      "id": "1754992336335-riwfsu",
+      "admin": "admin",
+      "type": "SEND_NOTIFICATION",
+      "target": "niranjan@gmail.com",
+      "details": {
+        "message": "Lets start"
+      },
+      "timestamp": "2025-08-12T09:52:16.335Z"
+    },
+    {
+      "id": "1754992346641-5fo5gg",
+      "admin": "admin",
+      "type": "SEND_NOTIFICATION",
+      "target": "niranjan@gmail.com",
+      "details": {
+        "message": "when are you starting"
+      },
+      "timestamp": "2025-08-12T09:52:26.642Z"
+    },
+    {
+      "id": "1754992367125-2wk8fh",
+      "admin": "admin",
+      "type": "SEND_NOTIFICATION",
+      "target": "niranjan@gmail.com",
+      "details": {
+        "message": "i hope you need extra attention!!!!"
+      },
+      "timestamp": "2025-08-12T09:52:47.125Z"
+    },
+    {
+      "id": "1754992374657-39xyfh",
+      "admin": "admin",
+      "type": "SEND_NOTIFICATION",
+      "target": "niranjan@gmail.com",
+      "details": {
+        "message": "what is the problem"
+      },
+      "timestamp": "2025-08-12T09:52:54.657Z"
+    },
+    {
+      "id": "1754992442561-dipnpw",
+      "admin": "admin",
+      "type": "SEND_NOTIFICATION",
+      "target": "niranjan@gmail.com",
+      "details": {
+        "message": "The trees stood like silent giants, their bark covered in a thick coat of grape jelly, a mysterious substance that no one could explain. Birds, with feathers resembling potato chips, flew lazily through the air, squawking in what could only be described as a mixture of jazz and country music. The sky above was a brilliant shade of tangerine, fading into neon pink at the horizon. It wasn’t sunset, nor was it dawn—it was something entirely in between, like time itself had decided to take a break for a cup of tea.\n\nA bicycle with square wheels rolled down the winding path, creaking at every turn. Its rider, a man dressed in a polka-dotted suit made entirely of spaghetti noodles, hummed a tune that sounded oddly like a 1970s disco hit. He waved to a group of squirrels who were conducting an intense meeting at the foot of a nearby oak tree. The squirrels, deep in discussion about the best way to collect acorns, paid him no mind. They were far too busy debating the merits of various storage techniques—some swore by the “hole-in-the-ground method,” while others were more inclined toward the “tree cavity system.”\n\nAt the edge of the forest, a river ran backward, defying all known laws of physics. The water sparkled like a million tiny diamonds, only they were not diamonds—they were jellybeans. Each splash of the river created a cascade of bright red and blue jellybeans, which the ducks in the water quickly scooped up, discussing the day's weather in hushed quacks. The weather, for what it was worth, was pleasant—except for the occasional rain shower of chocolate syrup, which the trees absorbed eagerly, as if they had a craving for dessert.\n\nOn the far side of the river, a field of tulips grew, but instead of petals, the flowers bore the faces of old movie stars. Some were smiling, others pensive, but all of them were dressed in tiny tuxedos, making for an odd and slightly surreal garden. A lone gardener, whose hat was shaped like a giant taco, tended to the flowers with an oversized pair of scissors. He was pruning the tulips, though no one could quite figure out how to prune a flower with a face. His technique involved trimming the edges of the flower's smile, a delicate operation that required intense concentration.\n\nNot far from the tulips, a small wooden shack stood, its windows made of giant gummy bears. Inside, an elderly woman with a monocle and a large mustache knitted what could only be described as a scarf made of clouds. Every so often, she would stop to blow a small puff of air into the room, and the cloud would instantly take on the shape of a duck, which would then float around the room until it dissolved into nothingness. She never seemed surprised by this; in fact, she seemed rather pleased, humming a tune that sounded suspiciously like the theme song from an old black-and-white detective show.\n\nMeanwhile, across the street, a marching band made up entirely of penguins marched with great precision. They wore bright purple uniforms adorned with sequins and carried instruments that were far too large for their tiny bodies. The trombonists struggled to hold their instruments properly, but they still managed to produce a rather impressive sound. The trumpeters, meanwhile, squawked in delight, each note echoing through the streets like a foghorn in the distance.\n\nThe band’s leader, a tall penguin wearing a top hat and monocle, strutted proudly at the front, his baton raised high in the air. His feathers glistened in the peculiar sunlight, and he waved his baton dramatically, causing the penguins to break into an impromptu dance. The crowd that had gathered—made up of confused tourists, local cats, and a few very enthusiastic llamas—clapped and cheered, though they seemed to be clapping to a completely different beat than the band.\n\nIn the distance, a giant clock tower stood tall, though its hands spun wildly in every direction, as if the clock had grown bored with the concept of time. Every few minutes, it would strike, not the usual chimes, but a loud and unmistakable \"bloop,\" followed by a ripple in the air as if reality itself was taking a deep breath. People passing by would stop and look up, momentarily confused, but they quickly moved on—after all, this was just another day in the town of Oddsville, where time didn’t make sense, and neither did anything else.\n\nA group of children played hopscotch on the sidewalk, but instead of chalk, they used slices of watermelon. The numbers they hopped on changed each time, as if the sidewalk itself had a mind of its own. One child, a small girl with pigtails made of cotton candy, suddenly stopped mid-hop and pointed toward the sky. “Look!” she exclaimed, “There’s a flying pancake!”\n\nIndeed, high above them, a pancake floated gracefully through the air, its syrup glistening in the light. It wasn’t the only strange thing in the sky, either. A hot air balloon shaped like a giant pizza was drifting lazily by, and a group of cloud-watching enthusiasts were lying on the grass, pointing out clouds that looked suspiciously like famous historical figures—Abraham Lincoln, Cleopatra, and even Napoleon were all visible, lounging among the puffy masses.\n\nDown the street, a café stood with an orange sign that read “Soup of the Day: Invisible.” The patrons inside were happily sipping on steaming cups of nothing, all content in the belief that their imaginations were more than enough to satisfy their appetites. The waiters, dressed as giant tomatoes, scurried between the tables, delivering orders with great efficiency. At one table, a couple was discussing the merits of underwater basket weaving, while at another, a group of philosophers debated whether or not shoes had feelings.\n\nAbove all the chaos and confusion, the moon hung in the sky, not as a pale, glowing orb, but as a giant slice of pizza. It didn’t move, and no one seemed to find this odd. The pizza moon glowed a soft yellow, casting a cheesy light over the entire town. The stars, too, were unusual—each one was a different flavor of ice cream, twinkling in the night sky like tiny scoops in a cosmic sundae.\n\nAnd as the day wore on, the townspeople of Oddsville carried on with their strange, wonderful lives, where nothing made sense but everything felt perfectly right. The bicycles with square wheels rolled down the streets, the squirrels continued their storage debates, and the marching band of penguins played on. In Oddsville, reality was a fluid concept, and no one ever bothered to question it."
+      },
+      "timestamp": "2025-08-12T09:54:02.561Z"
+    },
+    {
+      "id": "1754992647969-93n3d6",
+      "admin": "admin",
+      "type": "DELETE_NOTIFICATION",
+      "target": "niranjan@gmail.com",
+      "details": {
+        "message": "The trees stood like silent giants, their bark covered in a thick coat of grape jelly, a mysterious substance that no one could explain. Birds, with feathers resembling potato chips, flew lazily through the air, squawking in what could only be described as a mixture of jazz and country music. The sky above was a brilliant shade of tangerine, fading into neon pink at the horizon. It wasn’t sunset, nor was it dawn—it was something entirely in between, like time itself had decided to take a break for a cup of tea.\n\nA bicycle with square wheels rolled down the winding path, creaking at every turn. Its rider, a man dressed in a polka-dotted suit made entirely of spaghetti noodles, hummed a tune that sounded oddly like a 1970s disco hit. He waved to a group of squirrels who were conducting an intense meeting at the foot of a nearby oak tree. The squirrels, deep in discussion about the best way to collect acorns, paid him no mind. They were far too busy debating the merits of various storage techniques—some swore by the “hole-in-the-ground method,” while others were more inclined toward the “tree cavity system.”\n\nAt the edge of the forest, a river ran backward, defying all known laws of physics. The water sparkled like a million tiny diamonds, only they were not diamonds—they were jellybeans. Each splash of the river created a cascade of bright red and blue jellybeans, which the ducks in the water quickly scooped up, discussing the day's weather in hushed quacks. The weather, for what it was worth, was pleasant—except for the occasional rain shower of chocolate syrup, which the trees absorbed eagerly, as if they had a craving for dessert.\n\nOn the far side of the river, a field of tulips grew, but instead of petals, the flowers bore the faces of old movie stars. Some were smiling, others pensive, but all of them were dressed in tiny tuxedos, making for an odd and slightly surreal garden. A lone gardener, whose hat was shaped like a giant taco, tended to the flowers with an oversized pair of scissors. He was pruning the tulips, though no one could quite figure out how to prune a flower with a face. His technique involved trimming the edges of the flower's smile, a delicate operation that required intense concentration.\n\nNot far from the tulips, a small wooden shack stood, its windows made of giant gummy bears. Inside, an elderly woman with a monocle and a large mustache knitted what could only be described as a scarf made of clouds. Every so often, she would stop to blow a small puff of air into the room, and the cloud would instantly take on the shape of a duck, which would then float around the room until it dissolved into nothingness. She never seemed surprised by this; in fact, she seemed rather pleased, humming a tune that sounded suspiciously like the theme song from an old black-and-white detective show.\n\nMeanwhile, across the street, a marching band made up entirely of penguins marched with great precision. They wore bright purple uniforms adorned with sequins and carried instruments that were far too large for their tiny bodies. The trombonists struggled to hold their instruments properly, but they still managed to produce a rather impressive sound. The trumpeters, meanwhile, squawked in delight, each note echoing through the streets like a foghorn in the distance.\n\nThe band’s leader, a tall penguin wearing a top hat and monocle, strutted proudly at the front, his baton raised high in the air. His feathers glistened in the peculiar sunlight, and he waved his baton dramatically, causing the penguins to break into an impromptu dance. The crowd that had gathered—made up of confused tourists, local cats, and a few very enthusiastic llamas—clapped and cheered, though they seemed to be clapping to a completely different beat than the band.\n\nIn the distance, a giant clock tower stood tall, though its hands spun wildly in every direction, as if the clock had grown bored with the concept of time. Every few minutes, it would strike, not the usual chimes, but a loud and unmistakable \"bloop,\" followed by a ripple in the air as if reality itself was taking a deep breath. People passing by would stop and look up, momentarily confused, but they quickly moved on—after all, this was just another day in the town of Oddsville, where time didn’t make sense, and neither did anything else.\n\nA group of children played hopscotch on the sidewalk, but instead of chalk, they used slices of watermelon. The numbers they hopped on changed each time, as if the sidewalk itself had a mind of its own. One child, a small girl with pigtails made of cotton candy, suddenly stopped mid-hop and pointed toward the sky. “Look!” she exclaimed, “There’s a flying pancake!”\n\nIndeed, high above them, a pancake floated gracefully through the air, its syrup glistening in the light. It wasn’t the only strange thing in the sky, either. A hot air balloon shaped like a giant pizza was drifting lazily by, and a group of cloud-watching enthusiasts were lying on the grass, pointing out clouds that looked suspiciously like famous historical figures—Abraham Lincoln, Cleopatra, and even Napoleon were all visible, lounging among the puffy masses.\n\nDown the street, a café stood with an orange sign that read “Soup of the Day: Invisible.” The patrons inside were happily sipping on steaming cups of nothing, all content in the belief that their imaginations were more than enough to satisfy their appetites. The waiters, dressed as giant tomatoes, scurried between the tables, delivering orders with great efficiency. At one table, a couple was discussing the merits of underwater basket weaving, while at another, a group of philosophers debated whether or not shoes had feelings.\n\nAbove all the chaos and confusion, the moon hung in the sky, not as a pale, glowing orb, but as a giant slice of pizza. It didn’t move, and no one seemed to find this odd. The pizza moon glowed a soft yellow, casting a cheesy light over the entire town. The stars, too, were unusual—each one was a different flavor of ice cream, twinkling in the night sky like tiny scoops in a cosmic sundae.\n\nAnd as the day wore on, the townspeople of Oddsville carried on with their strange, wonderful lives, where nothing made sense but everything felt perfectly right. The bicycles with square wheels rolled down the streets, the squirrels continued their storage debates, and the marching band of penguins played on. In Oddsville, reality was a fluid concept, and no one ever bothered to question it."
+      },
+      "timestamp": "2025-08-12T09:57:27.969Z"
+    },
+    {
+      "id": "1754993476169-vjql7l",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-12T10:11:16.169Z"
+    },
+    {
+      "id": "1754993766635-7pluln",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "niranjan@gmail.com",
+      "details": {
+        "tradeId": 1754993522445,
+        "oldTrade": {
+          "id": 1754993522445,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 100,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-12T10:12:02.445Z",
+          "startTime": 1754993522445,
+          "status": "completed",
+          "profit": "100.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1754993522445,
+          "pair": "BTC/USDT",
+          "direction": "sell",
+          "amount": 100,
+          "profitPercent": 100,
+          "timeframe": 10,
+          "timestamp": "2025-08-12T10:12:02.445Z",
+          "startTime": 1754993522445,
+          "status": "completed",
+          "profit": "-100.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-08-12T10:16:06.635Z"
+    },
+    {
+      "id": "1755490022588-b7dah3",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-18T04:07:02.588Z"
+    },
+    {
+      "id": "1755490372080-ha4jcc",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-08-18T04:12:52.080Z"
+    },
+    {
+      "id": "1756553285996-7x31pa",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-08-30T11:28:05.996Z"
+    },
+    {
+      "id": "1756553315490-7csqzt",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "keshav@gmail.com",
+      "details": {
+        "tradeId": 1756373777120,
+        "oldTrade": {
+          "id": 1756373777120,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 200,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-28T09:36:17.120Z",
+          "startTime": 1756373777120,
+          "status": "completed",
+          "profit": "200.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1756373777120,
+          "pair": "BTC/USDT",
+          "direction": "sell",
+          "amount": 200,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-08-28T09:36:17.120Z",
+          "startTime": 1756373777120,
+          "status": "completed",
+          "profit": "-200.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-08-30T11:28:35.490Z"
+    },
+    {
+      "id": "1756974163061-tqwn8c",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-09-04T08:22:43.061Z"
+    },
+    {
+      "id": "1756974186875-n5pc7u",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "keshav@gmail.com",
+      "details": {
+        "tradeId": 1756974060283,
+        "oldTrade": {
+          "id": 1756974060283,
+          "pair": "ETH/USDT",
+          "direction": "Buy DOWN",
+          "amount": 900,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-09-04T08:21:00.283Z",
+          "startTime": 1756974060283,
+          "status": "completed",
+          "profit": "900.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1756974060283,
+          "pair": "LTC/USDT",
+          "direction": "buy",
+          "amount": 900,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-09-04T08:21:00.283Z",
+          "startTime": 1756974060283,
+          "status": "completed",
+          "profit": "-900.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-09-04T08:23:06.875Z"
+    },
+    {
+      "id": "1756974331669-7gnoyg",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-09-04T08:25:31.669Z"
+    },
+    {
+      "id": "1757337922118-ry4nuj",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-09-08T13:25:22.118Z"
+    },
+    {
+      "id": "1757337932555-gmh5yq",
+      "admin": "admin",
+      "type": "UPDATE_BALANCE",
+      "target": "smaina@gmail.com",
+      "details": {
+        "oldBalance": 0,
+        "newBalance": 5000
+      },
+      "timestamp": "2025-09-08T13:25:32.555Z"
+    },
+    {
+      "id": "1757338118682-98xfu8",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "smaina@gmail.com",
+      "details": {
+        "tradeId": 1757338042672,
+        "oldTrade": {
+          "id": 1757338042672,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 5000,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-09-08T13:27:22.672Z",
+          "startTime": 1757338042672,
+          "status": "completed",
+          "profit": "5000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1757338042672,
+          "pair": "BTC/USDT",
+          "direction": "sell",
+          "amount": 5000,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-09-08T13:27:22.672Z",
+          "startTime": 1757338042672,
+          "status": "completed",
+          "profit": "5000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-09-08T13:28:38.682Z"
+    },
+    {
+      "id": "1757338155278-y9ru70",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-09-08T13:29:15.278Z"
+    },
+    {
+      "id": "1758793492445-ipgddr",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-09-25T09:44:52.446Z"
+    },
+    {
+      "id": "1758793511992-5r7cdx",
+      "admin": "admin",
+      "type": "UPDATE_BALANCE",
+      "target": "varun123@gmail.com",
+      "details": {
+        "oldBalance": 0,
+        "newBalance": 2000
+      },
+      "timestamp": "2025-09-25T09:45:11.992Z"
+    },
+    {
+      "id": "1765294823525-dvow5n",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-12-09T15:40:23.525Z"
+    },
+    {
+      "id": "1765294856969-biarpy",
+      "admin": "admin",
+      "type": "UPDATE_BALANCE",
+      "target": "an@gmail.com",
+      "details": {
+        "oldBalance": 0,
+        "newBalance": 2000
+      },
+      "timestamp": "2025-12-09T15:40:56.969Z"
+    },
+    {
+      "id": "1765295054335-619mt0",
+      "admin": "admin",
+      "type": "FREEZE_ACCOUNT",
+      "target": "an@gmail.com",
+      "details": {
+        "freeze": true
+      },
+      "timestamp": "2025-12-09T15:44:14.336Z"
+    },
+    {
+      "id": "1765295070594-n8dvca",
+      "admin": "admin",
+      "type": "UNFREEZE_ACCOUNT",
+      "target": "an@gmail.com",
+      "details": {
+        "freeze": false
+      },
+      "timestamp": "2025-12-09T15:44:30.594Z"
+    },
+    {
+      "id": "1765295088757-5048f1",
+      "admin": "admin",
+      "type": "MODIFY_TRADE",
+      "target": "an@gmail.com",
+      "details": {
+        "tradeId": 1765294943770,
+        "oldTrade": {
+          "id": 1765294943770,
+          "pair": "BTC/USDT",
+          "direction": "Buy UP",
+          "amount": 2000,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-12-09T15:42:23.770Z",
+          "startTime": 1765294943770,
+          "status": "completed",
+          "profit": "2000.00",
+          "result": "WIN",
+          "forcedLoss": false
+        },
+        "newTrade": {
+          "id": 1765294943770,
+          "pair": "BTC/USDT",
+          "direction": "sell",
+          "amount": 2000,
+          "profitPercent": 100,
+          "timeframe": 60,
+          "timestamp": "2025-12-09T15:42:23.770Z",
+          "startTime": 1765294943770,
+          "status": "completed",
+          "profit": "-2000.00",
+          "result": "LOSS",
+          "forcedLoss": false
+        }
+      },
+      "timestamp": "2025-12-09T15:44:48.757Z"
+    },
+    {
+      "id": "1765295152331-e7tgbe",
+      "admin": "admin",
+      "type": "SEND_NOTIFICATION",
+      "target": "an@gmail.com",
+      "details": {
+        "message": "Hello Good morning"
+      },
+      "timestamp": "2025-12-09T15:45:52.331Z"
+    },
+    {
+      "id": "1765792630869-dvy51q",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-12-15T09:57:10.869Z"
+    },
+    {
+      "id": "1765801364617-d97uxp",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-12-15T12:22:44.617Z"
+    },
+    {
+      "id": "1765801368786-jzo8i6",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-12-15T12:22:48.786Z"
+    },
+    {
+      "id": "1765802425342-dj9pqd",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-12-15T12:40:25.342Z"
+    },
+    {
+      "id": "1765802457467-1t5vye",
+      "admin": "admin",
+      "type": "UPDATE_BALANCE",
+      "target": "rajeev@gmail.com",
+      "details": {
+        "oldBalance": 0,
+        "newBalance": 2000
+      },
+      "timestamp": "2025-12-15T12:40:57.467Z"
+    },
+    {
+      "id": "1765803004036-la17qa",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-12-15T12:50:04.036Z"
+    },
+    {
+      "id": "1765803012800-trnn4l",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2025-12-15T12:50:12.800Z"
+    },
+    {
+      "id": "1765803124594-t741qs",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2025-12-15T12:52:04.594Z"
+    },
+    {
+      "id": "1771237045171-dc0mo1",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2026-02-16T10:17:25.171Z"
+    },
+    {
+      "id": "1771237116838-x1gqjp",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2026-02-16T10:18:36.838Z"
+    },
+    {
+      "id": "1771237210439-iu2ydw",
+      "admin": "admin",
+      "type": "ADMIN_LOGIN",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged in"
+      },
+      "timestamp": "2026-02-16T10:20:10.439Z"
+    },
+    {
+      "id": "1771237308797-5gsqa1",
+      "admin": "admin",
+      "type": "ADMIN_LOGOUT",
+      "target": "admin",
+      "details": {
+        "msg": "admin logged out"
+      },
+      "timestamp": "2026-02-16T10:21:48.797Z"
     }
   ],
   "withdrawals": [
@@ -4941,6 +6917,37 @@
       "to": "mantavya@gmail.com",
       "message": "Your withdrawal of $30 has been approved",
       "timestamp": "2025-08-08T18:11:25.500Z"
+    },
+    {
+      "id": 1754992336329,
+      "to": "niranjan@gmail.com",
+      "message": "Lets start",
+      "timestamp": "2025-08-12T09:52:16.329Z"
+    },
+    {
+      "id": 1754992346609,
+      "to": "niranjan@gmail.com",
+      "message": "when are you starting",
+      "timestamp": "2025-08-12T09:52:26.609Z"
+    },
+    {
+      "id": 1754992367119,
+      "to": "niranjan@gmail.com",
+      "message": "i hope you need extra attention!!!!",
+      "timestamp": "2025-08-12T09:52:47.119Z"
+    },
+    {
+      "id": 1754992374654,
+      "to": "niranjan@gmail.com",
+      "message": "what is the problem",
+      "timestamp": "2025-08-12T09:52:54.654Z"
+    },
+    {
+      "id": 1765295152321,
+      "to": "an@gmail.com",
+      "message": "Hello Good morning",
+      "timestamp": "2025-12-09T15:45:52.321Z"
     }
-  ]
+  ],
+  "user_id_counter": 13
 }
